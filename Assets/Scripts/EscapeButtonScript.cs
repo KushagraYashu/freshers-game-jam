@@ -8,7 +8,7 @@ public class EscapeButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene("MainMenuScene");
         }
