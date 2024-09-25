@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,8 @@ public class DoorOpening : MonoBehaviour
 
     [SerializeField] private Animator animatorL = null;
     [SerializeField] private Animator animatorR = null;
+
+    public Ltestscript ltestscript;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,21 @@ public class DoorOpening : MonoBehaviour
             CloseDoor();
         }
 
+        //if (doorsClose == true)
+        //{
+        //Debug.Log("doors close");
+        if ( ltestscript.tScene == true)
+        {
+            Debug.Log("scene load");
+            SceneManager.LoadScene("TransitionTest");
+        }
+            
+       //}
+
+        /*if (doorsOpen == false)
+        {
+            SceneManager.LoadScene("TransitionTest");
+        }*/
 
 
         /*if (doorsOpen == true)
@@ -53,6 +71,7 @@ public class DoorOpening : MonoBehaviour
         animatorL.SetTrigger("doorsOpen");
         animatorR.SetTrigger("doorsOpen");
         doorsOpen = true;
+        doorsClose = false;
                                                             
     }
 
@@ -65,7 +84,7 @@ public class DoorOpening : MonoBehaviour
         animatorL.ResetTrigger("doorsOpen");
         animatorR.ResetTrigger("doorsOpen");
         doorsClose = true;
-
+        doorsOpen = false;
 
     }
 
