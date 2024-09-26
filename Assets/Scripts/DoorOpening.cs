@@ -17,7 +17,7 @@ public class DoorOpening : MonoBehaviour
     public Ltestscript ltestscript;
     public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
     public int Current_Scene = 0;
-    SceneManager.LoadScene("Opening_Level");
+    //SceneManager.LoadScene("Opening_Level");
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +82,7 @@ public class DoorOpening : MonoBehaviour
     {
         //if (doorsClose) { return; } 
         Current_Scene = Current_Scene + 1;
+        Debug.Log(Current_Scene);
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");
         animatorR.SetTrigger("doorsClose");
