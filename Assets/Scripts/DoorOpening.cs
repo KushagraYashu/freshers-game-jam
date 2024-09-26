@@ -5,8 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class DoorOpening : MonoBehaviour
 {
+    
     private bool doorsOpen = false;
 
     private bool doorsClose = false;
@@ -15,14 +18,14 @@ public class DoorOpening : MonoBehaviour
     [SerializeField] private Animator animatorR = null;
 
     public Ltestscript ltestscript;
-    public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
-    public int Current_Scene = 0;
+    //public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
+    //public int Current_Scene = 1;
     //SceneManager.LoadScene("Opening_Level");
     // Start is called before the first frame update
     void Start()
     {
-      
-        
+        //SceneManager.LoadScene("MainMenuScene");
+
     }
 
     // Update is called once per frame
@@ -32,11 +35,12 @@ public class DoorOpening : MonoBehaviour
         {
             OpenDoor();
         }
-
+        
         if (Input.GetKeyDown("q"))
         {
-            CloseDoor();
-            Current_Scene = Current_Scene ++ 1;
+            CloseDoor(); 
+            //Current_Scene = Current_Scene ++ ;
+
         }
 
         //if (doorsClose == true)
@@ -44,8 +48,10 @@ public class DoorOpening : MonoBehaviour
         //Debug.Log("doors close");
         if ( ltestscript.tScene == true)
         {
-            Debug.Log("scene load");
-            SceneManager.LoadScene("TransitionTest");
+            //Debug.Log("scene load");
+            //SceneManager.LoadScene(Levels[Current_Scene]);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         }
             
        //}
@@ -83,16 +89,19 @@ public class DoorOpening : MonoBehaviour
     {
         //if (doorsClose) { return; } 
         
-        Debug.Log(Current_Scene);
+        //Debug.Log(Current_Scene); 
+        //Debug.Log(Levels[Current_Scene]);
+
+        //Debug.log(Levels(Current_Scene));
+
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");
         animatorR.SetTrigger("doorsClose"); 
-
-        SceneManager.LoadScene(Levels[Current_Scene]); 
         animatorL.ResetTrigger("doorsOpen");
         animatorR.ResetTrigger("doorsOpen");
         doorsClose = true;
-        doorsOpen = false; 
+        doorsOpen = false;
+        
 
 
     }
