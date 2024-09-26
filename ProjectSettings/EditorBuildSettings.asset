@@ -11,7 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Opening_Level.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/TransitionTest.unity
+    guid: dc2fab4827d6e9e44a036076935deea4
+  - enabled: 1
+    path: Assets/Scenes/Level_001.unity
+    guid: f4e465439fde1ec429a14a83bb58728d
   - enabled: 1
     path: Assets/Scenes/Level_002.unity
-    guid: dc2fab4827d6e9e44a036076935deea4
+    guid: 041f80820e5d8494e834926e657d11dc
+  - enabled: 1
+    path: Assets/Scenes/Level_003.unity
+    guid: e04cf6abfd2c42f46bea63c63c38a277
+  - enabled: 1
+    path: Assets/Scenes/Level_004.unity
+    guid: da9dc86de4487ed44b133026abae147a
   m_configObjects: {}

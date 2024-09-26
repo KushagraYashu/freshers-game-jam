@@ -36,6 +36,7 @@ public class DoorOpening : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             CloseDoor();
+            Current_Scene = Current_Scene ++ 1;
         }
 
         //if (doorsClose == true)
@@ -81,14 +82,13 @@ public class DoorOpening : MonoBehaviour
     private void CloseDoor()
     {
         //if (doorsClose) { return; } 
-        Current_Scene = Current_Scene + 1;
+        
         Debug.Log(Current_Scene);
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");
-        animatorR.SetTrigger("doorsClose");
+        animatorR.SetTrigger("doorsClose"); 
 
-        SceneManager.LoadScene(Levels[Current_Scene]);
-
+        SceneManager.LoadScene(Levels[Current_Scene]); 
         animatorL.ResetTrigger("doorsOpen");
         animatorR.ResetTrigger("doorsOpen");
         doorsClose = true;
