@@ -17,10 +17,11 @@ public class DoorOpening : MonoBehaviour
     public Ltestscript ltestscript;
     public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
     public int Current_Scene = 0;
+    SceneManager.LoadScene("Opening_Level");
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("Opening_Level");
+      
         
     }
 
