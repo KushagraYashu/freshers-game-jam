@@ -15,10 +15,12 @@ public class DoorOpening : MonoBehaviour
     [SerializeField] private Animator animatorR = null;
 
     public Ltestscript ltestscript;
-
+    public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
+    public int Current_Scene = 0;
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.LoadScene("Opening_Level");
         
     }
 
@@ -77,14 +79,19 @@ public class DoorOpening : MonoBehaviour
 
     private void CloseDoor()
     {
-        //if (doorsClose) { return; }
+        //if (doorsClose) { return; } 
+        Current_Scene = Current_Scene + 1;
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");
         animatorR.SetTrigger("doorsClose");
+
+        SceneManager.LoadScene(Levels[Current_Scene]);
+
         animatorL.ResetTrigger("doorsOpen");
         animatorR.ResetTrigger("doorsOpen");
         doorsClose = true;
-        doorsOpen = false;
+        doorsOpen = false; 
+
 
     }
 
