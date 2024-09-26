@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4716625901581612788, guid: d6a7b070c9f8c4944b99633f605b2dfd, type: 3}
       propertyPath: field of view
-      value: 34.419617
+      value: 45.250298
       objectReference: {fileID: 0}
     - target: {fileID: 4716625901581612788, guid: d6a7b070c9f8c4944b99633f605b2dfd, type: 3}
       propertyPath: m_FOVAxisMode
