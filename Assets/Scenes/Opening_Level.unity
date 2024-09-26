@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: f6865589f775f2a4b968b7de1cdfe3cc, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 55126252545521f429612360a381570a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -216,7 +216,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &1461793967
+--- !u!1001 &795498353
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -224,59 +224,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4080206736064994884, guid: f7ac33c640697674280fd8e01139857e, type: 3}
-      propertyPath: m_Name
-      value: MiniVillage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157560544038913100, guid: f7ac33c640697674280fd8e01139857e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.096
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6000
+      value: 6100
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839369892160598968, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+    - target: {fileID: 248516753144460243, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 327141828031622742, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
+      propertyPath: m_Name
+      value: Hotel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f7ac33c640697674280fd8e01139857e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 02e1d3ed58aa78642b615b2d2c15b23e, type: 3}
 --- !u!1001 &1515136469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,4 +720,4 @@ SceneRoots:
   - {fileID: 4134039772374340056}
   - {fileID: 1515136469}
   - {fileID: 7119387116800191841}
-  - {fileID: 1461793967}
+  - {fileID: 795498353}
