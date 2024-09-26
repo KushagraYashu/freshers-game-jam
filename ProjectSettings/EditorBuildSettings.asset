@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: de21336f2779e5c47bd0bf2b510f986b
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Scenes/FPSCamGunSysSpawnSys.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
