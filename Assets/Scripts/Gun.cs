@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public TextMeshProUGUI curAmmoTxt;
+    public TextMeshProUGUI reloadTxt;
+    public TextMeshProUGUI reloadingTxt;
+
     public AudioSource gunSound;
 
     public ParticleSystem muzzleFlash;
@@ -17,7 +23,7 @@ public class Gun : MonoBehaviour
     private int curAmmo;
     public float reloadTime = 2f;
 
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     public Camera fpsCam;
 
@@ -28,15 +34,30 @@ public class Gun : MonoBehaviour
         curAmmo = maxAmmo;
     }
 
+    private void OnEnable()
+    {
+        curAmmoTxt = GameObject.FindGameObjectWithTag("CurAmmoTxt").GetComponent<TextMeshProUGUI>();
+        reloadTxt.gameObject.SetActive(false);
+        reloadingTxt.gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        curAmmoTxt.text = "" + curAmmo;
+
         if (isReloading)
             return;
 
-        if(curAmmo <= 0)
+        if(Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
+            return;
+        }
+
+        if(curAmmo <= 0)
+        {
+            reloadTxt.gameObject.SetActive(true);
             return;
         }
 
@@ -61,12 +82,17 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        reloadingTxt.gameObject.SetActive(true);
+        reloadTxt.gameObject.SetActive(false);
+        
         Debug.Log("Reloading");
 
         yield return new WaitForSeconds(reloadTime);
 
         curAmmo = maxAmmo;
         isReloading = false;
+
+        reloadingTxt.gameObject.SetActive(false);
     }
 
     void Shoot()

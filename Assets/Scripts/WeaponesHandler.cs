@@ -25,6 +25,14 @@ public class WeaponesHandler : MonoBehaviour
     }
     void ActivateWeapon(int index)
     {
+        foreach(GameObject w in weapons)
+        {
+            if (w.gameObject.GetComponent<Gun>().isReloading)
+            {
+                return;
+            }
+        }
+
         if (weapons[index].gameObject.activeInHierarchy)
         {
             weapons[index].SetActive(!weapons[index].gameObject.activeInHierarchy);

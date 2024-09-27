@@ -6,6 +6,9 @@ TagManager:
   tags:
   - rooms
   - weapon
+  - CurAmmoTxt
+  - ReloadTxt
+  - ReloadingTxt
   layers:
   - Default
   - TransparentFX
