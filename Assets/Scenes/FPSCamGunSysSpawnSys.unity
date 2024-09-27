@@ -11004,6 +11004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSound: {fileID: 1431917435}
   muzzleFlash: {fileID: 632472051}
+  semiAuto: 0
   damage: 10
   range: 100
   fireRate: 10
@@ -16764,6 +16765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSound: {fileID: 2137974789}
   muzzleFlash: {fileID: 1544393133}
+  semiAuto: 0
   damage: 10
   range: 100
   fireRate: 8
@@ -17339,6 +17341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSound: {fileID: 8857811221735328948}
   muzzleFlash: {fileID: 531757959}
+  semiAuto: 1
   damage: 5
   range: 50
   fireRate: 3

@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
 
+    public bool semiAuto = false;
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
@@ -39,10 +40,21 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (semiAuto)
         {
-            nextTimeToFire = Time.time + 1/fireRate;
-            Shoot();
+            if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1 / fireRate;
+                Shoot();
+            }
+        }
+        else
+        {
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1 / fireRate;
+                Shoot();
+            }
         }
     }
 
