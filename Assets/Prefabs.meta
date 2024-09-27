@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs.meta
 guid: b0e29992f184d244fabfae99276d568b
 folderAsset: yes
+========
+guid: 5215016c20f88ea498985ac3e0ab4f9d
+timeCreated: 1572398385
+licenseType: Store
+>>>>>>>> 94f82906635b5e9fbc06a6ab375fcf0d0bed774c:Assets/Assets/PolygonStarter/Scenes/Demo.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
