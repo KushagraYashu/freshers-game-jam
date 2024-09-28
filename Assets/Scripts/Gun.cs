@@ -16,7 +16,6 @@ public class Gun : MonoBehaviour
 
     public bool semiAuto = false;
     public int damage = 10;
-    public float range = 100f;
     public float fireRate = 15f;
 
     public int maxAmmo = 30;
@@ -101,7 +100,7 @@ public class Gun : MonoBehaviour
         gunSound.Play();
         muzzleFlash.Play();
         RaycastHit hitInfo;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
+        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
         {
             Debug.Log(hitInfo.transform.name);
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())

@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     
     public float range;
 
-    private Transform playerFeet;
+    [SerializeField]private Transform playerFeet;
 
     // Start is called before the first frame update
     void Start()

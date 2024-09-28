@@ -8,9 +8,8 @@ public class EnemyFollow : MonoBehaviour
     public float midRange;
 
     public float speed;
-    private Transform target;
-
-    private Transform intermediatePoint;
+    [SerializeField]private Transform target;
+    [SerializeField] private Transform intermediatePoint;
 
     // Start is called before the first frame update
     void Start()
