@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5574123406052101296}
   - component: {fileID: 830259514965078505}
   - component: {fileID: 8397109632238994290}
+  - component: {fileID: 4578777260925629950}
+  - component: {fileID: 3137009233786118084}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Zombo
@@ -156,3 +158,31 @@ NavMeshAgent:
   m_BaseOffset: 2.0335867
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4578777260925629950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933802841262207572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088c316216bf6314ba7021d2830f3553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 100
+--- !u!114 &3137009233786118084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933802841262207572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba7bb09fa31217449cdbe13dac28eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atMid: 0
+  midRange: 20
+  speed: 5
