@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzleFlash;
 
     public bool semiAuto = false;
-    public float damage = 10f;
+    public int damage = 10;
     public float range = 100f;
     public float fireRate = 15f;
 
@@ -104,6 +104,14 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {
             Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
+            {
+                hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage);
+            }
+            if (hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>())
+            {
+                hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>().hit = true;
+            }
         }
     }
 }
