@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        curAmmoTxt = GameObject.FindGameObjectWithTag("CurAmmoTxt").GetComponent<TextMeshProUGUI>();
+        //curAmmoTxt = GameObject.FindGameObjectWithTag("CurAmmoTxt").GetComponent<TextMeshProUGUI>();
         reloadTxt.gameObject.SetActive(false);
         reloadingTxt.gameObject.SetActive(false);
     }
