@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public Animator animator;
+
     public TextMeshProUGUI curAmmoTxt;
     public TextMeshProUGUI reloadTxt;
     public TextMeshProUGUI reloadingTxt;
@@ -81,6 +83,7 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        animator.SetBool("isReloading", isReloading);
         reloadingTxt.gameObject.SetActive(true);
         reloadTxt.gameObject.SetActive(false);
         
@@ -90,6 +93,7 @@ public class Gun : MonoBehaviour
 
         curAmmo = maxAmmo;
         isReloading = false;
+        animator.SetBool("isReloading", isReloading);
 
         reloadingTxt.gameObject.SetActive(false);
     }

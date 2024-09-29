@@ -11,6 +11,9 @@ TagManager:
   - Bounds
   - PlayerFeet
   - mid
+  - Zombo
+  - rooms
+  - levelManager
   layers:
   - Default
   - TransparentFX

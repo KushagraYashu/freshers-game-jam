@@ -13,8 +13,12 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FeetFinder();
+    }
+
+    void FeetFinder()
+    {
         playerFeet = GameObject.FindGameObjectWithTag("PlayerFeet").transform;
-            
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
         if(Vector3.Distance(this.transform.position, playerFeet.transform.position) <= range && this.GetComponent<EnemyFollow>().enabled)
         {
             this.GetComponent<EnemyFollow>().enabled = false;
+            GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().LoadDeadScreen();
             Debug.Log("Load Lost Screen");
         }
     }

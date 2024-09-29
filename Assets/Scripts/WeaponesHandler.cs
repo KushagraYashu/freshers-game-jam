@@ -33,17 +33,11 @@ public class WeaponesHandler : MonoBehaviour
             }
         }
 
-        if (weapons[index].gameObject.activeInHierarchy)
+        foreach (var weapon in weapons)
         {
-            weapons[index].SetActive(!weapons[index].gameObject.activeInHierarchy);
+            weapon.SetActive(false);
         }
-        else
-        {
-            foreach (var weapon in weapons) { 
-                weapon.SetActive(false);
-            }
-            weapons[index].SetActive(true);
-        }
+        weapons[index].SetActive(true);
     }
 
 }

@@ -14,8 +14,13 @@ public class EnemyFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("PlayerFeet").transform;
+        FeetFinder();
         intermediatePoint = GameObject.FindGameObjectWithTag("mid").transform;
+    }
+
+    void FeetFinder()
+    {
+        target = GameObject.FindGameObjectWithTag("PlayerFeet").transform;
     }
 
     // Update is called once per frame
