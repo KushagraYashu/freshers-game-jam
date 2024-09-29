@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Freshers Game Jam
+  companyName: FailSafe
+  productName: Wrong Floor ...bitch
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -42,16 +42,8 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 2
-  - logo: {fileID: 21300000, guid: b8c90574816d47e4caaddd6ca62f59e4, type: 3}
+  - logo: {fileID: 21300000, guid: c74a55997f0931142b410fb1fccbd40f, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: 03e0d2d9cee3aaf4aa026598cb9ec262, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: 1df3640f679f0a0409e5cf1fcdad8a4d, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: 3a68d416c3adbba4e8d2a020bc4a1ec4, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: c7051f3e7344d934ab028e65fa59fd8a, type: 3}
-    duration: 4
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
@@ -91,7 +83,7 @@ PlayerSettings:
   androidAutoRotationBehavior: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 1
+  runInBackground: 0
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -151,7 +143,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -173,7 +165,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.Freshers-Game-Jam
+    Standalone: com.FailSafe.Wrong-Floor-...bitch
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -299,7 +291,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: fc50f26adaaa4b2449aface354070f5b, type: 3}
+      m_Icon: {fileID: 2800000, guid: 526bcf10167ab55408f6ab05c98e7c48, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
