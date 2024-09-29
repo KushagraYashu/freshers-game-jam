@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpening : MonoBehaviour
 {
-    
+    public AudioSource openDoors;
+    public AudioSource closeDoors;
+
     private bool doorsOpen = false;
 
     private bool doorsClose = false;
@@ -31,17 +33,17 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e"))
-        {
-            OpenDoor();
-        }
+        //if (Input.GetKeyDown("e"))
+        //{
+        //    OpenDoor();
+        //}
         
-        if (Input.GetKeyDown("q"))
-        {
-            CloseDoor(); 
-            //Current_Scene = Current_Scene ++ ;
+        //if (Input.GetKeyDown("q"))
+        //{
+        //    CloseDoor(); 
+        //    //Current_Scene = Current_Scene ++ ;
 
-        }
+        //}
 
         //if (doorsClose == true)
         //{
@@ -50,7 +52,7 @@ public class DoorOpening : MonoBehaviour
         {
             //Debug.Log("scene load");
             //SceneManager.LoadScene(Levels[Current_Scene]);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
             
@@ -72,8 +74,9 @@ public class DoorOpening : MonoBehaviour
 
     }
 
-    private void OpenDoor()
+    public void OpenDoor()
     {
+        openDoors.Play();
         //if (doorsOpen) { return; }
         animatorL.SetBool("test", true);
         animatorL.ResetTrigger("doorsClose");
@@ -85,8 +88,10 @@ public class DoorOpening : MonoBehaviour
                                                             
     }
 
-    private void CloseDoor()
+    public void CloseDoor()
     {
+        closeDoors.Play();
+        Debug.Log("ClosingDoors");
         //if (doorsClose) { return; } 
         
         //Debug.Log(Current_Scene); 

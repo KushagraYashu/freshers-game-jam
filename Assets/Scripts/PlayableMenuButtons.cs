@@ -14,8 +14,14 @@ public class PlayableMenuButtons : MonoBehaviour
     public void StartGame()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().CloseDoor();
+        StartCoroutine(LoadDelay());
+    }
+
+    IEnumerator LoadDelay()
+    {
+        yield return new WaitForSeconds(3);
         levelManager.RandomStart();
-        Debug.Log("Start Game");
     }
 
     public void Options()

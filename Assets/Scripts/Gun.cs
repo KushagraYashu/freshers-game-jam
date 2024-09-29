@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     public TextMeshProUGUI reloadingTxt;
 
     public AudioSource gunSound;
+    public AudioSource gunReload;
 
     public ParticleSystem muzzleFlash;
 
@@ -50,7 +51,7 @@ public class Gun : MonoBehaviour
         if (isReloading)
             return;
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R) && curAmmo < maxAmmo)
         {
             StartCoroutine(Reload());
             return;
@@ -83,6 +84,7 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        gunReload.Play();
         animator.SetBool("isReloading", isReloading);
         reloadingTxt.gameObject.SetActive(true);
         reloadTxt.gameObject.SetActive(false);

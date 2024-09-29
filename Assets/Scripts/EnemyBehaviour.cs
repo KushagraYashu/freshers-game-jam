@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    private bool lvlManagerCalled = false;
+
     private int health = 100;
     
     public float range;
@@ -26,6 +28,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(health <= 0)
         {
+            CallLevelManager();
+            lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().enabled = false;
             Destroy(this.gameObject, 1f);
         }
@@ -44,4 +48,10 @@ public class EnemyBehaviour : MonoBehaviour
         Debug.Log("Health "+ health);
     }
 
+    public void CallLevelManager()
+    {
+        if (!lvlManagerCalled) {
+            GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ZombieCheck();
+        }
+    }
 }
