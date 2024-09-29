@@ -7,10 +7,14 @@ public class PlayableMenuButtons : MonoBehaviour
 {
     public Button button;
 
+    public LevelManager levelManager;
+
     public bool hit = false;
 
     public void StartGame()
     {
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+        levelManager.RandomStart();
         Debug.Log("Start Game");
     }
 

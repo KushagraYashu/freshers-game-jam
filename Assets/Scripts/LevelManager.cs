@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject floor0;
+
+    public GameObject[] floor = new GameObject[4];
+    public bool[] played = new bool[4];
+
     public GameObject deadScreen;
+
     public GameObject player;
+
+    public void RandomStart()
+    {
+        while (true)
+        {
+            int index = Random.Range(0, floor.Length);
+            if (played[index])
+            {
+                continue;
+            }
+            else
+            {
+
+            }
+        }
+    }
 
     public void LoadDeadScreen()
     {
