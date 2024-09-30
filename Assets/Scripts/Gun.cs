@@ -111,7 +111,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
             {
-                hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage);
+                hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage, true);
             }
             if (hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>())
             {

@@ -6,11 +6,15 @@ public class EnemyBehaviour : MonoBehaviour
 {
     private bool lvlManagerCalled = false;
 
+    public bool hit;
+
     private int health = 100;
     
     public float range;
 
     [SerializeField]private Transform playerFeet;
+
+    public Animator zombieAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +35,8 @@ public class EnemyBehaviour : MonoBehaviour
             CallLevelManager();
             lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().enabled = false;
-            Destroy(this.gameObject, 1f);
+            zombieAnim.SetBool("Death", true);
+            Destroy(this.gameObject, 5f);
         }
 
         if(Vector3.Distance(this.transform.position, playerFeet.transform.position) <= range && this.GetComponent<EnemyFollow>().enabled)
@@ -42,10 +47,22 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void DecreaseHealth(int damage)
+    public void DecreaseHealth(int damage, bool hit)
     {
+        zombieAnim.SetBool("Hit", true);
+        GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
+        this.hit = hit;
         health-= damage;
         Debug.Log("Health "+ health);
+        StartCoroutine(DelayHit());
+    }
+
+    IEnumerator DelayHit()
+    {
+        yield return new WaitForSeconds(1.25f);
+        zombieAnim.SetBool("Hit", false);
+        this.hit = false;
+
     }
 
     public void CallLevelManager()
