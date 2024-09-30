@@ -8774,8 +8774,7 @@ MonoBehaviour:
   - {fileID: 1150736781}
   - {fileID: 1496552520}
   - {fileID: 1716918227}
-  - {fileID: 1960094712}
-  played: 0000000000
+  played: 00000000
   deadScreen: {fileID: 702500843}
   loadScreen: {fileID: 244132288}
   nextFloorScreen: {fileID: 1077351812}
