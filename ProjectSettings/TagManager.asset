@@ -19,6 +19,7 @@ TagManager:
   - pistol
   - m4
   - ak
+  - spawnPoint
   layers:
   - Default
   - TransparentFX

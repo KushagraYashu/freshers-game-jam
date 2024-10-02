@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public bool hit;
 
-    private int health = 100;
+    public int health = 100;
     
     public float range;
 

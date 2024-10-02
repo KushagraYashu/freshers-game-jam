@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     int maxSteps = 10;
     int curStep = 0;
+    int level = 0;
 
     public void Reset()
     {
@@ -56,6 +57,8 @@ public class LevelManager : MonoBehaviour
                 }
                 GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
                 floor[index].SetActive(true);
+                floor[index].GetComponent<ZombieSpawner>().SpawnZombies(level);
+                level++;
                 zombies = GameObject.FindGameObjectsWithTag("zombies");
                 played[index] = true;
                 return;
