@@ -81,6 +81,7 @@ public class ZombieSpawner : MonoBehaviour
             Debug.Log("instantiate");
             GameObject go = Instantiate(zombiePrefab, spawnPointsTrans[i].position, zombiePrefab.transform.rotation, this.transform);
             go.GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
+            go.GetComponent<EnemyBehaviour>().healthSlider.maxValue = zombieInfos[index].health;
             go.GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
         }
     }
