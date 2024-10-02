@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class EnemyBehaviour : MonoBehaviour
     
     public float range;
 
+    public Slider healthSlider;
+
+    public AudioSource[] audioSources = new AudioSource[4];
+    int indexAudio;
+
     [SerializeField]private Transform playerFeet;
 
     public Animator zombieAnim;
@@ -20,6 +26,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         FeetFinder();
+        indexAudio = Random.Range(0, audioSources.Length);
+        audioSources[indexAudio].Play();
     }
 
     void FeetFinder()
@@ -30,6 +38,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
+        healthSlider.value = (float)health;
+        
         if(health <= 0)
         {
             CallLevelManager();

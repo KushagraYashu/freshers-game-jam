@@ -1491,6 +1491,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &292174492
@@ -3015,6 +3016,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &593898453
@@ -3389,6 +3391,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &694871311
@@ -4779,6 +4782,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &1002464097
@@ -5909,6 +5913,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &1244843195
@@ -9870,6 +9875,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &1969344625
@@ -10555,6 +10561,7 @@ MonoBehaviour:
   hit: 0
   health: 100
   range: 150
+  healthSlider: {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!114 &2067683382
@@ -33652,6 +33659,14 @@ PrefabInstance:
     - target: {fileID: 4199184417739670391, guid: 5b9a0617d319a484788b79cb1451d1ea, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335946887307165867, guid: 5b9a0617d319a484788b79cb1451d1ea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335946887307165867, guid: 5b9a0617d319a484788b79cb1451d1ea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
