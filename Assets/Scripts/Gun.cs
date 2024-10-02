@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     public TextMeshProUGUI curAmmoTxt;
     public TextMeshProUGUI reloadTxt;
     public TextMeshProUGUI reloadingTxt;
+    
 
     public AudioSource gunSound;
     public AudioSource gunReload;
@@ -34,6 +35,7 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         curAmmo = maxAmmo;
+        
     }
 
     private void OnEnable()
@@ -46,6 +48,9 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         curAmmoTxt.text = "" + curAmmo;
 
         if (isReloading)
