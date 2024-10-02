@@ -16,6 +16,9 @@ TagManager:
   - levelManager
   - zombies
   - liftDoors
+  - pistol
+  - m4
+  - ak
   layers:
   - Default
   - TransparentFX
