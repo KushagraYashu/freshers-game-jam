@@ -44,6 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
         
         if(health <= 0)
         {
+            GetComponent<BoxCollider>().enabled = false;
             CallLevelManager();
             lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().enabled = false;

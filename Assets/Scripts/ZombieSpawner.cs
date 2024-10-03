@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    public GameObject zombiePrefab;
-
-    public GameObject[] spawnPoints = new GameObject[10];
-    public Transform[] spawnPointsTrans = new Transform[10];
+    
 
     public GameObject[] zombies;
 
@@ -35,11 +32,7 @@ public class ZombieSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        zombies = GameObject.FindGameObjectsWithTag("zombies");
-        foreach (var zombie in zombies)
-        {
-            zombie.SetActive(false);
-        }
+        
 
         zombieInfos[0].setValues(2, 60, 100);
         zombieInfos[1].setValues(3, 65, 105);
@@ -52,14 +45,7 @@ public class ZombieSpawner : MonoBehaviour
         zombieInfos[8].setValues(10, 100, 140);
         zombieInfos[9].setValues(11, 105, 145);
 
-        spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
-
-        for (int i = 0; i < spawnPoints.Length; ++i)
-        {
-            spawnPointsTrans[i] = spawnPoints[i].GetComponent<Transform>();
-        }
-
-        SpawnZombies(0);
+        
     }
     void OnEnable()
     {
@@ -74,16 +60,16 @@ public class ZombieSpawner : MonoBehaviour
         zombieInfos[8].setValues(10, 100, 140);
         zombieInfos[9].setValues(11, 105, 145);
 
-        spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
-
-        for (int i = 0; i < spawnPoints.Length; ++i)
-        {
-            spawnPointsTrans[i] = spawnPoints[i].GetComponent<Transform>();
-        }
+        
     }
 
-    public void SpawnZombies(int index = 0)
+    public void SpawnZombies(int index)
     {
+        zombies = GameObject.FindGameObjectsWithTag("zombies");
+        foreach (var zombie in zombies)
+        {
+            zombie.SetActive(false);
+        }
         for (int i = 0; i < zombieInfos[index].magnitude; i++)
         {
             zombies[i].SetActive(true);
