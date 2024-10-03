@@ -36,6 +36,10 @@ public class ZombieSpawner : MonoBehaviour
     private void Start()
     {
         zombies = GameObject.FindGameObjectsWithTag("zombies");
+        foreach (var zombie in zombies)
+        {
+            zombie.SetActive(false);
+        }
 
         zombieInfos[0].setValues(2, 60, 100);
         zombieInfos[1].setValues(3, 65, 105);
