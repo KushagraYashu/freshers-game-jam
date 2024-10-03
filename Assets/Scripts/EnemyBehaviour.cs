@@ -62,6 +62,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void DecreaseHealth(int damage, bool hit)
     {
         zombieAnim.SetBool("Hit", true);
+        GetComponentInChildren<ParticleSystem>().Play();
         GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
         this.hit = hit;
         health-= damage;
@@ -71,7 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator DelayHit()
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.75f);
         zombieAnim.SetBool("Hit", false);
         this.hit = false;
 

@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public GameObject playerCanvas;
 
-    int maxSteps = 10;
+    int maxSteps = 50;
     int curStep = 0;
     int level = 0;
 
@@ -158,9 +158,16 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator SceneSetup()
     {
+        player.GetComponent<Playermovement>().enabled = false;
+        player.GetComponentInChildren<FPSCameraScript>().enabled = false;
+        player.GetComponentInChildren<WeaponesHandler>().enabled = false;
+        player.GetComponentInChildren<Gun>().enabled = false;
         yield return new WaitForSeconds(3f);
         loadScreen.SetActive(false);
-        //player.SetActive(true);
+        player.GetComponent<Playermovement>().enabled = true;
+        player.GetComponentInChildren<FPSCameraScript>().enabled = true;
+        player.GetComponentInChildren<WeaponesHandler>().enabled = true;
+        player.GetComponentInChildren<Gun>().enabled = true;
         playerCanvas.SetActive(true);
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
     }
