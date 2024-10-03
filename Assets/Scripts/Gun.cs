@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public AudioSource hitFeedback;
+
     public Animator animator;
 
     public TextMeshProUGUI curAmmoTxt;
@@ -70,7 +72,7 @@ public class Gun : MonoBehaviour
 
         if (semiAuto)
         {
-            if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1 / fireRate;
                 Shoot();
@@ -116,6 +118,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
             {
+                hitFeedback.Play();
                 hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage, true);
             }
             if (hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>())

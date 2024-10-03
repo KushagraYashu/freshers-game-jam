@@ -11,6 +11,8 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject[] spawnPoints = new GameObject[10];
     public Transform[] spawnPointsTrans = new Transform[10];
 
+    public GameObject[] zombies;
+
     public struct zombieInfo
     {
         public int magnitude;
@@ -33,6 +35,8 @@ public class ZombieSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        zombies = GameObject.FindGameObjectsWithTag("zombies");
+
         zombieInfos[0].setValues(2, 60, 100);
         zombieInfos[1].setValues(3, 65, 105);
         zombieInfos[2].setValues(4, 70, 110);
@@ -78,11 +82,10 @@ public class ZombieSpawner : MonoBehaviour
     {
         for (int i = 0; i < zombieInfos[index].magnitude; i++)
         {
-            Debug.Log("instantiate");
-            GameObject go = Instantiate(zombiePrefab, spawnPointsTrans[i].position, zombiePrefab.transform.rotation, this.transform);
-            go.GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
-            go.GetComponent<EnemyBehaviour>().healthSlider.maxValue = zombieInfos[index].health;
-            go.GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
+            zombies[i].SetActive(true);
+            zombies[i].GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
+            zombies[i].GetComponent<EnemyBehaviour>().healthSlider.maxValue = zombieInfos[index].health;
+            zombies[i].GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
         }
     }
 

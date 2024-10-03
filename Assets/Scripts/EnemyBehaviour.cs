@@ -62,6 +62,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void DecreaseHealth(int damage, bool hit)
     {
         zombieAnim.SetBool("Hit", true);
+        GetComponentInChildren<ParticleSystem>().Play();
         GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
         this.hit = hit;
         health-= damage;
