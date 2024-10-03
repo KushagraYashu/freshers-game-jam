@@ -72,7 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator DelayHit()
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.75f);
         zombieAnim.SetBool("Hit", false);
         this.hit = false;
 
