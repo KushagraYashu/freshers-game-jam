@@ -34,6 +34,10 @@ public class LevelManager : MonoBehaviour
 
     public void Reset()
     {
+        // Ensure the game is not paused when reloading the scene
+        Time.timeScale = 1f;
+
+        // Load the first level or main menu (scene 0)
         SceneManager.LoadScene(0);
     }
 
@@ -106,16 +110,17 @@ public class LevelManager : MonoBehaviour
     public void ZombieCheck()
     {
         totKilled++;
-        if(totKilled == zombies.Length)
+        if (totKilled == zombies.Length)
         {
             StartCoroutine(LoadDelay());
-            
+
         }
     }
 
     IEnumerator LoadDelay()
     {
-        foreach (bool b in played) {
+        foreach (bool b in played)
+        {
             if (!b)
             {
                 nextFloorScreen.SetActive(true);
@@ -160,16 +165,25 @@ public class LevelManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
+        // Check if the dead screen is active and Q is pressed
+        if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
             Reset();
         }
+
+        // Check if the win screen is active and Q is pressed
         if (winScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
             Reset();
         }
+
+        // Optionally, check for Q key press when the game is not over
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Reset(); // This will reset the game to the main menu
+        }
     }
 }
+

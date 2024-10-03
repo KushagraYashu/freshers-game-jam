@@ -1,0 +1,324 @@
+fileFormatVersion: 2
+guid: 3c82fece9c7f8bb4db936545d90dc58f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseDoor
+    second: {fileID: 2100000, guid: 436a42094e39891459eb343724e0b79b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CLPupperwall
+    second: {fileID: 2100000, guid: 234ad8e9b0e2f774a8f0368f2d19769c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CLUpperwallCuppling
+    second: {fileID: 2100000, guid: 5b84238672399c14d9faea3db0b153bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CeilingBase
+    second: {fileID: 2100000, guid: 7e982c33bd9f86a448c552487e42b0e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CelieningWire
+    second: {fileID: 2100000, guid: 034249ee040e5574d84bf4318caa0244, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CeliignCupplings
+    second: {fileID: 2100000, guid: 103cb7981cb3d5a469bc1b089543bb19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CelingLatch
+    second: {fileID: 2100000, guid: f4a03c7caff99304da03b4709704e852, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CelingWrCupplings
+    second: {fileID: 2100000, guid: ea64bfef3ced79944a22e024d7afb3a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Collum
+    second: {fileID: 2100000, guid: 2cbf85a156a808c44af6d85ad6347c7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Collum_dividers
+    second: {fileID: 2100000, guid: 945121c45ee37ab4b88565dbdf1f7bd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorAttachtment
+    second: {fileID: 2100000, guid: f99f600e6ef501c4aa68b42a9baea73a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorConnector
+    second: {fileID: 2100000, guid: 5bc948822786b8e44be09793bcb2c895, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorDetail
+    second: {fileID: 2100000, guid: ef5a341e22079bc49984ad6579b91ba8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPipes
+    second: {fileID: 2100000, guid: bf6246f8365727147b10ef121f2637d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPipes2
+    second: {fileID: 2100000, guid: 5c699a3a7478a5d4ba72523439088d54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPipes3
+    second: {fileID: 2100000, guid: 760f058d84bade2428ac91442537e591, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPipesDetail
+    second: {fileID: 2100000, guid: bc1285639fb564047be7e9749bd43ee3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drawer
+    second: {fileID: 2100000, guid: db6bce15e1fe94d4aa295746f5424f30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FanBase
+    second: {fileID: 2100000, guid: 8c4e0b8b515826545bcd6222a064b3f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FanBlade
+    second: {fileID: 2100000, guid: 45fae56844e7ab7498ef02c06487ee08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FanCntr
+    second: {fileID: 2100000, guid: 7a1e59c7bc10d534b8de2301cf9fa028, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorAttachtment
+    second: {fileID: 2100000, guid: 34822dd19a21a614baf843c7241625c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorBase
+    second: {fileID: 2100000, guid: 4724536a16336504ba5e413290aff822, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorBolt
+    second: {fileID: 2100000, guid: 395ebd0acef8acd42ae5b30870a2a443, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorHoles
+    second: {fileID: 2100000, guid: 9a73c290f68ebb045bd928567f29d906, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorMainGrid
+    second: {fileID: 2100000, guid: b0bec5d915b49a44d889c1a4cf2b3624, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorgRID
+    second: {fileID: 2100000, guid: b4100387adea19249908193225976781, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GLassPaneFloor
+    second: {fileID: 2100000, guid: 62701f1f686196d40ae2dce6b0f39264, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light
+    second: {fileID: 2100000, guid: 4bc9f0e90ff9b0f4499792f7453ab983, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PIpeBned
+    second: {fileID: 2100000, guid: 99b0a57521816f1479d6469b1b40d987, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PipeBase
+    second: {fileID: 2100000, guid: 483ff8fe1797c244785e188b05718743, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipejoints
+    second: {fileID: 2100000, guid: 79924e4447f89094396a46c37e695df8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PipesCupplings
+    second: {fileID: 2100000, guid: 20f189f64e0214f45acd22975e373f21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pole
+    second: {fileID: 2100000, guid: a4591ef2ca274ee428c3cd0c554e1913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: cefe69804c307c549b55e3096361c913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_dent
+    second: {fileID: 2100000, guid: 5f28df08373fab54c88a170883edc68c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_dividers
+    second: {fileID: 2100000, guid: 0a0c4b9aaa2c6b94fb981e97b363f176, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe2
+    second: {fileID: 2100000, guid: cf9cb2a0d46046349ba5a6b19645b76d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe3
+    second: {fileID: 2100000, guid: 47699b1b4d97e7145ad03a8ae5e73350, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe3cupplings
+    second: {fileID: 2100000, guid: ff2dbafe78b400741983f489c4733f9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe4
+    second: {fileID: 2100000, guid: 1e12f6a86de09f043a7d81fe34c9a2b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe4cupplings
+    second: {fileID: 2100000, guid: 97314c0728f46184b9bb95368eefddee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe4joints
+    second: {fileID: 2100000, guid: be11731c650b0824995cf5f3feacab28, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

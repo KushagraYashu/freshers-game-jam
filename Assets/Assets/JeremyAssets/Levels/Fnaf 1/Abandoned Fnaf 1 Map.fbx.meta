@@ -1,0 +1,269 @@
+fileFormatVersion: 2
+guid: 0c5528e2dbedc084c9af54283a8089d4
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CONCRETE_CONCRETECEILING004A
+    second: {fileID: 2100000, guid: 7a22feae103bed24eb06fbb8a3e78a8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CONSTRUCTION_WOOD_CONSTRUCTWOOD005
+    second: {fileID: 2100000, guid: 768f6e74121793e4e929161ca671bd15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CS_ITALY_BLACK
+    second: {fileID: 2100000, guid: 838fdc0516595ac4d8b6f49ae1491d42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CS_ITALY_CR_MISCWOOD2B
+    second: {fileID: 2100000, guid: c9c07e951b8fadc478d418821e5d0f02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CS_ITALY_PWOOD1
+    second: {fileID: 2100000, guid: 16d852198ae9db6469779da21db91d27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DE_DUST_DOOR10
+    second: {fileID: 2100000, guid: 396380afeac88e146b2db1af59c0ca17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_BLUEREDTILEROTTEN
+    second: {fileID: 2100000, guid: e1882000ade5881469ef598a5ad8a978, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_FNAFWALLDIRTY3
+    second: {fileID: 2100000, guid: fcb692d6ab97dff4dbf218c42b5f50bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_FNAFWALLDIRTY_4
+    second: {fileID: 2100000, guid: 21c50c1e5cb08ad498e37f7071f69a79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_FNAFWALLDIRTY_5
+    second: {fileID: 2100000, guid: 6814e4ebef6686b4388d37cae5fefd4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_FNAFWALLDIRTY_6
+    second: {fileID: 2100000, guid: 2c06b0d8327b9a143864deb597b6c6d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_TABLEROTTEN
+    second: {fileID: 2100000, guid: 6e96208164e2c9c4186d3d681d4ad4da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1ROTTEN_TILEFLOORROTTEN
+    second: {fileID: 2100000, guid: a01842ef009716d46b7f4b5e7cfcc251, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1_BLACKTILEDIRTY
+    second: {fileID: 2100000, guid: 047789d3ab52afd4a97fafd868174b97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF1_FREDDYBATH2FULL
+    second: {fileID: 2100000, guid: 40f6e46dc9e952f4da5b5977ce30faf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF2_BLACKTILEDIRTYROTTENFULL
+    second: {fileID: 2100000, guid: 1dea773e38cc9ee499d2fbf856c65876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FNAF4MAP_WOODTEXTUREGRAY
+    second: {fileID: 2100000, guid: 38a84c4a60d30f847aa76346345556f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ST_Food_PlasticCupsFailed01_TX_Food_PlasticCup01_D
+    second: {fileID: 2100000, guid: 12a18632cc515f54388b6d1a5263c1fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ST_Food_PlasticCupsFailed02_TX_Food_PlasticCup01_D
+    second: {fileID: 2100000, guid: 8cfa77b1e7f64074a8d280d850796f8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SWAMP_WOOD_SWAMPWALL015B
+    second: {fileID: 2100000, guid: 0d922c1cd1a504a45b7f0ba6f9e07fbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TOOLS_TOOLSSKYBOX
+    second: {fileID: 2100000, guid: 878d876fd0a83864d93517c132e857e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WATER_WATER_2FORT_BENEATH_DX80
+    second: {fileID: 2100000, guid: 1e89d21869ac15e40ad021f95e2f45b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WOOD_WOODWALL004C
+    second: {fileID: 2100000, guid: 8d5dc87354e65bf4e9732603a1263fbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WOOD_WOODWALL043A
+    second: {fileID: 2100000, guid: e535b457c1cf74e468d10f170fad35ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cubicle_desk_A_models_props_office_office_desk_1980
+    second: {fileID: 2100000, guid: 6b90273d51f57744ba16853f907c3d4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk_console2_desk_console1
+    second: {fileID: 2100000, guid: 4195f02f74b37ff4ebb8b5256891f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk_console2_desk_console2
+    second: {fileID: 2100000, guid: 86a1a9f9055fd6f43bcf9e2e616a70dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk_console3_desk_console1
+    second: {fileID: 2100000, guid: 788e2207b95cad04f96204f16a835fc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk_console3_desk_console2
+    second: {fileID: 2100000, guid: e0ebe0516a53cbe4395e0b6a22cdaed4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ferns03_Rocks_vegetation
+    second: {fileID: 2100000, guid: 90f3cc1ea02a0d541af6ba7e86869b64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ivy_01_ivy01
+    second: {fileID: 2100000, guid: 4c93c17fbc7cd914ab5a8c178623ed8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_desk_1_models_props_office_metal_desk_1
+    second: {fileID: 2100000, guid: 9b53973522e0b83409c238da8e10e277, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
