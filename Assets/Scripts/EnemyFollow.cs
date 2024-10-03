@@ -49,6 +49,7 @@ public class EnemyFollow : MonoBehaviour
         }
         else
         {
+            //transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, intermediatePoint.position, speed * Time.deltaTime);
             hit = false;
         }

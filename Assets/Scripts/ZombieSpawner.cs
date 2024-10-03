@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
@@ -44,6 +43,13 @@ public class ZombieSpawner : MonoBehaviour
         zombieInfos[7].setValues(9, 95, 135);
         zombieInfos[8].setValues(10, 100, 140);
         zombieInfos[9].setValues(11, 105, 145);
+        zombieInfos[9].setValues(11, 105, 145);
+        zombieInfos[10].setValues(11, 105, 145);
+        zombieInfos[11].setValues(11, 105, 145);
+        zombieInfos[12].setValues(11, 105, 145);
+        zombieInfos[13].setValues(11, 105, 145);
+        zombieInfos[14].setValues(11, 105, 145);
+        zombieInfos[15].setValues(11, 105, 145);
 
         
     }

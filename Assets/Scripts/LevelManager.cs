@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public GameObject floor0;
 
     public GameObject[] floor = new GameObject[4];
-    public bool[] played = new bool[4];
+    public bool[] played;
 
     public GameObject deadScreen;
     public GameObject loadScreen;
@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public GameObject playerCanvas;
 
-    int maxSteps = 50;
+    int maxSteps = 20;
     int curStep = 0;
     int level = 0;
 
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         while (curStep <= maxSteps)
         {
             curStep++;
-            int index = Random.Range(0, floor.Length);
+            int index = Random.Range(0, played.Length);
             if (played[index])
             {
                 continue;
