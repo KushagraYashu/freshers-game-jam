@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) // Toggle pause on pressing P (instead of ESC)
+        if (Input.GetKeyDown(KeyCode.Escape)) // Toggle pause on pressing P (instead of ESC)
         {
             if (isPaused)
             {

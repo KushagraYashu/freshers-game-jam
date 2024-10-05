@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject deadScreen;
     public GameObject loadScreen;
+    public GameObject pauseScreen;
     public GameObject nextFloorScreen;
     public GameObject winScreen;
 
@@ -186,11 +187,17 @@ public class LevelManager : MonoBehaviour
             Reset();
         }
 
+        // Check if the pause screen is active and Q is pressed
+        if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
+        {
+            Reset();
+        }
+
         // Optionally, check for Q key press when the game is not over
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             Reset(); // This will reset the game to the main menu
-        }
+        }*/
     }
 }
 

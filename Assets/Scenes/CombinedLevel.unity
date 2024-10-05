@@ -6129,7 +6129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982626463167776643, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.5
+      value: -132
       objectReference: {fileID: 0}
     - target: {fileID: 2340054312949305651, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_LocalScale.x
@@ -6157,7 +6157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2571765778847999227, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 124.19998
+      value: 164.4
       objectReference: {fileID: 0}
     - target: {fileID: 2600696295471394296, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_Pivot.x
@@ -6273,7 +6273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4800934391352079610, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 126.8
+      value: 167
       objectReference: {fileID: 0}
     - target: {fileID: 4822522974530168258, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_Enabled
@@ -6401,7 +6401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003710356489516093, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.3
+      value: -132.8
       objectReference: {fileID: 0}
     - target: {fileID: 8393291732813892846, guid: bb9b10c733e38fa4aa230d5c0888ed52, type: 3}
       propertyPath: m_fontSize
@@ -12385,6 +12385,7 @@ MonoBehaviour:
   played: 0000000000000000
   deadScreen: {fileID: 702500843}
   loadScreen: {fileID: 244132288}
+  pauseScreen: {fileID: 930762169}
   nextFloorScreen: {fileID: 1077351812}
   winScreen: {fileID: 1477545650}
   player: {fileID: 3670803689585328560}
