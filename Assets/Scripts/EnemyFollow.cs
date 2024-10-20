@@ -1,25 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public bool atMid = false;
-    public float midRange;
-
     public bool hit;
 
     public Animator zombieAnim;
 
-    public float speed;
     [SerializeField]private Transform target;
-    [SerializeField] private Transform intermediatePoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        FeetFinder();
-        intermediatePoint = GameObject.FindGameObjectWithTag("mid").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FeetFinder()
@@ -36,22 +31,7 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.transform.position, intermediatePoint.transform.position) < midRange && !atMid)
-        {
-            atMid = true;
-            hit = false;
-        }
-
-        if (atMid)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            hit = false;
-        }
-        else
-        {
-            //transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, intermediatePoint.position, speed * Time.deltaTime);
-            hit = false;
-        }
+        GetComponent<NavMeshAgent>().SetDestination(target.position);
+        transform.LookAt(-target.position);
     }
 }

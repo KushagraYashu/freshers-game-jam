@@ -82,7 +82,7 @@ public class ZombieSpawner : MonoBehaviour
             zombies[i].GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
             zombies[i].GetComponent<EnemyBehaviour>().healthSlider.maxValue = zombieInfos[index].health;
             zombies[i].GetComponent<EnemyBehaviour>().range = 10f;
-            zombies[i].GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
+            //zombies[i].GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
         }
     }
 

@@ -21,6 +21,7 @@ public class PlayableMenuButtons : MonoBehaviour
     IEnumerator LoadDelay()
     {
         yield return new WaitForSeconds(3);
+        levelManager.StartTimer();
         levelManager.RandomStart();
     }
 

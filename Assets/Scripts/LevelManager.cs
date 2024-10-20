@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -67,6 +69,7 @@ public class LevelManager : MonoBehaviour
                 }
                 GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
                 floor[index].SetActive(true);
+                GetComponent<NavMeshSurface>().BuildNavMesh();
                 floor[index].GetComponent<ZombieSpawner>().SpawnZombies(level);
                 level++;
                 zombies = GameObject.FindGameObjectsWithTag("zombies");
@@ -75,6 +78,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         winScreen.SetActive(true);
+        TimerController.instance.timerGoing = false;
         globalMusic.Stop();
         elevatorDing.Play();
         StartCoroutine(SoundDelay());

@@ -7,6 +7,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     private bool lvlManagerCalled = false;
 
+    public float dist;
+
     public bool hit;
 
     public int health = 100;
@@ -25,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dist = Mathf.Infinity;
         FeetFinder();
         indexAudio = Random.Range(0, audioSources.Length);
         audioSources[indexAudio].Play();
@@ -32,7 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FeetFinder()
     {
-        playerFeet = GameObject.FindGameObjectWithTag("PlayerFeet").transform;
+        playerFeet = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -52,8 +55,11 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(this.gameObject, 5f);
         }
 
-        if(Vector3.Distance(this.transform.position, playerFeet.transform.position) <= range && this.GetComponent<EnemyFollow>().enabled)
+        dist = Vector3.Distance(this.transform.position, playerFeet.transform.position);
+
+        if (dist <= range && this.GetComponent<EnemyFollow>().enabled)
         {
+            Debug.Log("heyo Stop");
             this.GetComponent<EnemyFollow>().enabled = false;
             GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().LoadDeadScreen();
             Debug.Log("Load Lost Screen");

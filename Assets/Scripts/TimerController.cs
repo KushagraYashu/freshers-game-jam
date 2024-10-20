@@ -11,7 +11,7 @@ public class TimerController : MonoBehaviour
     public Text timeCounter;
 
     private TimeSpan timePlaying;
-    private bool timerGoing;
+    public bool timerGoing;
 
     private float elapsedTime;
 
@@ -23,7 +23,7 @@ public class TimerController : MonoBehaviour
     private void Start()
     {
         timeCounter.text = "Time: 00:00.00";
-        timerGoing = false;
+        //timerGoing = false;
     }
 
     public void BeginTimer()
