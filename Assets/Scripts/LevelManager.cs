@@ -42,6 +42,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void StartTimer()
+    {
+        TimerController.instance.BeginTimer();
+    }
+
     public void RandomStart()
     {
         curStep = 0;
