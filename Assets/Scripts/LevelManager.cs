@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public GameObject playerCanvas;
 
-    int maxSteps = 20;
+    int maxSteps = 60;
     int curStep = 0;
     int level = 0;
 

@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    
+    public GameObject zombiePrefab;
 
-    public GameObject[] zombies;
+    public GameObject[] spawnPoints;
 
-    public struct zombieInfo
+    public struct ZombieInfo
     {
         public int magnitude;
         public float speed;
@@ -26,63 +27,41 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    [SerializeField] public zombieInfo[] zombieInfos = new zombieInfo[10];
+    public ZombieInfo[] zombieInfos = new ZombieInfo[21]; //21 total number of levels
 
     // Start is called before the first frame update
     private void Start()
     {
-        
 
-        zombieInfos[0].setValues(2, 60, 100);
-        zombieInfos[1].setValues(3, 65, 105);
-        zombieInfos[2].setValues(4, 70, 110);
-        zombieInfos[3].setValues(5, 75, 115);
-        zombieInfos[4].setValues(6, 80, 120);
-        zombieInfos[5].setValues(7, 85, 125);
-        zombieInfos[6].setValues(8, 90, 130);
-        zombieInfos[7].setValues(9, 95, 135);
-        zombieInfos[8].setValues(10, 100, 140);
-        zombieInfos[9].setValues(11, 105, 145);
-        zombieInfos[9].setValues(11, 105, 145);
-        zombieInfos[10].setValues(11, 105, 145);
-        zombieInfos[11].setValues(11, 105, 145);
-        zombieInfos[12].setValues(11, 105, 145);
-        zombieInfos[13].setValues(11, 105, 145);
-        zombieInfos[14].setValues(11, 105, 145);
-        zombieInfos[15].setValues(11, 105, 145);
-
-        
     }
     void OnEnable()
     {
-        zombieInfos[0].setValues(2, 60, 100);
-        zombieInfos[1].setValues(3, 65, 105);
-        zombieInfos[2].setValues(4, 70, 110);
-        zombieInfos[3].setValues(5, 75, 115);
-        zombieInfos[4].setValues(6, 80, 120);
-        zombieInfos[5].setValues(7, 85, 125);
-        zombieInfos[6].setValues(8, 90, 130);
-        zombieInfos[7].setValues(9, 95, 135);
-        zombieInfos[8].setValues(10, 100, 140);
-        zombieInfos[9].setValues(11, 105, 145);
+        for(int i=0; i<zombieInfos.Length;i++) {
+            if (i == 0)
+            {
+                zombieInfos[i].setValues(2, 0.5f, 100);
+            }
+            else
+            {
+                zombieInfos[i].setValues(zombieInfos[i-1].magnitude + 2, zombieInfos[i-1].speed + 0.25f, zombieInfos[i-1].health + 20);
+            }
+        }
 
-        
+        spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
+        SpawnZombies(0);
     }
 
     public void SpawnZombies(int index)
     {
-        zombies = GameObject.FindGameObjectsWithTag("zombies");
-        foreach (var zombie in zombies)
+        for(int i = 0; i < zombieInfos[index].magnitude; i++)
         {
-            zombie.SetActive(false);
-        }
-        for (int i = 0; i < zombieInfos[index].magnitude; i++)
-        {
-            zombies[i].SetActive(true);
-            zombies[i].GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
-            zombies[i].GetComponent<EnemyBehaviour>().healthSlider.maxValue = zombieInfos[index].health;
-            zombies[i].GetComponent<EnemyBehaviour>().range = 10f;
-            //zombies[i].GetComponent<EnemyFollow>().speed = zombieInfos[index].speed + Random.Range(0, zombieInfos[index].randomRange);
+            int spawnPtIndex = Random.Range(0, spawnPoints.Length);
+            var zombie = Instantiate(zombiePrefab, spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position, Quaternion.identity);
+            //zombie.gameObject.GetComponent<Transform>().localScale = new Vector3(0.75f, 0.75f, 0.75f); //hardcoding it to be .75 in size because doing so makes navmesh works, i know its stupid, its either this or make the agent go to the player's feet instead of the player, lets see what we pick
+            zombie.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+            zombie.gameObject.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position);
+            zombie.gameObject.GetComponent<NavMeshAgent>().speed = zombieInfos[index].speed;
+            zombie.gameObject.GetComponent<EnemyBehaviour>().health = zombieInfos[index].health;
         }
     }
 

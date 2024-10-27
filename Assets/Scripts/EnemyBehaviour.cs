@@ -51,7 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
             CallLevelManager();
             lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().enabled = false;
-            zombieAnim.SetBool("Death", true);
+            //zombieAnim.SetBool("Death", true);
             Destroy(this.gameObject, 5f);
         }
 
@@ -68,7 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void DecreaseHealth(int damage, bool hit)
     {
-        zombieAnim.SetBool("Hit", true);
+        //zombieAnim.SetBool("Hit", true);
         GetComponentInChildren<ParticleSystem>().Play();
         GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
         this.hit = hit;
@@ -80,7 +80,7 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator DelayHit()
     {
         yield return new WaitForSeconds(0.75f);
-        zombieAnim.SetBool("Hit", false);
+        //zombieAnim.SetBool("Hit", false);
         this.hit = false;
 
     }
