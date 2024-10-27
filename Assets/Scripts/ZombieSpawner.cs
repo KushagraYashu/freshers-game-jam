@@ -57,7 +57,7 @@ public class ZombieSpawner : MonoBehaviour
         {
             int spawnPtIndex = Random.Range(0, spawnPoints.Length);
             var zombie = Instantiate(zombiePrefab, spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position, Quaternion.identity);
-            //zombie.gameObject.GetComponent<Transform>().localScale = new Vector3(0.75f, 0.75f, 0.75f); //hardcoding it to be .75 in size because doing so makes navmesh works, i know its stupid, its either this or make the agent go to the player's feet instead of the player, lets see what we pick
+            zombie.gameObject.GetComponent<Transform>().localScale = new Vector3(0.75f, 0.75f, 0.75f); //hardcoding it to be .75 in size because doing so makes navmesh works, i know its stupid, its either this or make the agent go to the player's feet instead of the player, lets see what we pick
             zombie.gameObject.GetComponent<NavMeshAgent>().enabled = true;
             zombie.gameObject.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position);
             zombie.gameObject.GetComponent<NavMeshAgent>().speed = zombieInfos[index].speed;

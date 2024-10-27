@@ -41,8 +41,6 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         healthSlider.value = (float)health;
         
         if(health <= 0)
