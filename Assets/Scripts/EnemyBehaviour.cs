@@ -41,6 +41,8 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //transform.LookAt(playerFeet);
+
         healthSlider.value = (float)health;
         
         if(health <= 0)
@@ -48,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             CallLevelManager();
             lvlManagerCalled = true;
-            this.GetComponent<EnemyFollow>().enabled = false;
+            this.GetComponent<EnemyFollow>().StopMotion();
             //zombieAnim.SetBool("Death", true);
             Destroy(this.gameObject, 5f);
         }

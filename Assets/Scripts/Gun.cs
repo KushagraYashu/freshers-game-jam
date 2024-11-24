@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     public TextMeshProUGUI curAmmoTxt;
     public TextMeshProUGUI reloadTxt;
     public TextMeshProUGUI reloadingTxt;
-    
+
 
     public AudioSource gunSound;
     public AudioSource gunReload;
@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
     public float fireRate = 15f;
 
     public int maxAmmo = 30;
-    private int curAmmo;
+    [SerializeField]private int curAmmo;
     public float reloadTime = 2f;
 
     public bool isReloading = false;
@@ -33,6 +33,11 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
 
     private float nextTimeToFire = 0f;
+
+    public int getCurAmmo()
+    {
+        return curAmmo;
+    }
 
     private void Start()
     {
@@ -50,11 +55,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
-        curAmmoTxt.text = "" + curAmmo;
-
+        if(curAmmo > maxAmmo)
+        {
+            curAmmoTxt.text = "" + Mathf.Infinity;
+        }
+        else
+        {
+            curAmmoTxt.text = "" + curAmmo;
+        }
         if (isReloading)
             return;
 
@@ -125,6 +133,30 @@ public class Gun : MonoBehaviour
             {
                 hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>().hit = true;
             }
+            if (hitInfo.transform.gameObject.GetComponent<Ability>())
+            {
+                AbilityManager.instance.CallAbility((int)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
+                hitInfo.transform.gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void InfiniteAmmo(float time)
+    {
+        Debug.Log("infite ammo");
+        int curCurAmmo = curAmmo;
+        curAmmo = 100000;
+        StartCoroutine(ResetAmmo(time, curCurAmmo));
+    }
+    IEnumerator ResetAmmo(float time, int curCurAmmo)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("reset ammo");
+        curAmmo = curCurAmmo;
+    }
+
+    public void SlowFire()
+    {
+
     }
 }

@@ -31,46 +31,48 @@ public class WeaponesHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ActivateWeapon(0);
-            //akUI.SetActive(true);
-            akUIOFF.SetActive(false);
-            akUION.SetActive(true);
-            pistolUION.SetActive(false);
-            pistolUIOFF.SetActive(true);
-            m4UION.SetActive(false);
-            m4UIOFF.SetActive(true);
+            if (ActivateWeapon(0))
+            {
+                akUIOFF.SetActive(false);
+                akUION.SetActive(true);
+                pistolUION.SetActive(false);
+                pistolUIOFF.SetActive(true);
+                m4UION.SetActive(false);
+                m4UIOFF.SetActive(true);
+            }
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ActivateWeapon(1);
-            //akUI.SetActive(false);
-            akUIOFF.SetActive(true);
-            akUION.SetActive(false);
-            pistolUION.SetActive(false);
-            pistolUIOFF.SetActive(true);
-            m4UION.SetActive(true);
-            m4UIOFF.SetActive(false);
+            if (ActivateWeapon(1)) {
+                akUIOFF.SetActive(true);
+                akUION.SetActive(false);
+                pistolUION.SetActive(false);
+                pistolUIOFF.SetActive(true);
+                m4UION.SetActive(true);
+                m4UIOFF.SetActive(false);
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ActivateWeapon(2);
-            //akUI.SetActive(false);
-            akUIOFF.SetActive(true);
-            akUION.SetActive(false);
-            pistolUION.SetActive(true);
-            pistolUIOFF.SetActive(false);
-            m4UION.SetActive(false);
-            m4UIOFF.SetActive(true);
+            if (ActivateWeapon(2))
+            {
+                akUIOFF.SetActive(true);
+                akUION.SetActive(false);
+                pistolUION.SetActive(true);
+                pistolUIOFF.SetActive(false);
+                m4UION.SetActive(false);
+                m4UIOFF.SetActive(true);
+            }
         }
     }
-    void ActivateWeapon(int index)
+    bool ActivateWeapon(int index)
     {
         foreach(GameObject w in weapons)
         {
-            if (w.gameObject.GetComponent<Gun>().isReloading)
+            if (w.GetComponent<Gun>().isReloading || (w.GetComponent<Gun>().getCurAmmo() > w.GetComponent<Gun>().maxAmmo))
             {
-                return;
+                return false;
             }
         }
 
@@ -79,6 +81,7 @@ public class WeaponesHandler : MonoBehaviour
             weapon.SetActive(false);
         }
         weapons[index].SetActive(true);
+        return true;
     }
 
 }

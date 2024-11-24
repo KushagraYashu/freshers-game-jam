@@ -20,6 +20,8 @@ TagManager:
   - m4
   - ak
   - spawnPoint
+  - Ability
+  - AbilityTxt
   layers:
   - Default
   - TransparentFX

@@ -33,6 +33,16 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         GetComponent<NavMeshAgent>().SetDestination(target.position);
-        transform.LookAt(-target.position);
+        Vector3 movementDirection = GetComponent<NavMeshAgent>().velocity;
+        if (movementDirection.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void StopMotion()
+    {
+        GetComponent<NavMeshAgent>().isStopped = true;
     }
 }
