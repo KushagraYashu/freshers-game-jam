@@ -48,7 +48,7 @@ public class ZombieSpawner : MonoBehaviour
         }
 
         spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
-        SpawnZombies(1);
+        //SpawnZombies(1);
     }
 
     public void SpawnZombies(int index)

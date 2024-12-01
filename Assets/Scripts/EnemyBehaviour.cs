@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
             lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().StopMotion();
             //zombieAnim.SetBool("Death", true);
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 2f);
         }
 
         dist = Vector3.Distance(this.transform.position, playerFeet.transform.position);
