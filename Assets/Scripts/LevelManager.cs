@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -35,6 +36,31 @@ public class LevelManager : MonoBehaviour
     int curStep = 0;
     int level = 0;
 
+    public float time = 0;
+    public bool windCalled = false;
+    public float windTime;
+
+    public void SkipLevel()
+    {
+        level++;
+        foreach (GameObject go in zombies)
+        {
+            Destroy(go);
+        }
+        Array.Clear(zombies, 0, zombies.Length);
+        totKilled = 0;
+
+        for (int i = 0; i < played.Length; i++) {
+            if (!played[i])
+            {
+                played[i] = true;
+                break;
+            }
+        }
+        
+            StartCoroutine(LoadDelay());
+    }
+
     public void Reset()
     {
         // Ensure the game is not paused when reloading the scene
@@ -55,7 +81,7 @@ public class LevelManager : MonoBehaviour
         while (curStep <= maxSteps)
         {
             curStep++;
-            int index = Random.Range(0, played.Length);
+            int index = UnityEngine.Random.Range(0, played.Length);
             if (played[index])
             {
                 continue;
@@ -127,7 +153,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadDelay()
+    public IEnumerator LoadDelay()
     {
         foreach (bool b in played)
         {

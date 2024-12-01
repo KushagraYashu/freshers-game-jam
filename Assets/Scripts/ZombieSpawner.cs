@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class ZombieSpawner : MonoBehaviour
@@ -48,7 +49,7 @@ public class ZombieSpawner : MonoBehaviour
         }
 
         spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
-        //SpawnZombies(1);
+        //SpawnZombies(2);
     }
 
     public void SpawnZombies(int index)
@@ -62,6 +63,7 @@ public class ZombieSpawner : MonoBehaviour
             zombie.gameObject.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position);
             zombie.gameObject.GetComponent<NavMeshAgent>().speed = Random.Range(zombieInfos[index].speed, zombieInfos[index].speed - .5f);
             zombie.gameObject.GetComponent<EnemyBehaviour>().health = (int)Random.Range(zombieInfos[index].health, zombieInfos[index].health - 10f);
+            zombie.gameObject.GetComponentInChildren<Slider>().maxValue = zombie.gameObject.GetComponent<EnemyBehaviour>().health;
         }
     }
 

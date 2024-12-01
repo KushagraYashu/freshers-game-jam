@@ -155,7 +155,7 @@ public class Gun : MonoBehaviour
         curAmmo = curCurAmmo;
     }
 
-    public void SlowFire()
+    public void SlowFire(float time)
     {
 
     }
