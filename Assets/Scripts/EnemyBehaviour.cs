@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public bool hit;
 
-    public int health = 100;
+    public float health = 100;
     
     public float range;
 
@@ -66,11 +66,11 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void DecreaseHealth(int damage, bool hit)
+    public void DecreaseHealth(float damage, bool hit)
     {
         //zombieAnim.SetBool("Hit", true);
         GetComponentInChildren<ParticleSystem>().Play();
-        GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
+        //GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
         this.hit = hit;
         health-= damage;
         Debug.Log("Health "+ health);
