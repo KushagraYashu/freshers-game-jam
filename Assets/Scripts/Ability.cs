@@ -7,11 +7,15 @@ public class Ability : MonoBehaviour
 {
     public enum AbilityType
     {
-        INFINITE_AMMO,   //0
-        TIME_FREEZE,    //1
+        NONE,           //0
+        INFINITE_AMMO,   //1
         SLOW_FIRERATE,   //2
         WIND,            //3
-        SKIP            //4
+        SKIP,            //4
+        SLOW_TIME,        //5
+        DAMAGE_FIELD,     //6
+        POISION_GAS,
+        ADRENALINE
     }
 
     public AbilityType type;

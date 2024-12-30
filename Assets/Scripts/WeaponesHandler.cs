@@ -70,7 +70,7 @@ public class WeaponesHandler : MonoBehaviour
     {
         foreach(GameObject w in weapons)
         {
-            if (w.GetComponent<Gun>().isReloading || (w.GetComponent<Gun>().getCurAmmo() > w.GetComponent<Gun>().maxAmmo))
+            if (w.GetComponent<Gun>().isReloading || w.GetComponent<Gun>().getCurAmmo() > w.GetComponent<Gun>().maxAmmo)
             {
                 return false;
             }

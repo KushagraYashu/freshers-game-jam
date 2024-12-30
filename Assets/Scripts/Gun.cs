@@ -135,7 +135,7 @@ public class Gun : MonoBehaviour
             }
             if (hitInfo.transform.gameObject.GetComponent<Ability>())
             {
-                AbilityManager.instance.CallAbility((int)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
+                AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
                 hitInfo.transform.gameObject.SetActive(false);
             }
         }
@@ -153,6 +153,23 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("reset ammo");
         curAmmo = curCurAmmo;
+    }
+
+    public void Adrenaline(float time)
+    {
+        float curFireRate = fireRate;
+        float curReloadTime = reloadTime;
+        fireRate *= 2;
+        reloadTime /= 2;
+        StartCoroutine(ResetAdrenaline(time, curFireRate, reloadTime));
+    }
+
+    IEnumerator ResetAdrenaline(float time, float curFireRate, float curReloadTime)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("reset ammo");
+        fireRate = curFireRate;
+        reloadTime = curReloadTime;
     }
 
     public void SlowFire(float time)

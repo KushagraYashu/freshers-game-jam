@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ChainBulletLogic : MonoBehaviour
+{
+    [SerializeField] float damage = 20;
+    [SerializeField] int curHit = 0;
+    [SerializeField] int totHit = 5;
+
+    public IEnumerator Attack(GameObject[] zombies)
+    {
+        damage = 20;
+        for (int i = 0; i < Mathf.Min(totHit, zombies.Length); i++)
+        {
+            while (Vector3.Distance(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position) > .1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position, 10f * Time.deltaTime);
+                yield return null;
+            }
+            curHit++;
+            Debug.LogError(damage);
+            zombies[i].GetComponent<EnemyBehaviour>().DecreaseHealth(damage / curHit, true);
+        }
+        Destroy(gameObject, 2f);
+    }
+}
