@@ -15,7 +15,8 @@ public class Ability : MonoBehaviour
         SLOW_TIME,        //5
         DAMAGE_FIELD,     //6
         POISION_GAS,
-        ADRENALINE
+        ADRENALINE,
+        RETRY
     }
 
     public AbilityType type;

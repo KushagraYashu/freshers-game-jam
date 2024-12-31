@@ -31,7 +31,8 @@ public class AbilityManager : MonoBehaviour
         SLOW_TIME,        //5
         DAMAGE_FIELD,      //6
         POISION_GAS,
-        ADRENALINE
+        ADRENALINE,
+        RETRY
     }
 
     public AbilityType abilityType;
@@ -119,6 +120,11 @@ public class AbilityManager : MonoBehaviour
             case AbilityType.ADRENALINE:
                 abilityType = type;
                 abilityInventoryTxt.text = "Q - Adrenaline";
+                break;
+
+            case AbilityType.RETRY:
+                abilityType = type;
+                abilityInventoryTxt.text = "Q - Retry";
                 break;
 
             default:
@@ -217,6 +223,12 @@ public class AbilityManager : MonoBehaviour
                     gun.Adrenaline(abilityTime);
                     StartTimer(abilityTime);
                     gun = null;
+                    break;
+
+                case AbilityType.RETRY:
+                    levelManager.Retry();
+                    abilityType = AbilityType.NONE;
+                    abilityInventoryTxt.text = "";
                     break;
 
                 default:

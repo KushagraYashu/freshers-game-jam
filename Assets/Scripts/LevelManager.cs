@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
     int maxSteps = 60;
     int curStep = 0;
     int level = 0;
+    int curLevelIndex;
 
     public float time = 0;
     public bool windCalled = false;
@@ -61,6 +62,26 @@ public class LevelManager : MonoBehaviour
             StartCoroutine(LoadDelay());
     }
 
+    public void Retry()
+    {
+        foreach (GameObject go in zombies)
+        {
+            Destroy(go);
+        }
+        Array.Clear(zombies, 0, zombies.Length);
+        totKilled = 0;
+
+        GetComponent<NavMeshSurface>().RemoveData();
+
+        UnLoadDeadScreen();
+
+        floor[curLevelIndex].SetActive(true);
+        GetComponent<NavMeshSurface>().BuildNavMesh();
+        floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
+        zombies = GameObject.FindGameObjectsWithTag("zombies");
+
+    }
+
     public void Reset()
     {
         // Ensure the game is not paused when reloading the scene
@@ -81,8 +102,8 @@ public class LevelManager : MonoBehaviour
         while (curStep <= maxSteps)
         {
             curStep++;
-            int index = UnityEngine.Random.Range(0, played.Length);
-            if (played[index])
+            curLevelIndex = UnityEngine.Random.Range(0, played.Length);
+            if (played[curLevelIndex])
             {
                 continue;
             }
@@ -94,12 +115,13 @@ public class LevelManager : MonoBehaviour
                     go.SetActive(false);
                 }
                 GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
-                floor[index].SetActive(true);
+                floor[curLevelIndex].SetActive(true);
+                GetComponent<NavMeshSurface>().RemoveData();
                 GetComponent<NavMeshSurface>().BuildNavMesh();
-                floor[index].GetComponent<ZombieSpawner>().SpawnZombies(level);
+                floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
                 level++;
                 zombies = GameObject.FindGameObjectsWithTag("zombies");
-                played[index] = true;
+                played[curLevelIndex] = true;
                 return;
             }
         }
@@ -185,6 +207,15 @@ public class LevelManager : MonoBehaviour
         deadScreen.SetActive(true);
     }
 
+    public void UnLoadDeadScreen()
+    {
+        player.GetComponent<Playermovement>().enabled = true;
+        player.GetComponentInChildren<FPSCameraScript>().enabled = true;
+        player.GetComponentInChildren<WeaponesHandler>().enabled = true;
+        player.GetComponentInChildren<Gun>().enabled = true;
+        deadScreen.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -213,19 +244,19 @@ public class LevelManager : MonoBehaviour
         // Check if the dead screen is active and Q is pressed
         if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
-            Reset();
+            //Reset();
         }
 
         // Check if the win screen is active and Q is pressed
         if (winScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
-            Reset();
+            //Reset();
         }
 
         // Check if the pause screen is active and Q is pressed
         if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
-            Reset();
+            //Reset();
         }
 
         // Optionally, check for Q key press when the game is not over
