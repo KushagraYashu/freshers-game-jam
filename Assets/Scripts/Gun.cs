@@ -24,6 +24,10 @@ public class Gun : MonoBehaviour
     public bool laser = false;
     public LineRenderer laserBeam;
 
+    public bool flameThrower = false;
+    public ParticleSystem flameThrowerParticleEffect;
+    public float flameDist;
+
     public int damage = 10;
     public float fireRate = 15f;
 
@@ -85,14 +89,47 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
-            if (!laser)
+            if (!laser && !flameThrower)
             {
                 Shoot();
             }
-            else
+            else if(laser)
             {
                 ShootLaser();
             }
+            else if(flameThrower)
+            {
+                ShootFlame();
+            }
+        }
+    }
+
+    void ShootFlame()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //flameThrowerParticleEffect.Play();
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hitInfo, flameDist))
+        {
+            //Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
+            {
+                hitFeedback.Play();
+                hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage, true);
+            }
+            if (hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>())
+            {
+                hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>().hit = true;
+            }
+            if (hitInfo.transform.gameObject.GetComponent<Ability>())
+            {
+                AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
+                hitInfo.transform.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Not hit");
         }
     }
 
@@ -100,7 +137,7 @@ public class Gun : MonoBehaviour
     {
         curAmmo--;
         gunSound.Play();
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
         {
