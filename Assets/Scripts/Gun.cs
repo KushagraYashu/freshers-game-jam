@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -20,7 +21,9 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
 
-    public bool semiAuto = false;
+    public bool laser = false;
+    public LineRenderer laserBeam;
+
     public int damage = 10;
     public float fireRate = 15f;
 
@@ -63,6 +66,7 @@ public class Gun : MonoBehaviour
         {
             curAmmoTxt.text = "" + curAmmo;
         }
+
         if (isReloading)
             return;
 
@@ -78,23 +82,62 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if (semiAuto)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+            nextTimeToFire = Time.time + 1 / fireRate;
+            if (!laser)
             {
-                nextTimeToFire = Time.time + 1 / fireRate;
                 Shoot();
+            }
+            else
+            {
+                ShootLaser();
+            }
+        }
+    }
+
+    void ShootLaser()
+    {
+        curAmmo--;
+        gunSound.Play();
+        muzzleFlash.Play();
+        RaycastHit hitInfo;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
+        {
+            StartCoroutine(ShowLaserBeam(hitInfo.point));
+            Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
+            {
+                hitFeedback.Play();
+                hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage, true);
+            }
+            if (hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>())
+            {
+                hitInfo.transform.gameObject.GetComponent<PlayableMenuButtons>().hit = true;
+            }
+            if (hitInfo.transform.gameObject.GetComponent<Ability>())
+            {
+                AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
+                hitInfo.transform.gameObject.SetActive(false);
             }
         }
         else
         {
-            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
-            {
-                nextTimeToFire = Time.time + 1 / fireRate;
-                Shoot();
-            }
+            StartCoroutine(ShowLaserBeam(GetComponentInChildren<ParticleSystem>().transform.position + GetComponentInChildren<ParticleSystem>().transform.forward * 1000f));
         }
     }
+
+    IEnumerator ShowLaserBeam(Vector3 endPoint)
+    {
+        laserBeam.SetPosition(0, GetComponentInChildren<ParticleSystem>().transform.position);
+        laserBeam.SetPosition(1, endPoint);
+        laserBeam.enabled = true;
+
+        yield return new WaitForSeconds(.5f);
+
+        laserBeam.enabled = false;
+    }
+
 
     IEnumerator Reload()
     {
