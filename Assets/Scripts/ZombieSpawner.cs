@@ -37,7 +37,7 @@ public class ZombieSpawner : MonoBehaviour
     }
     void OnEnable()
     {
-        for(int i=0; i<zombieInfos.Length;i++) {
+        for(int i=0; i < zombieInfos.Length; i++) { 
             if (i == 0)
             {
                 zombieInfos[i].setValues(2, 0.5f, 100);
@@ -49,7 +49,7 @@ public class ZombieSpawner : MonoBehaviour
         }
 
         spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
-        //SpawnZombies(2);
+        SpawnZombies(2);
     }
 
     public void SpawnZombies(int index)
@@ -57,13 +57,14 @@ public class ZombieSpawner : MonoBehaviour
         for(int i = 0; i < zombieInfos[index].magnitude; i++)
         {
             int spawnPtIndex = Random.Range(0, spawnPoints.Length);
-            var zombie = Instantiate(zombiePrefab, spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position, Quaternion.identity);
-            zombie.gameObject.GetComponent<Transform>().localScale = new Vector3(0.75f, 0.75f, 0.75f); //hardcoding it to be .75 in size because doing so makes navmesh works, i know its stupid, its either this or make the agent go to the player's feet instead of the player, lets see what we pick
-            zombie.gameObject.GetComponent<NavMeshAgent>().enabled = true;
-            zombie.gameObject.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].gameObject.GetComponent<Transform>().position);
-            zombie.gameObject.GetComponent<NavMeshAgent>().speed = Random.Range(zombieInfos[index].speed, zombieInfos[index].speed - .5f);
-            zombie.gameObject.GetComponent<EnemyBehaviour>().health = (int)Random.Range(zombieInfos[index].health, zombieInfos[index].health - 10f);
-            zombie.gameObject.GetComponentInChildren<Slider>().maxValue = zombie.gameObject.GetComponent<EnemyBehaviour>().health;
+            var zombie = Instantiate(zombiePrefab, spawnPoints[spawnPtIndex].GetComponent<Transform>().position, Quaternion.identity);
+            zombie.GetComponent<Transform>().localScale = new Vector3(0.75f, 0.75f, 0.75f); //hardcoding it to be .75 in size because doing so makes navmesh works, i know its stupid, its either this or make the agent go to the player's feet instead of the player, lets see what we pick
+            zombie.GetComponent<NavMeshAgent>().obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            zombie.GetComponent<NavMeshAgent>().enabled = true;
+            zombie.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].GetComponent<Transform>().position);
+            zombie.GetComponent<NavMeshAgent>().speed = Random.Range(zombieInfos[index].speed, zombieInfos[index].speed - .5f);
+            zombie.GetComponent<EnemyBehaviour>().health = (int)Random.Range(zombieInfos[index].health, zombieInfos[index].health - 10f);
+            zombie.GetComponentInChildren<Slider>().maxValue = zombie.GetComponent<EnemyBehaviour>().health;
         }
     }
 
