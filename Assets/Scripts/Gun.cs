@@ -112,6 +112,11 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hitInfo, flameDist))
         {
             //Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.CompareTag("AnnoyanceShootable"))
+            {
+                hitFeedback.Play();
+                Destroy(hitInfo.transform.gameObject, .2f);
+            }
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
             {
                 hitFeedback.Play();
@@ -142,7 +147,12 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
         {
             StartCoroutine(ShowLaserBeam(hitInfo.point));
-            Debug.Log(hitInfo.transform.name);
+            //Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.CompareTag("AnnoyanceShootable"))
+            {
+                hitFeedback.Play();
+                Destroy(hitInfo.transform.gameObject, .2f);
+            }
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
             {
                 hitFeedback.Play();
@@ -203,7 +213,12 @@ public class Gun : MonoBehaviour
         RaycastHit hitInfo;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
         {
-            Debug.Log(hitInfo.transform.name);
+            //Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.CompareTag("AnnoyanceShootable"))
+            {
+                hitFeedback.Play();
+                Destroy(hitInfo.transform.gameObject, .2f);
+            }
             if (hitInfo.transform.gameObject.GetComponent<EnemyBehaviour>())
             {
                 hitFeedback.Play();

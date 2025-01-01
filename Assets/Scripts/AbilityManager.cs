@@ -30,6 +30,7 @@ public class AbilityManager : MonoBehaviour
         SKIP,            //4
         SLOW_TIME,        //5
         DAMAGE_FIELD,      //6
+        CHAIN_BULLET,
         POISION_GAS,
         ADRENALINE,
         RETRY
@@ -117,6 +118,11 @@ public class AbilityManager : MonoBehaviour
                 abilityInventoryTxt.text = "Q - Activate Poison Gas";
                 break;
 
+            case AbilityType.CHAIN_BULLET:
+                abilityType = type;
+                abilityInventoryTxt.text = "Q - Chain Bullet";
+                break;
+
             case AbilityType.ADRENALINE:
                 abilityType = type;
                 abilityInventoryTxt.text = "Q - Adrenaline";
@@ -165,7 +171,6 @@ public class AbilityManager : MonoBehaviour
         {
             switch (abilityType) {
                 case AbilityType.NONE:
-                    ChainBullet();
                     break;
 
                 case AbilityType.INFINITE_AMMO:
@@ -213,6 +218,12 @@ public class AbilityManager : MonoBehaviour
                 case AbilityType.POISION_GAS:
                     PoisionGas();
                     StartTimer(abilityTime);
+                    abilityType = AbilityType.NONE;
+                    abilityInventoryTxt.text = "";
+                    break;
+
+                case AbilityType.CHAIN_BULLET:
+                    ChainBullet();
                     abilityType = AbilityType.NONE;
                     abilityInventoryTxt.text = "";
                     break;

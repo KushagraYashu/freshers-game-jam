@@ -14,6 +14,7 @@ public class Ability : MonoBehaviour
         SKIP,            //4
         SLOW_TIME,        //5
         DAMAGE_FIELD,     //6
+        CHAIN_BULLET,
         POISION_GAS,
         ADRENALINE,
         RETRY

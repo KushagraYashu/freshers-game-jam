@@ -22,6 +22,7 @@ TagManager:
   - spawnPoint
   - Ability
   - AbilityTxt
+  - AnnoyanceShootable
   layers:
   - Default
   - TransparentFX
