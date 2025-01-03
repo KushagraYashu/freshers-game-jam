@@ -20,7 +20,9 @@ public class LevelAnnoyances : MonoBehaviour
         KEYS_MATCH,
         CUPCAKE,
         HACK,
-        HAND_SCAN
+        HAND_SCAN,
+        TV,
+        WIRE_MATCH
     }
 
     public Annoyance annoyanceType;
