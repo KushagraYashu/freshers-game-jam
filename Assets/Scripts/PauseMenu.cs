@@ -36,8 +36,8 @@ public class PauseMenu : MonoBehaviour
 
         // Enable player movement/input
         playerController.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Pauses the game
@@ -49,8 +49,8 @@ public class PauseMenu : MonoBehaviour
 
         // Disable player movement/input
         playerController.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
 
     // Optional: To use this on a button click to quit the game

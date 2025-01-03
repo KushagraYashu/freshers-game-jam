@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,8 @@ public class LevelAnnoyances : MonoBehaviour
         SHIT,
         TOXIC_GAS,
         KEYS_MATCH,
-        CUPCAKE
+        CUPCAKE,
+        HACK
     }
 
     public Annoyance annoyanceType;
@@ -31,6 +33,12 @@ public class LevelAnnoyances : MonoBehaviour
     GameObject[] spawnPts;
     List<GameObject> pumpkins = new List<GameObject>();
     bool pumpkinAdded = false;
+
+    public GameObject hackText;
+    public GameObject hackInputField;
+    int hackInput;
+    bool hackStarted = false;
+    int hackNo;
     
     // Start is called before the first frame update
     void Start()
@@ -68,6 +76,22 @@ public class LevelAnnoyances : MonoBehaviour
                         pumpkinAdded = true;
                     }
                     break;
+
+                case Annoyance.HACK:
+                    if (!hackStarted)
+                    {
+                        DisablePlayerControls();
+
+                        Cursor.lockState = CursorLockMode.None;
+                        hackNo = Random.Range(0000, 9999);
+
+                        hackInputField.SetActive(true);
+                        hackText.SetActive(true);
+                        hackText.GetComponentInChildren<TextMeshProUGUI>().text = "Enter the code " + hackNo + "!\nthen Press \"LCtrl\", you imbecile!";
+
+                        hackStarted = true;
+                    }
+                    break;
             }
         }
 
@@ -94,6 +118,25 @@ public class LevelAnnoyances : MonoBehaviour
             pumpkinTxt.SetActive(false);
             annoyanceType = Annoyance.NONE;
             pumpkinAdded = false;
+        }
+
+        if (hackStarted)
+        {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                int.TryParse(hackInputField.GetComponent<TMP_InputField>().text, out hackInput);
+                if (hackInput == hackNo)
+                {
+                    annoyanceType = Annoyance.NONE;
+
+                    hackInputField.SetActive(false);
+                    hackText.SetActive(false);
+
+                    EnablePlayerControls();
+
+                    hackStarted = false;
+                }
+            }
         }
     }
 

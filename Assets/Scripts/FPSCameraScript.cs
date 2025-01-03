@@ -17,7 +17,7 @@ public class FPSCameraScript : MonoBehaviour
     {
         
         
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         
 
         
