@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -76,7 +77,9 @@ public class LevelAnnoyanceWireMatching : LevelAnnoyances
             disabledColor = Color.black
         };
         wire1.GetComponent<Button>().colors = colorBlock;
+        wire1.GetComponent<Button>().enabled = false;
         wire2.GetComponent<Button>().colors = colorBlock;
+        wire2.GetComponent<Button>().enabled = false;
         if (curWire == totWire)
         {
             lights.SetActive(true);

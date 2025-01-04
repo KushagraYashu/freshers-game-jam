@@ -22,7 +22,8 @@ public class LevelAnnoyances : MonoBehaviour
         HACK,
         HAND_SCAN,
         TV,
-        WIRE_MATCH
+        WIRE_MATCH,
+        TICKET
     }
 
     public Annoyance annoyanceType;
