@@ -77,9 +77,9 @@ public class LevelAnnoyanceWireMatching : LevelAnnoyances
             disabledColor = Color.black
         };
         wire1.GetComponent<Button>().colors = colorBlock;
-        wire1.GetComponent<Button>().enabled = false;
+        wire1.GetComponent<Button>().interactable = false;
         wire2.GetComponent<Button>().colors = colorBlock;
-        wire2.GetComponent<Button>().enabled = false;
+        wire2.GetComponent<Button>().interactable = false;
         if (curWire == totWire)
         {
             lights.SetActive(true);
