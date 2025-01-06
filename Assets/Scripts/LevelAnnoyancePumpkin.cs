@@ -7,7 +7,7 @@ public class LevelAnnoyancePumpkin : LevelAnnoyances
     public GameObject pumpkinPrefab;
     public GameObject pumpkinTxt;
     GameObject[] spawnPts;
-    List<GameObject> pumpkins = new List<GameObject>();
+    List<GameObject> pumpkins = new();
     bool pumpkinAdded = false;
 
     // Update is called once per frame
