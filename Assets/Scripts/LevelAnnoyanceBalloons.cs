@@ -5,7 +5,7 @@ using static LevelAnnoyances;
 
 public class LevelAnnoyanceBalloons : LevelAnnoyances
 {
-    public GameObject balloonsPrefab;
+    public GameObject[] balloonsPrefabs;
     public GameObject balloonsTxt;
     public GameObject spawnPointPrefab;
     List<GameObject> balloons = new();
@@ -30,7 +30,8 @@ public class LevelAnnoyanceBalloons : LevelAnnoyances
                         {
                             if(!spawnPoint.transform.name.Contains("BalloonSpawnPts"))
                             {
-                                balloons.Add(Instantiate(balloonsPrefab, new Vector3(spawnPoint.transform.position.x, 2, spawnPoint.transform.position.z), balloonsPrefab.transform.rotation));
+                                int index = Random.Range(0, balloonsPrefabs.Length);
+                                balloons.Add(Instantiate(balloonsPrefabs[index], new Vector3(spawnPoint.transform.position.x, 10.5f, spawnPoint.transform.position.z), balloonsPrefabs[index].transform.rotation));
                             }
                         }
                         balloonsTxt.SetActive(true);
@@ -45,10 +46,15 @@ public class LevelAnnoyanceBalloons : LevelAnnoyances
         {
             foreach (var balloon in balloons)
             {
-                if (balloon != null)
+                if (balloon.GetComponentInChildren<SphereCollider>() != null)
                 {
                     return;
                 }
+            }
+
+            foreach (var balloon in balloons)
+            {
+                Destroy(balloon);
             }
             balloonsTxt.SetActive(false);
             annoyanceType = Annoyance.NONE;
