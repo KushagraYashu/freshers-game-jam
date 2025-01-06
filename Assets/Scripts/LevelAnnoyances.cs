@@ -24,7 +24,8 @@ public class LevelAnnoyances : MonoBehaviour
         TV,
         WIRE_MATCH,
         TICKET,
-        BEAR_TRAP
+        BEAR_TRAP,
+        CAR_KEYS
     }
 
     public Annoyance annoyanceType;

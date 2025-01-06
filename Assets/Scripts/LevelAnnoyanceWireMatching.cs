@@ -83,6 +83,7 @@ public class LevelAnnoyanceWireMatching : LevelAnnoyances
         if (curWire == totWire)
         {
             lights.SetActive(true);
+            annoyanceType = Annoyance.NONE;
             yield return new WaitForSeconds(1f);
             wireMatchUI.SetActive(false);
         }
