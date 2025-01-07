@@ -23,6 +23,7 @@ TagManager:
   - Ability
   - AbilityTxt
   - AnnoyanceShootable
+  - KilledZombie
   layers:
   - Default
   - TransparentFX

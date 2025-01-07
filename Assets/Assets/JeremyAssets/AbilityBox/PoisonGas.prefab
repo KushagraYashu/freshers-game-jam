@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951052211878973886}
   - component: {fileID: 2958063584491323166}
+  - component: {fileID: 8608272418655907181}
   m_Layer: 0
   m_Name: PoisonGas
   m_TagString: Untagged
@@ -52,6 +53,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8608272418655907181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315762603925448441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 8
+  abilityTime: 10
 --- !u!1 &4877752161260310742
 GameObject:
   m_ObjectHideFlags: 0

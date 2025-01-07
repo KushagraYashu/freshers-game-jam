@@ -52,6 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
             lvlManagerCalled = true;
             this.GetComponent<EnemyFollow>().StopMotion();
             //zombieAnim.SetBool("Death", true);
+            this.gameObject.tag = "KilledZombie";
             Destroy(this.gameObject, 2f);
         }
 

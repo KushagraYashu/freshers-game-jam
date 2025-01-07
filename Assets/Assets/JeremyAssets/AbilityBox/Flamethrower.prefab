@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3266587734808506894}
   - component: {fileID: 1837738192293724674}
+  - component: {fileID: 8558869333440331098}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8558869333440331098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522185603643250194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 11
+  abilityTime: 0
 --- !u!1 &6614218452075644142
 GameObject:
   m_ObjectHideFlags: 0

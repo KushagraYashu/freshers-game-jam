@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5114085882859381535}
   - component: {fileID: 7597226357917111782}
+  - component: {fileID: -975734202534107463}
   m_Layer: 0
   m_Name: InfiniteAmmo
   m_TagString: Untagged
@@ -52,6 +53,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-975734202534107463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364517188058664408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  abilityTime: 10
 --- !u!1 &3845093205016437237
 GameObject:
   m_ObjectHideFlags: 0

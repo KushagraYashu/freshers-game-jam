@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 565163824967774150}
   - component: {fileID: 7256197650285548970}
+  - component: {fileID: 7228745874071996506}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Untagged
@@ -52,6 +53,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7228745874071996506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507577279818916204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 12
+  abilityTime: 0
 --- !u!1 &2664145936605071195
 GameObject:
   m_ObjectHideFlags: 0

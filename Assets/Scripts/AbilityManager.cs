@@ -11,6 +11,8 @@ public class AbilityManager : MonoBehaviour
 
     public Gun gun;
     public GameObject player;
+    public GameObject playerFlamethrower;
+    public GameObject playerLaser;
     public TextMeshProUGUI abilityTimeTxt;
     public TextMeshProUGUI abilityInventoryTxt;
 
@@ -33,7 +35,9 @@ public class AbilityManager : MonoBehaviour
         CHAIN_BULLET,
         POISION_GAS,
         ADRENALINE,
-        RETRY
+        RETRY,
+        FLAMETHROWER,
+        LASER
     }
 
     public AbilityType abilityType;
@@ -133,6 +137,16 @@ public class AbilityManager : MonoBehaviour
                 abilityInventoryTxt.text = "Q - Retry";
                 break;
 
+            case AbilityType.FLAMETHROWER:
+                abilityType = type;
+                abilityInventoryTxt.text = "Flamethrower Baby!";
+                break;
+
+            case AbilityType.LASER:
+                abilityType= type;
+                abilityInventoryTxt.text = "Yo! Laser";
+                break;
+
             default:
                 Debug.Log("error in ability");
                 break;
@@ -165,6 +179,21 @@ public class AbilityManager : MonoBehaviour
         {
             timer = false;
             abilityTimeTxt.text = "";
+        }
+
+        if(abilityType == AbilityType.FLAMETHROWER)
+        {
+            gun = GameObject.FindAnyObjectByType<Gun>();
+            gun.gameObject.SetActive(false);
+            playerFlamethrower.SetActive(true);
+            abilityType = AbilityType.NONE;
+        }
+
+        if (abilityType == AbilityType.LASER) {
+            gun = GameObject.FindAnyObjectByType<Gun>();
+            gun.gameObject.SetActive(false);
+            playerLaser.SetActive(true);
+            abilityType = AbilityType.NONE;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -262,7 +291,6 @@ public class AbilityManager : MonoBehaviour
         {
             if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
             {
-                Debug.LogError("Applying Wind");
                 StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health / 20, 1.25f));
             }
         }
@@ -274,7 +302,6 @@ public class AbilityManager : MonoBehaviour
         {
             if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
             {
-                Debug.LogError("Applying Wind");
                 StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health/20, .75f));
             }
         }

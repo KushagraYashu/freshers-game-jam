@@ -17,7 +17,9 @@ public class Ability : MonoBehaviour
         CHAIN_BULLET,
         POISION_GAS,
         ADRENALINE,
-        RETRY
+        RETRY,
+        FLAMETHROWER,
+        LASER
     }
 
     public AbilityType type;

@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2635223831826186634}
   - component: {fileID: 2863852101423856869}
+  - component: {fileID: 2275059941386872415}
   m_Layer: 0
   m_Name: TimeSlow
   m_TagString: Untagged
@@ -220,3 +221,17 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2275059941386872415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724918913480140356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  abilityTime: 10

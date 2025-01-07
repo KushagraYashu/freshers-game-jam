@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5136172169319903944}
   - component: {fileID: 5391185941775075977}
+  - component: {fileID: 592769101443954318}
   m_Layer: 0
   m_Name: ChainLightning
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &592769101443954318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608067708025756452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 7
+  abilityTime: 0
 --- !u!1 &8972953929105415816
 GameObject:
   m_ObjectHideFlags: 0
