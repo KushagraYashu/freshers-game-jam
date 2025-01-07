@@ -37,6 +37,8 @@ public class LevelManager : MonoBehaviour
     int level = 0;
     int curLevelIndex;
 
+    bool cursorLocked;
+
     public float time = 0;
     public bool windCalled = false;
     public float windTime;
@@ -120,6 +122,11 @@ public class LevelManager : MonoBehaviour
                 GetComponent<NavMeshSurface>().BuildNavMesh();
                 floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
                 level++;
+                foreach (GameObject go in zombies)
+                {
+                    Destroy(go);
+                }
+                Array.Clear(zombies, 0, zombies.Length);
                 zombies = GameObject.FindGameObjectsWithTag("zombies");
                 played[curLevelIndex] = true;
                 return;
@@ -191,7 +198,7 @@ public class LevelManager : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().CloseDoor();
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
 
         nextFloorScreen.SetActive(false);
         totKilled = 0;
@@ -241,6 +248,12 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        
+
         // Check if the dead screen is active and Q is pressed
         if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
