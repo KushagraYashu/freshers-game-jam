@@ -15,7 +15,7 @@ public class ChainBulletLogic : MonoBehaviour
         {
             while (Vector3.Distance(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position) > .1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position, 10f * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position, 20f * Time.deltaTime);
                 yield return null;
             }
             curHit++;

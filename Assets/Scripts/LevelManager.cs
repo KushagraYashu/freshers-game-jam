@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public GameObject floor0;
 
     public GameObject[] floor = new GameObject[4];
+    HashSet<int> playedIndex = new();
     public bool[] played;
 
     public GameObject deadScreen;
@@ -28,6 +29,9 @@ public class LevelManager : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject nextFloorScreen;
     public GameObject winScreen;
+
+    public GameObject liftWall;
+    public GameObject winScene;
 
     public GameObject player;
     public GameObject playerCanvas;
@@ -51,7 +55,6 @@ public class LevelManager : MonoBehaviour
             Destroy(go);
         }
         Array.Clear(zombies, 0, zombies.Length);
-        zombies = null;
         totKilled = 0;
 
         for (int i = 0; i < played.Length; i++) {
@@ -62,7 +65,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         
-            StartCoroutine(LoadDelay());
+        StartCoroutine(LoadDelay());
     }
 
     public void Retry()
@@ -72,7 +75,6 @@ public class LevelManager : MonoBehaviour
             Destroy(go);
         }
         Array.Clear(zombies, 0, zombies.Length);
-        zombies = null;
         totKilled = 0;
 
         GetComponent<NavMeshSurface>().RemoveData();
@@ -102,16 +104,17 @@ public class LevelManager : MonoBehaviour
 
     public void RandomStart()
     {
-        curStep = 0;
-        while (curStep <= maxSteps)
+        if (playedIndex.Count < played.Length)
         {
-            curStep++;
-            curLevelIndex = UnityEngine.Random.Range(0, played.Length);
-            if (played[curLevelIndex])
+            bool added;
+            do
             {
-                continue;
-            }
-            else
+                curLevelIndex = UnityEngine.Random.Range(0, played.Length);
+                added = playedIndex.Add(curLevelIndex);
+
+            } while (!added);
+
+            if (added)
             {
                 floor0.SetActive(false);
                 foreach (GameObject go in floor)
@@ -135,45 +138,50 @@ public class LevelManager : MonoBehaviour
                 played[curLevelIndex] = true;
                 return;
             }
+
         }
-        winScreen.SetActive(true);
-        TimerController.instance.timerGoing = false;
-        globalMusic.Stop();
-        elevatorDing.Play();
-        StartCoroutine(SoundDelay());
+        else
+        {
+            TimerController.instance.timerGoing = false;
+            globalMusic.Stop();
+            elevatorDing.Play();
+            StartCoroutine(SoundDelay());
+        }
     }
 
     IEnumerator SoundDelay()
     {
         yield return new WaitForSeconds(1);
         elevatorSound.Play();
-        player.GetComponent<Playermovement>().enabled = false;
-        player.GetComponentInChildren<FPSCameraScript>().enabled = false;
-        player.GetComponentInChildren<WeaponesHandler>().enabled = false;
-        player.GetComponentInChildren<Gun>().enabled = false;
-        playerCanvas.SetActive(false);
-        StartCoroutine(FadeImage(true));
-        winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Programmer: Kushagra\nArt: Jeremy\n Programmer: Kevin\n Programmer: Luca\n Emotional Support: Flynn, McKenzie, Matt";
-        winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+        Win();
+    }
 
-
+    void Win()
+    {
+        //winScreen.SetActive(true);
+        //player.GetComponent<Playermovement>().enabled = false;
+        //player.GetComponentInChildren<FPSCameraScript>().enabled = false;
+        //player.GetComponentInChildren<WeaponesHandler>().enabled = false;
+        //player.GetComponentInChildren<Gun>().enabled = false;
+        //playerCanvas.SetActive(false);
+        //StartCoroutine(FadeImage(true));
+        GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
+        liftWall.SetActive(false);
+        winScene.SetActive(true);
+        //winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Programmer: Kushagra\nArt: Jeremy\n Programmer: Kevin\n Programmer: Luca\n Emotional Support: Flynn, McKenzie, Matt";
+        //winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
     }
 
     IEnumerator FadeImage(bool fadeAway)
     {
-        // fade from opaque to transparent
         if (fadeAway)
         {
-            // loop over 1 second backwards
             for (float i = 0; i <= 1; i += Time.deltaTime / 3)
             {
-                // set color with i as alpha
                 winScreen.GetComponent<Image>().color = new Color(1, 1, 1, i);
                 yield return null;
             }
         }
-
-
     }
 
     public void ZombieCheck()
@@ -206,6 +214,7 @@ public class LevelManager : MonoBehaviour
 
         nextFloorScreen.SetActive(false);
         totKilled = 0;
+        floor[curLevelIndex].SetActive(false);
         RandomStart();
     }
 
@@ -240,7 +249,7 @@ public class LevelManager : MonoBehaviour
         player.GetComponentInChildren<FPSCameraScript>().enabled = false;
         player.GetComponentInChildren<WeaponesHandler>().enabled = false;
         player.GetComponentInChildren<Gun>().enabled = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0);
         loadScreen.SetActive(false);
         player.GetComponent<Playermovement>().enabled = true;
         player.GetComponentInChildren<FPSCameraScript>().enabled = true;

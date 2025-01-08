@@ -365,7 +365,7 @@ public class AbilityManager : MonoBehaviour
     {
         spawnPoint = GameObject.FindGameObjectWithTag("AbilitySpawnPoint").transform;
         int index = Random.Range(0, abilityBoxes.Length);
-        curAbilityBox = Instantiate(abilityBoxes[index], spawnPoint.position, Quaternion.identity);
+        curAbilityBox = Instantiate(abilityBoxes[index], spawnPoint.position, spawnPoint.rotation);
     }
 
     public void AbilityBoxClear()
