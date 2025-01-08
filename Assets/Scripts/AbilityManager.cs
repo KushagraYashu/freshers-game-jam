@@ -189,6 +189,17 @@ public class AbilityManager : MonoBehaviour
             abilityType = AbilityType.NONE;
         }
 
+        if (Input.GetKeyDown(KeyCode.Q) && playerFlamethrower.activeInHierarchy)
+        {
+            gun.gameObject.SetActive(true);
+            playerFlamethrower.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && playerLaser.activeInHierarchy)
+        {
+            gun.gameObject.SetActive(true);
+            playerLaser.SetActive(false);
+        }
+
         if (abilityType == AbilityType.LASER) {
             gun = GameObject.FindAnyObjectByType<Gun>();
             gun.gameObject.SetActive(false);
@@ -259,6 +270,7 @@ public class AbilityManager : MonoBehaviour
 
                 case AbilityType.ADRENALINE:
                     abilityType = AbilityType.NONE;
+                    abilityInventoryTxt.text = "";
                     gun = GameObject.FindAnyObjectByType<Gun>();
                     gun.Adrenaline(abilityTime);
                     StartTimer(abilityTime);
@@ -342,6 +354,24 @@ public class AbilityManager : MonoBehaviour
         {
             zombie.GetComponent<NavMeshAgent>().speed = speed[i];
             i++;
+        }
+    }
+
+    public GameObject[] abilityBoxes;
+    GameObject curAbilityBox;
+    public Transform spawnPoint;
+
+    public void RandomAbilitySpawn()
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("AbilitySpawnPoint").transform;
+        int index = Random.Range(0, abilityBoxes.Length);
+        curAbilityBox = Instantiate(abilityBoxes[index], spawnPoint.position, Quaternion.identity);
+    }
+
+    public void AbilityBoxClear()
+    {
+        if (curAbilityBox != null) { 
+            Destroy(curAbilityBox);
         }
     }
 }

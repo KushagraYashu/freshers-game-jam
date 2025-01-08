@@ -94,9 +94,10 @@ GameObject:
   - component: {fileID: 3266587734808506894}
   - component: {fileID: 1837738192293724674}
   - component: {fileID: 8558869333440331098}
+  - component: {fileID: 5006845991401313966}
   m_Layer: 0
   m_Name: Flamethrower
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +151,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 11
   abilityTime: 0
+--- !u!65 &5006845991401313966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522185603643250194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.46, y: 1.63, z: 2.04}
+  m_Center: {x: 0, y: 0.84, z: -0.76}
 --- !u!1 &6614218452075644142
 GameObject:
   m_ObjectHideFlags: 0

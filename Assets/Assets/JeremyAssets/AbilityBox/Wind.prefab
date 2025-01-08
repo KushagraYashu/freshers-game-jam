@@ -179,9 +179,10 @@ GameObject:
   - component: {fileID: 3288149711523124162}
   - component: {fileID: 5478614531349526278}
   - component: {fileID: 7722586122102883612}
+  - component: {fileID: -3775724126942124752}
   m_Layer: 0
   m_Name: Wind
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,3 +236,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   abilityTime: 1
+--- !u!65 &-3775724126942124752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142484518639604793}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

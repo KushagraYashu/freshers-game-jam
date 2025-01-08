@@ -179,9 +179,10 @@ GameObject:
   - component: {fileID: 2635223831826186634}
   - component: {fileID: 2863852101423856869}
   - component: {fileID: 2275059941386872415}
+  - component: {fileID: 6929716335036315032}
   m_Layer: 0
   m_Name: TimeSlow
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,3 +236,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   abilityTime: 10
+--- !u!65 &6929716335036315032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724918913480140356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.46, y: 1.63, z: 2.04}
+  m_Center: {x: 0, y: 0.84, z: -0.76}
