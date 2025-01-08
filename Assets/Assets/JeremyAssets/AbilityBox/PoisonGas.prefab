@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 951052211878973886}
   - component: {fileID: 2958063584491323166}
   - component: {fileID: 8608272418655907181}
+  - component: {fileID: 1843188832359050220}
   m_Layer: 0
   m_Name: PoisonGas
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +68,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 8
   abilityTime: 10
+--- !u!65 &1843188832359050220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315762603925448441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.46, y: 1.63, z: 2.04}
+  m_Center: {x: 0, y: 0.84, z: -0.76}
 --- !u!1 &4877752161260310742
 GameObject:
   m_ObjectHideFlags: 0

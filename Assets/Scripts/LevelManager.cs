@@ -119,7 +119,9 @@ public class LevelManager : MonoBehaviour
                     go.SetActive(false);
                 }
                 GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
+                AbilityManager.instance.AbilityBoxClear();
                 floor[curLevelIndex].SetActive(true);
+                AbilityManager.instance.RandomAbilitySpawn();
                 GetComponent<NavMeshSurface>().RemoveData();
                 GetComponent<NavMeshSurface>().BuildNavMesh();
                 floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
