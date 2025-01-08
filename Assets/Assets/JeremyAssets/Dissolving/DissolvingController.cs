@@ -17,13 +17,10 @@ public class DissolvingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(DissolveCo());
-        }
+        
     }
 
-    IEnumerator DissolveCo ()
+    public IEnumerator DissolveCo ()
     {
         if(skinnedMaterials.Length >0)
         {
