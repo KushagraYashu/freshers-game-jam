@@ -5,79 +5,44 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public class DoorOpening : MonoBehaviour
 {
     public AudioSource openDoors;
     public AudioSource closeDoors;
 
     private bool doorsOpen = false;
-
     private bool doorsClose = false;
 
     [SerializeField] private Animator animatorL = null;
     [SerializeField] private Animator animatorR = null;
 
+    [SerializeField] private Transform cameraTransform; // Reference to the camera's Transform
+    public float shakeDuration = 0.3f; // Duration of the camera shake
+    public float shakeMagnitude = 0.1f; // Magnitude of the shake
+
+    private Vector3 originalCameraPosition; // To store the camera's original position
+
     public Ltestscript ltestscript;
-    //public string[] Levels = { "Opening_Level", "Level_001", "Level_002", "Level003" };
-    //public int Current_Scene = 1;
-    //SceneManager.LoadScene("Opening_Level");
-    // Start is called before the first frame update
+
     void Start()
     {
-        //SceneManager.LoadScene("MainMenuScene");
-
+        if (cameraTransform != null)
+        {
+            originalCameraPosition = cameraTransform.localPosition;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown("e"))
-        //{
-        //    OpenDoor();
-        //}
-        
-        //if (Input.GetKeyDown("q"))
-        //{
-        //    CloseDoor(); 
-        //    //Current_Scene = Current_Scene ++ ;
-
-        //}
-
-        //if (doorsClose == true)
-        //{
-        //Debug.Log("doors close");
-        if ( ltestscript.tScene == true)
+        if (ltestscript.tScene == true)
         {
-            //Debug.Log("scene load");
-            //SceneManager.LoadScene(Levels[Current_Scene]);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+            // Scene transition logic (if needed)
         }
-            
-       //}
-
-        /*if (doorsOpen == false)
-        {
-            SceneManager.LoadScene("TransitionTest");
-        }*/
-
-
-        /*if (doorsOpen == true)
-        {
-            animator.SetTrigger("doorsOpen");
-
-            doorsOpen = false;
-        }*/
-
-
     }
 
     public void OpenDoor()
     {
         openDoors.Play();
-        //if (doorsOpen) { return; }
         animatorL.SetBool("test", true);
         animatorL.ResetTrigger("doorsClose");
         animatorR.ResetTrigger("doorsClose");
@@ -85,32 +50,43 @@ public class DoorOpening : MonoBehaviour
         animatorR.SetTrigger("doorsOpen");
         doorsOpen = true;
         doorsClose = false;
-                                                            
     }
 
     public void CloseDoor()
     {
         closeDoors.Play();
         Debug.Log("ClosingDoors");
-        //if (doorsClose) { return; } 
-        
-        //Debug.Log(Current_Scene); 
-        //Debug.Log(Levels[Current_Scene]);
-
-        //Debug.log(Levels(Current_Scene));
 
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");
-        animatorR.SetTrigger("doorsClose"); 
+        animatorR.SetTrigger("doorsClose");
         animatorL.ResetTrigger("doorsOpen");
         animatorR.ResetTrigger("doorsOpen");
         doorsClose = true;
         doorsOpen = false;
-        
 
-
+        // Trigger camera shake
+        if (cameraTransform != null)
+        {
+            StartCoroutine(ShakeCamera());
+        }
     }
 
-    //public void FinishOpening() => doorsOpen = false;
-    //public void FinishClosing() => doorsClose = false;
+    private IEnumerator ShakeCamera()
+    {
+        float elapsed = 0f;
+
+        while (elapsed < shakeDuration)
+        {
+            // Apply random shake within the specified magnitude
+            Vector3 randomOffset = Random.insideUnitSphere * shakeMagnitude;
+            cameraTransform.localPosition = originalCameraPosition + new Vector3(randomOffset.x, randomOffset.y, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset camera to its original position
+        cameraTransform.localPosition = originalCameraPosition;
+    }
 }

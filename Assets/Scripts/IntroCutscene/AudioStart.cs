@@ -7,6 +7,7 @@ public class AudioStart : MonoBehaviour
     public float startTime = 32f;     // Time (in seconds) after which the audio will start playing
 
     private float timer = 0f;         // Timer to track the time
+    private bool hasPlayed = false;   // Flag to check if the audio has already played
 
     void Start()
     {
@@ -28,11 +29,12 @@ public class AudioStart : MonoBehaviour
         // Increment the timer
         timer += Time.deltaTime;
 
-        // Check if the timer has reached the start time
-        if (timer >= startTime && !audioSource.isPlaying)
+        // Check if the timer has reached the start time and the audio hasn't already played
+        if (timer >= startTime && !hasPlayed)
         {
             audioSource.clip = audioClip;   // Assign the audio clip if not already set
             audioSource.Play();             // Start playing the audio
+            hasPlayed = true;               // Mark the audio as played
         }
     }
 }
