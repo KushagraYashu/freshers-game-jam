@@ -53,7 +53,11 @@ public class EnemyBehaviour : MonoBehaviour
             this.GetComponent<EnemyFollow>().StopMotion();
             //zombieAnim.SetBool("Death", true);
             this.gameObject.tag = "KilledZombie";
-            StartCoroutine(GetComponentInChildren<DissolvingController>().DissolveCo());
+            DissolvingController dissolvingController;
+            if(TryGetComponent<DissolvingController>(out dissolvingController))
+            {
+                StartCoroutine(dissolvingController.DissolveCo());
+            }
             Destroy(this.gameObject, 2f);
         }
 

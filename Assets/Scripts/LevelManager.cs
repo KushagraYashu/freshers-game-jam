@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public AudioSource elevatorDing;
     public AudioSource elevatorSound;
     public AudioSource globalMusic;
+    public AudioSource liftPanel;
 
     public int totKilled = 0;
 
@@ -138,10 +139,11 @@ public class LevelManager : MonoBehaviour
                 played[curLevelIndex] = true;
                 return;
             }
-
         }
         else
         {
+            GetComponent<NavMeshSurface>().RemoveData();
+            AbilityManager.instance.AbilityBoxClear();
             TimerController.instance.timerGoing = false;
             globalMusic.Stop();
             elevatorDing.Play();
@@ -240,7 +242,16 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
+        globalMusic.Play();
+        liftPanel.Play();
+        StartCoroutine(SetSubtitle());
         StartCoroutine(SceneSetup());
+    }
+
+    IEnumerator SetSubtitle()
+    {
+        yield return new WaitForSeconds(6);
+        StartCoroutine(SubtitleManager.Instance.StartSubtitle());
     }
 
     IEnumerator SceneSetup()
