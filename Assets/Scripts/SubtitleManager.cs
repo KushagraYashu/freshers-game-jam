@@ -8,55 +8,14 @@ public class SubtitleManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI subtitle;
 
-    public string dialogue;
-    List<string> words = new();
-    string curWordToWrite;
-
-    public float wpm;
-    float eachWordTime;
-
-    public int wordLimit;
-    int curWord;
+    public string[] lines;
+    public float[] lineTime;
 
     public static SubtitleManager Instance;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        eachWordTime = wpm / 60;
-        eachWordTime = 1 / eachWordTime;
-
-        //List<char> charToAdd = new();
-        //foreach(char c in dialogue.ToCharArray())
-        //{
-        //    if(c != ' ')
-        //    {
-        //        charToAdd.Add(c);
-        //    }
-        //    else
-        //    {
-        //        string res = string.Empty;
-        //        foreach(var ch in charToAdd)
-        //        {
-        //            res += ch;
-        //        }
-        //        words.Add(res);
-        //        charToAdd.Clear();
-        //    }
-        //}
-
-        foreach (var word in dialogue.Split(' '))
-        {
-            if (!string.IsNullOrEmpty(word))
-            {
-                words.Add(word);
-            }
-        }
     }
 
     // Update is called once per frame
@@ -67,26 +26,11 @@ public class SubtitleManager : MonoBehaviour
 
     public IEnumerator StartSubtitle()
     {
-        foreach (string word in words)
+        for (int i = 0; i < lines.Length; i++)
         {
-            curWordToWrite = word;
-            if (curWord >= wordLimit - 1)
-            {
-                subtitle.text += word + " ";
-                curWord++;
-                yield return new WaitForSeconds(eachWordTime * curWord);
-                curWord = 0;
-                subtitle.text = "";
-            }
-            else
-            {
-                subtitle.text += word + " ";
-                curWord++;
-                //yield return new WaitForSeconds(eachWordTime);
-            }
+            subtitle.text = lines[i];
+            yield return new WaitForSeconds(lineTime[i]);
         }
-
-        yield return new WaitForSeconds(1f);
         subtitle.text = "";
     }
 }
