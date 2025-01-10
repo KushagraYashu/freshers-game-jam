@@ -28,7 +28,7 @@ public class LevelAnnoyanceCupcake : LevelAnnoyances
                         var spawnPts = cupcakeSpawnPts.GetComponentsInChildren<Transform>();
                         foreach (var spawnPoint in spawnPts)
                         {
-                            cupcakes.Add(Instantiate(cupcakePrefab, new Vector3(spawnPoint.position.x, 5.0f, spawnPoint.position.z), cupcakePrefab.transform.rotation));
+                            cupcakes.Add(Instantiate(cupcakePrefab, new Vector3(spawnPoint.position.x, 5.0f, spawnPoint.position.z), cupcakePrefab.transform.rotation, spawnPoint));
                         }
                         cupcakeTxt.SetActive(true);
                         cupcakeAdded = true;

@@ -160,11 +160,7 @@ public class AbilityManager : MonoBehaviour
         this.time = time;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -188,24 +184,28 @@ public class AbilityManager : MonoBehaviour
             playerFlamethrower.SetActive(true);
             abilityType = AbilityType.NONE;
         }
-
         if (Input.GetKeyDown(KeyCode.Q) && playerFlamethrower.activeInHierarchy)
         {
             gun.gameObject.SetActive(true);
             playerFlamethrower.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Q) && playerLaser.activeInHierarchy)
-        {
-            gun.gameObject.SetActive(true);
-            playerLaser.SetActive(false);
+            abilityInventoryTxt.text = "";
         }
 
-        if (abilityType == AbilityType.LASER) {
+        if (abilityType == AbilityType.LASER)
+        {
             gun = GameObject.FindAnyObjectByType<Gun>();
             gun.gameObject.SetActive(false);
             playerLaser.SetActive(true);
             abilityType = AbilityType.NONE;
         }
+        if (Input.GetKeyDown(KeyCode.Q) && playerLaser.activeInHierarchy)
+        {
+            gun.gameObject.SetActive(true);
+            playerLaser.SetActive(false);
+            abilityInventoryTxt.text = "";
+        }
+
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

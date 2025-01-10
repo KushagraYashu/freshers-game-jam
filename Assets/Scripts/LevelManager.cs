@@ -10,43 +10,56 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Player Related")]
+    [Space]
+    public GameObject player;
+    public GameObject playerCanvas;
+    [Space(15f)]
+
+    [Header("Audio Sources")]
+    [Space]
     public AudioSource elevatorDing;
     public AudioSource elevatorSound;
     public AudioSource globalMusic;
     public AudioSource liftPanel;
+    [Space(15f)]
 
+    [Header("Level Related Variables")]
+    [Space]
     public int totKilled = 0;
-
     public GameObject[] zombies;
-
     public GameObject floor0;
-
     public GameObject[] floor = new GameObject[4];
     HashSet<int> playedIndex = new();
     public bool[] played;
+    [Space(15f)]
 
+    [Header("UI Gameobjects")]
+    [Space]
     public GameObject deadScreen;
     public GameObject loadScreen;
     public GameObject pauseScreen;
     public GameObject nextFloorScreen;
     public GameObject winScreen;
+    public GameObject skipDialogueUI;
+    [Space(15f)]
 
+    [Header("Win Screen")]
+    [Space]
     public GameObject liftWall;
     public GameObject winScene;
+    [Space(15f)]
 
-    public GameObject player;
-    public GameObject playerCanvas;
+    [Header("Ability (Wind)")]
+    [Space]
+    public float time = 0;
+    public bool windCalled = false;
+    public float windTime;
 
-    int maxSteps = 60;
-    int curStep = 0;
     int level = 0;
     int curLevelIndex;
 
     bool cursorLocked = false;
-
-    public float time = 0;
-    public bool windCalled = false;
-    public float windTime;
 
     public void SkipLevel()
     {
@@ -244,6 +257,7 @@ public class LevelManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         globalMusic.Play();
         liftPanel.Play();
+        skipDialogueUI.SetActive(true);
         StartCoroutine(SetSubtitle());
         StartCoroutine(SceneSetup());
     }
@@ -272,6 +286,15 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        if(skipDialogueUI.activeInHierarchy && Input.GetKeyDown(KeyCode.V))
+        {
+            liftPanel.Stop();
+        }
+        if (!liftPanel.isPlaying)
+        {
+            skipDialogueUI.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             cursorLocked = !cursorLocked;

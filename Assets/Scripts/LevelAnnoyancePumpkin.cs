@@ -26,7 +26,7 @@ public class LevelAnnoyancePumpkin : LevelAnnoyances
                         spawnPts = GetComponent<ZombieSpawner>().spawnPoints;
                         foreach (var spawnPoint in spawnPts)
                         {
-                            pumpkins.Add(Instantiate(pumpkinPrefab, new Vector3(spawnPoint.transform.position.x, 2, spawnPoint.transform.position.z), pumpkinPrefab.transform.rotation));
+                            pumpkins.Add(Instantiate(pumpkinPrefab, new Vector3(spawnPoint.transform.position.x, 2, spawnPoint.transform.position.z), pumpkinPrefab.transform.rotation, spawnPoint.transform));
                         }
                         pumpkinTxt.SetActive(true);
                         pumpkinAdded = true;

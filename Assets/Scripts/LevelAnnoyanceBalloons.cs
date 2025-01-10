@@ -31,7 +31,7 @@ public class LevelAnnoyanceBalloons : LevelAnnoyances
                             if(!spawnPoint.transform.name.Contains("BalloonSpawnPts"))
                             {
                                 int index = Random.Range(0, balloonsPrefabs.Length);
-                                balloons.Add(Instantiate(balloonsPrefabs[index], new Vector3(spawnPoint.transform.position.x, 10.5f, spawnPoint.transform.position.z), balloonsPrefabs[index].transform.rotation));
+                                balloons.Add(Instantiate(balloonsPrefabs[index], new Vector3(spawnPoint.transform.position.x, 10.5f, spawnPoint.transform.position.z), balloonsPrefabs[index].transform.rotation, spawnPoint));
                             }
                         }
                         balloonsTxt.SetActive(true);
