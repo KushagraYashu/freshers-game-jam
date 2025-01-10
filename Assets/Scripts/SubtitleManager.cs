@@ -70,7 +70,7 @@ public class SubtitleManager : MonoBehaviour
         foreach (string word in words)
         {
             curWordToWrite = word;
-            if (curWord >= wordLimit)
+            if (curWord >= wordLimit - 1)
             {
                 subtitle.text += word + " ";
                 curWord++;
@@ -86,7 +86,7 @@ public class SubtitleManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         subtitle.text = "";
     }
 }
