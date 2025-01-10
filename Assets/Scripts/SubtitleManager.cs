@@ -8,8 +8,7 @@ public class SubtitleManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI subtitle;
 
-    public string[] lines;
-    public float[] lineTime;
+    [SerializeField] SubtitlesObject subtitleObj;
 
     public static SubtitleManager Instance;
 
@@ -26,10 +25,10 @@ public class SubtitleManager : MonoBehaviour
 
     public IEnumerator StartSubtitle()
     {
-        for (int i = 0; i < lines.Length; i++)
+        for (int i = 0; i < subtitleObj.lines.Length; i++)
         {
-            subtitle.text = lines[i];
-            yield return new WaitForSeconds(lineTime[i]);
+            subtitle.text = subtitleObj.lines[i];
+            yield return new WaitForSeconds(subtitleObj.lineTime[i]);
         }
         subtitle.text = "";
     }
