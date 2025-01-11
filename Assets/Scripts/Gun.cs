@@ -28,6 +28,11 @@ public class Gun : MonoBehaviour
     public ParticleSystem flameThrowerParticleEffect;
     public float flameDist;
 
+    public bool grenade = false;
+    public ParticleSystem grenadeLauncherParticleEffect;
+    public GameObject grenadePrefab;
+    public float grenadeThrowForce;
+
     public int damage = 10;
     public float fireRate = 15f;
 
@@ -89,7 +94,7 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
-            if (!laser && !flameThrower)
+            if (!laser && !flameThrower && !grenade)
             {
                 Shoot();
             }
@@ -101,7 +106,22 @@ public class Gun : MonoBehaviour
             {
                 ShootFlame();
             }
+            else if (grenade)
+            {
+                ShootGrenade();
+            }
         }
+
+        
+    }
+
+    void ShootGrenade()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //grenadeLauncherParticleEffect.Play();
+        var grenadeGO = Instantiate(grenadePrefab, GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
+        grenadeGO.GetComponent<Rigidbody>().AddForce(1000 * grenadeThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
     }
 
     void ShootFlame()

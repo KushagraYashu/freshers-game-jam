@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
+
     [Header("Player Related")]
     [Space]
     public GameObject player;
@@ -60,6 +62,23 @@ public class LevelManager : MonoBehaviour
     int curLevelIndex;
 
     bool cursorLocked = false;
+
+    private void Awake()
+    {
+        instance = this;    
+    }
+
+    public void BakeNavMesh()
+    {
+        GetComponent<NavMeshSurface>().RemoveData();
+        GetComponent<NavMeshSurface>().BuildNavMesh();
+    }
+
+    public void GetZomies()
+    {
+        Array.Clear(zombies, 0, zombies.Length);
+        zombies = GameObject.FindGameObjectsWithTag("zombies");
+    }
 
     public void SkipLevel()
     {

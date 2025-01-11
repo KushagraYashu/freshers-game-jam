@@ -13,6 +13,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject player;
     public GameObject playerFlamethrower;
     public GameObject playerLaser;
+    public GameObject playerGrenade;
     public TextMeshProUGUI abilityTimeTxt;
     public TextMeshProUGUI abilityInventoryTxt;
 
