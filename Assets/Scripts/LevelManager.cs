@@ -283,7 +283,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator SetSubtitle()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         StartCoroutine(SubtitleManager.Instance.StartSubtitle());
     }
 
