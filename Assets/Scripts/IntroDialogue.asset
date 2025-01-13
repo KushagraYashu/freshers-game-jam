@@ -12,5 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589827050ba440c4992c106ba90b8d77, type: 3}
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
-  lines: []
-  lineTime: []
+  lines:
+  - Hey?
+  - Can you hear me dumbass?
+  - Good.
+  - Listen up, 'cause you're about to have the worst ride of your sorry life.
+  - You're stuck in that death trap of an elevator.
+  - It's gonna take you up floor by floor,
+  - but don't get too comfortable -
+  - you're not alone in there.
+  - Zombies are just the start.
+  - Up ahead?
+  - Well, let's just say there are things worse than zombies.
+  - Unimaginable horrors, freakshows sitrahgt outta your nightmares.
+  - You'll find out soon enough.
+  - You get to the top.
+  - Maybe you make it out alive.
+  - Maybe.
+  - Your goal?
+  - Simple.
+  - Don't Die.
+  - Oh, and don't bother looking for an escape button -
+  - there isn't one.
+  - Fight or die, that's it.
+  - Remember, every time those doors open,
+  - whatever's out there want to tear you apart.
+  - So grab whatever you can, shoot straight, and don't waste time.
+  - You hesitate for even a second, and you're done.
+  - Floor after floor, it's just you versus them.
+  - Good luck, champ.
+  - Not that it's gonna help you.
+  lineTime:
+  - 1
+  - 2
+  - 1
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
