@@ -19,7 +19,8 @@ public class Ability : MonoBehaviour
         ADRENALINE,
         RETRY,
         FLAMETHROWER,
-        LASER
+        LASER,
+        GRENADE
     }
 
     public AbilityType type;

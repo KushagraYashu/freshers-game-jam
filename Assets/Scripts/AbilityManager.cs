@@ -10,10 +10,12 @@ public class AbilityManager : MonoBehaviour
     public static AbilityManager instance;
 
     public Gun gun;
+
     public GameObject player;
     public GameObject playerFlamethrower;
     public GameObject playerLaser;
     public GameObject playerGrenade;
+
     public TextMeshProUGUI abilityTimeTxt;
     public TextMeshProUGUI abilityInventoryTxt;
 
@@ -38,7 +40,8 @@ public class AbilityManager : MonoBehaviour
         ADRENALINE,
         RETRY,
         FLAMETHROWER,
-        LASER
+        LASER,
+        GRENADE
     }
 
     public AbilityType abilityType;
@@ -148,6 +151,11 @@ public class AbilityManager : MonoBehaviour
                 abilityInventoryTxt.text = "Yo! Laser";
                 break;
 
+            case AbilityType.GRENADE:
+                abilityType = type;
+                abilityInventoryTxt.text = "Yes, Grenade Launcher";
+                break;
+
             default:
                 Debug.Log("error in ability");
                 break;
@@ -184,6 +192,8 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerFlamethrower.SetActive(true);
             abilityType = AbilityType.NONE;
+            abilityInventoryTxt.text = "Q - Deactivate Flamethrower";
+
         }
         if (Input.GetKeyDown(KeyCode.Q) && playerFlamethrower.activeInHierarchy)
         {
@@ -198,6 +208,8 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerLaser.SetActive(true);
             abilityType = AbilityType.NONE;
+            abilityInventoryTxt.text = "Q - Deactivate Laser Gun";
+
         }
         if (Input.GetKeyDown(KeyCode.Q) && playerLaser.activeInHierarchy)
         {
@@ -206,7 +218,20 @@ public class AbilityManager : MonoBehaviour
             abilityInventoryTxt.text = "";
         }
 
-        
+        if (abilityType == AbilityType.GRENADE)
+        {
+            gun = GameObject.FindAnyObjectByType<Gun>();
+            gun.gameObject.SetActive(false);
+            playerGrenade.SetActive(true);
+            abilityType = AbilityType.NONE;
+            abilityInventoryTxt.text = "Q - Deactivate Grenade Launcher";
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && playerGrenade.activeInHierarchy)
+        {
+            gun.gameObject.SetActive(true);
+            playerGrenade.SetActive(false);
+            abilityInventoryTxt.text = "";
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

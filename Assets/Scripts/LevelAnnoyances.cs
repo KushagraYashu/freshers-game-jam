@@ -47,7 +47,7 @@ public class LevelAnnoyances : MonoBehaviour
     {
         player.GetComponent<Playermovement>().enabled = true;
         player.GetComponentInChildren<FPSCameraScript>().enabled = true;
-        player.GetComponentInChildren<WeaponesHandler>().enabled = true;
+        //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
         player.GetComponentInChildren<Gun>().enabled = true;
     }
 
@@ -55,7 +55,7 @@ public class LevelAnnoyances : MonoBehaviour
     {
         player.GetComponent<Playermovement>().enabled = false;
         player.GetComponentInChildren<FPSCameraScript>().enabled = false;
-        player.GetComponentInChildren<WeaponesHandler>().enabled = false;
+        //player.GetComponentInChildren<WeaponesHandler>().enabled = false;
         player.GetComponentInChildren<Gun>().enabled = false;
     }
 }

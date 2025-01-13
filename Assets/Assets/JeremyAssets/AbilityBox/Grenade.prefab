@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3846908748726240586}
   - component: {fileID: 6098100255883994216}
   - component: {fileID: 7647199248946705310}
+  - component: {fileID: 7144158513046058444}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Ability
@@ -157,6 +158,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.46, y: 1.63, z: 2.04}
   m_Center: {x: 0, y: 0.84, z: -0.76}
+--- !u!114 &7144158513046058444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341860179888235583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60eb6afaad9cf140983ccbfc1d7e6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 13
+  abilityTime: 0
 --- !u!1 &6940613023439420459
 GameObject:
   m_ObjectHideFlags: 0
