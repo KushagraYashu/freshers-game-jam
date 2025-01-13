@@ -18,12 +18,13 @@ public class LevelManager : MonoBehaviour
     public GameObject playerCanvas;
     [Space(15f)]
 
-    [Header("Audio Sources")]
+    [Header("Audio Sources and Clips")]
     [Space]
     public AudioSource elevatorDing;
     public AudioSource elevatorSound;
     public AudioSource globalMusic;
     public AudioSource liftPanel;
+    public AudioClip hangUpCallClip;
     [Space(15f)]
 
     [Header("Level Related Variables")]
@@ -308,6 +309,9 @@ public class LevelManager : MonoBehaviour
         if(skipDialogueUI.activeInHierarchy && Input.GetKeyDown(KeyCode.V))
         {
             liftPanel.Stop();
+            liftPanel.clip = hangUpCallClip;
+            liftPanel.Play();
+            SubtitleManager.Instance.StopSubtitles();
         }
         if (!liftPanel.isPlaying)
         {

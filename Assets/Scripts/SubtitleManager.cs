@@ -32,4 +32,10 @@ public class SubtitleManager : MonoBehaviour
         }
         subtitle.text = "";
     }
+
+    public void StopSubtitles()
+    {
+        StopAllCoroutines();
+        subtitle.gameObject.SetActive(false);
+    }
 }
