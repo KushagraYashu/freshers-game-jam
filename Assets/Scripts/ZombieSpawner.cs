@@ -50,10 +50,10 @@ public class ZombieSpawner : MonoBehaviour
 
         spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
 
-        //dev purposes only, remove later
-        LevelManager.instance.BakeNavMesh();
-        SpawnZombies(2);
-        LevelManager.instance.GetZomies();
+        // dev purposes only, remove later
+        // LevelManager.instance.BakeNavMesh();
+        // SpawnZombies(2);
+        // LevelManager.instance.GetZomies();
     }
 
     public void SpawnZombies(int index)
