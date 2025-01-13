@@ -1,34 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class LevelAnnoyances : MonoBehaviour
+public class GlobalAnnoyance : MonoBehaviour
 {
     private GameObject player;
 
-    public enum Annoyance
+    public enum GlobalAnnoyanceType
     {
         NONE,
-        RED_GREEN,
-        PUMPKINS,
-        BALLOONS,
-        SHIT,
-        TOXIC_GAS,
-        KEYS_MATCH,
-        CUPCAKE,
-        HACK,
-        HAND_SCAN,
-        TV,
-        WIRE_MATCH,
-        TICKET,
-        BEAR_TRAP,
-        CAR_KEYS
-    }
+        HEARTRATE,
+        STATS
+    };
 
-    public Annoyance annoyanceType;
+    public GlobalAnnoyanceType globalAnnoyanceType;
 
     protected virtual void Start()
     {
@@ -37,7 +22,7 @@ public class LevelAnnoyances : MonoBehaviour
 
     public void SetPlayer()
     {
-        if(player == null || !player.CompareTag("Player"))
+        if (player == null || !player.CompareTag("Player"))
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
