@@ -25,6 +25,7 @@ TagManager:
   - AnnoyanceShootable
   - KilledZombie
   - AbilitySpawnPoint
+  - CameraOverlay
   layers:
   - Default
   - TransparentFX
