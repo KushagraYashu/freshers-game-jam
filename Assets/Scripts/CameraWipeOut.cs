@@ -20,9 +20,10 @@ public class CameraWipeOut : MonoBehaviour
     {
         var mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
         mousePos.z = 1;
-
+        RaycastHit hit;
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             isPressed = true;
@@ -30,15 +31,23 @@ public class CameraWipeOut : MonoBehaviour
             isPressed = false;
         }
 
-        if (isPressed)
+        if (Physics.Raycast(ray, out hit) && isPressed)
         {
-            var mask = Instantiate(spriteMaskPrefab, mousePos, Quaternion.identity);
-            mask.transform.SetParent(steam, false);
-            //mask.transform.parent = steam;
-            //mask.transform.localPosition = new Vector3(mask.transform.localPosition.x, mask.transform.localPosition.y, 1);
-            spawned++;
-            Destroy(mask, 100);
+            Debug.Log(hit.transform.name);
+            var mask = Instantiate(spriteMaskPrefab, hit.point, Quaternion.identity);
+            mask.transform.SetParent(steam, true);
+            mask.transform.rotation = steam.rotation;
         }
+
+        //if (isPressed)
+        //{
+        //    var mask = Instantiate(spriteMaskPrefab, mousePos, Quaternion.identity);
+        //    mask.transform.SetParent(steam, false);
+        //    //mask.transform.parent = steam;
+        //    //mask.transform.localPosition = new Vector3(mask.transform.localPosition.x, mask.transform.localPosition.y, 1);
+        //    spawned++;
+        //    Destroy(mask, 100);
+        //}
 
         if(spawned > 100)
         {
