@@ -4,17 +4,18 @@ using UnityEngine.EventSystems;
 
 public class LevelAnnoyanceKeyDrag : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public LevelAnnoyanceKeyDrag instance;
+
     private RectTransform keyRectTransform;
     public RectTransform parent;
     public Canvas parentCanvas;
     public LevelAnnoyanceKeyHole levelAnnoyanceKeyHole;
-    public Image keyHoleImage;
-    public Sprite unlocked;
     private Vector2 originalPosition;
     private bool isDragging = false;
 
     void Awake()
     {
+        instance = this;
         keyRectTransform = GetComponent<RectTransform>();
         originalPosition = keyRectTransform.anchoredPosition;
     }
@@ -44,7 +45,6 @@ public class LevelAnnoyanceKeyDrag : MonoBehaviour, IDragHandler, IPointerDownHa
 
         if (levelAnnoyanceKeyHole != null && levelAnnoyanceKeyHole.IsKeyInHole(keyRectTransform)) {
             keyRectTransform.anchoredPosition = levelAnnoyanceKeyHole.GetComponent<RectTransform>().anchoredPosition;
-            keyHoleImage.sprite = unlocked;
             LevelAnnoyanceKey.instance.UnLocked();
         }
         else

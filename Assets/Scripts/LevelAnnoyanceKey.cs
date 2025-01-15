@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelAnnoyanceKey : LevelAnnoyances
 {
     public static LevelAnnoyanceKey instance;
 
     public GameObject keyHoleUI;
+
+    public GameObject keyHoleSpawnPts;
+
+    public GameObject keyPrefab;
+    GameObject key;
+    public GameObject keyHolePrefab;
+    GameObject keyHole;
+
+    public Canvas annoyanceCanvas;
+
+    List<RectTransform> spawnPts = new();
 
     bool started = false;
 
@@ -28,8 +40,26 @@ public class LevelAnnoyanceKey : LevelAnnoyances
                 case Annoyance.KEYS_MATCH:
                     if (!started)
                     {
-                        DisablePlayerControls();
                         keyHoleUI.SetActive(true);
+
+                        keyHoleSpawnPts = Instantiate(keyHoleSpawnPts, keyHoleUI.transform);
+                        foreach (RectTransform t in keyHoleSpawnPts.GetComponentsInChildren<RectTransform>()) { 
+                            spawnPts.Add(t);
+                        }
+
+                        int index1 = Random.Range(0, spawnPts.Count);
+                        key = Instantiate(keyPrefab, keyHoleUI.transform);
+                        key.GetComponent<RectTransform>().anchoredPosition = spawnPts[index1].anchoredPosition;
+                        var keyDragScript = key.GetComponent<LevelAnnoyanceKeyDrag>();
+                        keyDragScript.parent = keyHoleUI.GetComponent<RectTransform>();
+                        keyDragScript.parentCanvas = annoyanceCanvas;
+
+                        int index2 = Random.Range(0, spawnPts.Count);
+                        keyHole = Instantiate(keyHolePrefab, keyHoleUI.transform);
+                        keyHole.GetComponent<RectTransform>().anchoredPosition = spawnPts[index2].anchoredPosition;
+                        keyDragScript.levelAnnoyanceKeyHole = keyHole.GetComponent<LevelAnnoyanceKeyHole>();
+
+                        DisablePlayerControls();
                         started = true;
                     }
                     break;
@@ -40,7 +70,10 @@ public class LevelAnnoyanceKey : LevelAnnoyances
     public void UnLocked()
     {
         EnablePlayerControls();
+        Destroy(key);
+        Destroy(keyHole);
         keyHoleUI.SetActive(false);
         annoyanceType = Annoyance.NONE;
+        started = false;
     }
 }
