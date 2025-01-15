@@ -7,7 +7,6 @@ public class CameraWipeOut : MonoBehaviour
     public GameObject spriteMaskPrefab;
     public Transform steam;
     bool isPressed;
-    int spawned;
 
     // Start is called before the first frame update
     void Start()
@@ -37,21 +36,6 @@ public class CameraWipeOut : MonoBehaviour
             var mask = Instantiate(spriteMaskPrefab, hit.point, Quaternion.identity);
             mask.transform.SetParent(steam, true);
             mask.transform.rotation = steam.rotation;
-        }
-
-        //if (isPressed)
-        //{
-        //    var mask = Instantiate(spriteMaskPrefab, mousePos, Quaternion.identity);
-        //    mask.transform.SetParent(steam, false);
-        //    //mask.transform.parent = steam;
-        //    //mask.transform.localPosition = new Vector3(mask.transform.localPosition.x, mask.transform.localPosition.y, 1);
-        //    spawned++;
-        //    Destroy(mask, 100);
-        //}
-
-        if(spawned > 100)
-        {
-            //Destroy Steam GO
         }
     }
 }
