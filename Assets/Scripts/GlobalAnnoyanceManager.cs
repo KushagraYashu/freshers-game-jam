@@ -24,4 +24,16 @@ public class GlobalAnnoyanceManager : MonoBehaviour
     {
         
     }
+
+    public void SpawnGlobalAnnoyance(int index)
+    {
+        if (index == -1)
+        {
+            return;
+        }
+        else
+        {
+            Instantiate(globalAnnoyances[index - 1], this.gameObject.transform);
+        }
+    }
 }

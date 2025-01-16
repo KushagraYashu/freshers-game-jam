@@ -9,6 +9,8 @@ public class ZombieSpawner : MonoBehaviour
 {
     public GameObject zombiePrefab;
 
+    public int gobalAnnoyanceIndex = -1;
+
     public GameObject[] spawnPoints;
 
     public struct ZombieInfo
@@ -49,11 +51,12 @@ public class ZombieSpawner : MonoBehaviour
         }
 
         spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
+        GlobalAnnoyanceManager.Instance.SpawnGlobalAnnoyance(gobalAnnoyanceIndex);
 
         // dev purposes only, remove later
-        // LevelManager.instance.BakeNavMesh();
-        // SpawnZombies(2);
-        // LevelManager.instance.GetZomies();
+        LevelManager.instance.BakeNavMesh();
+        SpawnZombies(2);
+        LevelManager.instance.GetZomies();
     }
 
     public void SpawnZombies(int index)
