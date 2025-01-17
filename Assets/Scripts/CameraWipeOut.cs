@@ -8,7 +8,6 @@ public class CameraWipeOut : MonoBehaviour
     public float clearThreshold = 0.95f; // Percentage of steam to be cleared for completion
 
     private List<GameObject> masks = new List<GameObject>(); // Track all spawned masks
-    private Rect steamBounds; // Bounds of the steam object
 
     public float ratio;
     float steamArea;
@@ -17,7 +16,7 @@ public class CameraWipeOut : MonoBehaviour
     public bool wiped = false;
     bool isPressed;
 
-    void Start()
+    void OnEnable()
     {
         // Initialize the bounds of the steam object
         var steamSprite = steam.GetComponent<SpriteRenderer>();
@@ -25,8 +24,7 @@ public class CameraWipeOut : MonoBehaviour
         {
             var size = steamSprite.bounds.size;
             var center = steamSprite.bounds.center;
-            steamBounds = new Rect(center.x - size.x / 2, center.y - size.y / 2, size.x, size.y);
-            steamArea = steamBounds.width * steamBounds.height;
+            steamArea = steam.GetComponent<BoxCollider>().bounds.size.y * steam.GetComponent<BoxCollider>().bounds.size.y;
         }
     }
 

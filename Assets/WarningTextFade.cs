@@ -3,7 +3,7 @@ using TMPro;
 
 public class WarningTextFade : MonoBehaviour
 {
-    public TextMeshProUGUI textMesh; // Assign your TextMeshPro component here
+    TextMeshProUGUI textMesh; // Assign your TextMeshPro component here
     public float fadeSpeed = 2f; // Controls the speed of the fade
 
     void Start()
