@@ -50,4 +50,14 @@ public class Grenade : MonoBehaviour
         explosionParticleSystem.Play();
         Destroy(this.gameObject, 2);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
+        {
+            pickup.ActivateWeaponInHandler();
+            Destroy(pickup.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }

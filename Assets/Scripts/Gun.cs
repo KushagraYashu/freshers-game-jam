@@ -21,17 +21,29 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
 
-    public bool laser = false;
+    public enum WeaponType
+    {
+        NONE,
+        LASER,
+        FLAMETHROWER,
+        GRENADE,
+        AXE,
+        GUN
+    }
+
+    public WeaponType type = WeaponType.NONE;
+
     public LineRenderer laserBeam;
 
-    public bool flameThrower = false;
     public ParticleSystem flameThrowerParticleEffect;
     public float flameDist;
 
-    public bool grenade = false;
     public ParticleSystem grenadeLauncherParticleEffect;
     public GameObject grenadePrefab;
     public float grenadeThrowForce;
+
+    public GameObject axePrefab;
+    public float axeThrowForce;
 
     public int damage = 10;
     public float fireRate = 15f;
@@ -67,7 +79,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(curAmmo > maxAmmo)
+        if(curAmmo > maxAmmo || type == WeaponType.AXE)
         {
             curAmmoTxt.text = "" + Mathf.Infinity;
         }
@@ -94,25 +106,43 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
-            if (!laser && !flameThrower && !grenade)
+            switch (type)
             {
-                Shoot();
-            }
-            else if(laser)
-            {
-                ShootLaser();
-            }
-            else if(flameThrower)
-            {
-                ShootFlame();
-            }
-            else if (grenade)
-            {
-                ShootGrenade();
+                case WeaponType.NONE:
+                    break;
+
+                case WeaponType.GUN:
+                    Shoot();
+                    break;
+
+                case WeaponType.AXE:
+                    maxAmmo = int.MaxValue;
+                    curAmmo = int.MaxValue;
+                    ShootAxe(); 
+                    break;
+
+                case WeaponType.GRENADE:
+                    ShootGrenade(); 
+                    break;
+
+                case WeaponType.FLAMETHROWER:
+                    ShootFlame(); 
+                    break;
+
+                case WeaponType.LASER:
+                    ShootLaser(); 
+                    break;
             }
         }
+    }
 
-        
+    void ShootAxe()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //grenadeLauncherParticleEffect.Play();
+        var axeGO = Instantiate(axePrefab, GetComponentInChildren<ParticleSystem>().transform.position, axePrefab.transform.rotation);
+        axeGO.GetComponent<Rigidbody>().AddForce(1000 * axeThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
     }
 
     void ShootGrenade()
@@ -151,6 +181,12 @@ public class Gun : MonoBehaviour
                 AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
                 hitInfo.transform.gameObject.SetActive(false);
             }
+            if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
+            {
+                pickup.ActivateWeaponInHandler();
+                Destroy(pickup.gameObject);
+                Destroy(this.gameObject);
+            }
         }
         else
         {
@@ -186,6 +222,12 @@ public class Gun : MonoBehaviour
             {
                 AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
                 hitInfo.transform.gameObject.SetActive(false);
+            }
+            if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
+            {
+                pickup.ActivateWeaponInHandler();
+                Destroy(pickup.gameObject);
+                Destroy(this.gameObject);
             }
         }
         else
@@ -252,6 +294,12 @@ public class Gun : MonoBehaviour
             {
                 AbilityManager.instance.CallAbility((AbilityManager.AbilityType)hitInfo.transform.gameObject.GetComponent<Ability>().type, hitInfo.transform.gameObject.GetComponent<Ability>().abilityTime);
                 hitInfo.transform.gameObject.SetActive(false);
+            }
+            if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
+            {
+                pickup.ActivateWeaponInHandler();
+                Destroy(pickup.gameObject);
+                Destroy(this.gameObject);
             }
         }
     }
