@@ -10,7 +10,8 @@ public class WeaponPickup : MonoBehaviour
         FLAMETHROWER,
         LASER,
         GRENADE,
-        AXE
+        AXE,
+        BOTTLE
     }
 
     public Weapon type;
@@ -30,5 +31,6 @@ public class WeaponPickup : MonoBehaviour
     public void ActivateWeaponInHandler()
     {
         WeaponesHandler.instance.ActivateWeapon((int)type);
+        this.gameObject.SetActive(false);
     }
 }

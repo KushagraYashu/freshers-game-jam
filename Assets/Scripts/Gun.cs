@@ -24,11 +24,12 @@ public class Gun : MonoBehaviour
     public enum WeaponType
     {
         NONE,
+        GUN,
         LASER,
         FLAMETHROWER,
         GRENADE,
         AXE,
-        GUN
+        BOTTLE
     }
 
     public WeaponType type = WeaponType.NONE;
@@ -44,6 +45,9 @@ public class Gun : MonoBehaviour
 
     public GameObject axePrefab;
     public float axeThrowForce;
+
+    public GameObject bottlePrefab;
+    public float bottleThrowForce;
 
     public int damage = 10;
     public float fireRate = 15f;
@@ -79,7 +83,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(curAmmo > maxAmmo || type == WeaponType.AXE)
+        if(curAmmo > maxAmmo || type == WeaponType.AXE || type == WeaponType.BOTTLE)
         {
             curAmmoTxt.text = "" + Mathf.Infinity;
         }
@@ -132,6 +136,12 @@ public class Gun : MonoBehaviour
                 case WeaponType.LASER:
                     ShootLaser(); 
                     break;
+
+                case WeaponType.BOTTLE:
+                    maxAmmo = int.MaxValue;
+                    curAmmo = int.MaxValue;
+                    ShootBottle();
+                    break;
             }
         }
     }
@@ -143,6 +153,15 @@ public class Gun : MonoBehaviour
         //grenadeLauncherParticleEffect.Play();
         var axeGO = Instantiate(axePrefab, GetComponentInChildren<ParticleSystem>().transform.position, axePrefab.transform.rotation);
         axeGO.GetComponent<Rigidbody>().AddForce(1000 * axeThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
+    }
+
+    void ShootBottle()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //grenadeLauncherParticleEffect.Play();
+        var bottleGO = Instantiate(bottlePrefab, GetComponentInChildren<ParticleSystem>().transform.position, bottlePrefab.transform.rotation);
+        bottleGO.GetComponent<Rigidbody>().AddForce(1000 * bottleThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
     }
 
     void ShootGrenade()
