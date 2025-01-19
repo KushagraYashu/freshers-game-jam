@@ -10,7 +10,8 @@ public class GlobalAnnoyance : MonoBehaviour
     {
         NONE,
         HEARTRATE,
-        STATS
+        STATS,
+        WINDOW_POPUP
     };
 
     public GlobalAnnoyanceType globalAnnoyanceType;
@@ -26,21 +27,5 @@ public class GlobalAnnoyance : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-    }
-
-    public void EnablePlayerControls()
-    {
-        player.GetComponent<Playermovement>().enabled = true;
-        player.GetComponentInChildren<FPSCameraScript>().enabled = true;
-        //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
-        player.GetComponentInChildren<Gun>().enabled = true;
-    }
-
-    public void DisablePlayerControls()
-    {
-        player.GetComponent<Playermovement>().enabled = false;
-        player.GetComponentInChildren<FPSCameraScript>().enabled = false;
-        //player.GetComponentInChildren<WeaponesHandler>().enabled = false;
-        player.GetComponentInChildren<Gun>().enabled = false;
     }
 }
