@@ -25,8 +25,8 @@ public class Gun : MonoBehaviour
     {
         NONE,
         GUN,
-        LASER,
         FLAMETHROWER,
+        LASER,
         GRENADE,
         AXE,
         BOTTLE
@@ -177,7 +177,7 @@ public class Gun : MonoBehaviour
     {
         curAmmo--;
         gunSound.Play();
-        //flameThrowerParticleEffect.Play();
+        flameThrowerParticleEffect.Play();
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hitInfo, flameDist))
         {
             //Debug.Log(hitInfo.transform.name);
@@ -204,7 +204,7 @@ public class Gun : MonoBehaviour
             {
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         }
         else
@@ -246,7 +246,7 @@ public class Gun : MonoBehaviour
             {
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         }
         else
@@ -318,7 +318,7 @@ public class Gun : MonoBehaviour
             {
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         }
     }
