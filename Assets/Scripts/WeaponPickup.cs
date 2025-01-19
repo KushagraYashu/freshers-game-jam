@@ -11,7 +11,10 @@ public class WeaponPickup : MonoBehaviour
         LASER,
         GRENADE,
         AXE,
-        BOTTLE
+        BOTTLE,
+        TASER,
+        SHOTGUN,
+        RIFLE
     }
 
     public Weapon type;

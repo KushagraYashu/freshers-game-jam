@@ -66,6 +66,8 @@ public class AbilityManager : MonoBehaviour
         StartTimer(windDuration);
         foreach (GameObject go in levelManager.zombies)
         {
+            if(go == null) continue;
+
             if (Vector3.Distance(go.transform.position, player.transform.position) < 10f)
             {
                 Debug.LogError("Applying Wind");
@@ -327,6 +329,8 @@ public class AbilityManager : MonoBehaviour
     {
         foreach (GameObject go in levelManager.zombies)
         {
+            if(go == null) continue;
+
             if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
             {
                 StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health / 20, 1.25f));
