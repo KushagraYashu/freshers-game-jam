@@ -41,7 +41,6 @@ public class Grenade : MonoBehaviour
         foreach (var zombie in LevelManager.instance.zombies)
         {
             var dist = Vector3.Distance(this.gameObject.transform.position, zombie.transform.position);
-            Debug.LogError(dist);
             if (dist <= range)
             {
                 zombie.GetComponent<EnemyBehaviour>().DecreaseHealth(damage / (dist + 1f), true);
@@ -58,6 +57,21 @@ public class Grenade : MonoBehaviour
             pickup.ActivateWeaponInHandler();
             Destroy(pickup.gameObject);
             Destroy(this.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("AnnoyanceShootable"))
+        {
+            Destroy(other.gameObject);
+            ExplodeGrenade();
+            exploded = true;
+        }
+
+        if (other.gameObject.TryGetComponent<Ability>(out Ability ability))
+        {
+            AbilityManager.instance.CallAbility((AbilityManager.AbilityType)ability.type, ability.abilityTime);
+            other.gameObject.SetActive(false);
+            ExplodeGrenade();
+            exploded = true;
         }
     }
 }

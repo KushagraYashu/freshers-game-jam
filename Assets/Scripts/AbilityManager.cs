@@ -194,10 +194,10 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerFlamethrower.SetActive(true);
             abilityType = AbilityType.NONE;
-            abilityInventoryTxt.text = "Q - Deactivate Flamethrower";
+            abilityInventoryTxt.text = "Z - Deactivate Flamethrower";
 
         }
-        if (Input.GetKeyDown(KeyCode.Q) && playerFlamethrower.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Z) && playerFlamethrower.activeInHierarchy)
         {
             gun.gameObject.SetActive(true);
             playerFlamethrower.SetActive(false);
@@ -210,10 +210,10 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerLaser.SetActive(true);
             abilityType = AbilityType.NONE;
-            abilityInventoryTxt.text = "Q - Deactivate Laser Gun";
+            abilityInventoryTxt.text = "Z - Deactivate Laser Gun";
 
         }
-        if (Input.GetKeyDown(KeyCode.Q) && playerLaser.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Z) && playerLaser.activeInHierarchy)
         {
             gun.gameObject.SetActive(true);
             playerLaser.SetActive(false);
@@ -226,7 +226,7 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerGrenade.SetActive(true);
             abilityType = AbilityType.NONE;
-            abilityInventoryTxt.text = "Q - Deactivate Grenade Launcher";
+            abilityInventoryTxt.text = "Z - Deactivate Grenade Launcher";
         }
         if (Input.GetKeyDown(KeyCode.Q) && playerGrenade.activeInHierarchy)
         {

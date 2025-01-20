@@ -38,6 +38,19 @@ public class Axe : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        if (other.gameObject.CompareTag("AnnoyanceShootable"))
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.TryGetComponent<Ability>(out Ability ability))
+        {
+            AbilityManager.instance.CallAbility((AbilityManager.AbilityType)ability.type, ability.abilityTime);
+            other.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+        }
+
         Destroy(this.gameObject, 3);
     }
 }

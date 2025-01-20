@@ -42,11 +42,15 @@ public class ZombieSpawner : MonoBehaviour
         for(int i=0; i < zombieInfos.Length; i++) { 
             if (i == 0)
             {
-                zombieInfos[i].setValues(2, 0.5f, 100);
+                zombieInfos[i].setValues(2, 1f, 100);
+            }
+            else if(i == 1)
+            {
+                zombieInfos[i].setValues(4, 1f + 0.25f, 120);
             }
             else
             {
-                zombieInfos[i].setValues(zombieInfos[i-1].magnitude + 2, zombieInfos[i-1].speed + 0.25f, zombieInfos[i-1].health + 20);
+                zombieInfos[i].setValues(zombieInfos[i - 1].magnitude + 2, zombieInfos[i - 1].speed + 0.25f, zombieInfos[i - 1].health + 20);
             }
         }
 

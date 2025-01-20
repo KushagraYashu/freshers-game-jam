@@ -18,17 +18,15 @@ public class ChainBulletLogic : MonoBehaviour
                 continue;
             }
 
-            if(zombies[i].TryGetComponent<ParticleSystem>(out ParticleSystem particleSys))
+            ParticleSystem particleSys = zombies[i].GetComponentInChildren<ParticleSystem>();
+            while (Vector3.Distance(transform.position, particleSys.transform.position) > .1f)
             {
-                while (Vector3.Distance(transform.position, particleSys.transform.position) > .1f)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position, 20f * Time.deltaTime);
-                    yield return null;
-                }
-                curHit++;
-                Debug.LogError(damage);
-                zombies[i].GetComponent<EnemyBehaviour>().DecreaseHealth(damage / curHit, true);
+                transform.position = Vector3.MoveTowards(transform.position, zombies[i].GetComponentInChildren<ParticleSystem>().transform.position, 20f * Time.deltaTime);
+                yield return null;
             }
+            curHit++;
+            Debug.LogError(damage);
+            zombies[i].GetComponent<EnemyBehaviour>().DecreaseHealth(damage / curHit, true);
         }
         Destroy(gameObject, 2f);
     }
