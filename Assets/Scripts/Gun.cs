@@ -29,7 +29,9 @@ public class Gun : MonoBehaviour
         LASER,
         GRENADE,
         AXE,
-        BOTTLE
+        BOTTLE,
+        PLASMA,
+        SYRINGE
     }
 
     public WeaponType type = WeaponType.NONE;
@@ -48,6 +50,12 @@ public class Gun : MonoBehaviour
 
     public GameObject bottlePrefab;
     public float bottleThrowForce;
+
+    public GameObject plasmaPrefab;
+    public float plasmaThrowForce;
+
+    public GameObject syringePrefab;
+    public float syringThrowForce;
 
     public int damage = 10;
     public float fireRate = 15f;
@@ -142,6 +150,14 @@ public class Gun : MonoBehaviour
                     curAmmo = int.MaxValue;
                     ShootBottle();
                     break;
+
+                case WeaponType.PLASMA:
+                    ShootPlasma();
+                    break;
+
+                case WeaponType.SYRINGE:
+                    ShootSyringe(); 
+                    break;
             }
         }
     }
@@ -171,6 +187,24 @@ public class Gun : MonoBehaviour
         //grenadeLauncherParticleEffect.Play();
         var grenadeGO = Instantiate(grenadePrefab, GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
         grenadeGO.GetComponent<Rigidbody>().AddForce(1000 * grenadeThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
+    }
+
+    void ShootPlasma()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //grenadeLauncherParticleEffect.Play();
+        var plasmaGO = Instantiate(plasmaPrefab, GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
+        plasmaGO.GetComponent<Rigidbody>().AddForce(1000 * plasmaThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
+    }
+
+    void ShootSyringe()
+    {
+        curAmmo--;
+        gunSound.Play();
+        //grenadeLauncherParticleEffect.Play();
+        var syringeGO = Instantiate(syringePrefab, GetComponentInChildren<ParticleSystem>().transform.position, syringePrefab.transform.rotation);
+        syringeGO.GetComponent<Rigidbody>().AddForce(1000 * syringThrowForce * GetComponentInChildren<ParticleSystem>().transform.forward);
     }
 
     void ShootFlame()
@@ -290,7 +324,10 @@ public class Gun : MonoBehaviour
     {
         curAmmo--;
         gunSound.Play();
-        muzzleFlash.Play();
+        if(muzzleFlash != null)
+        {
+            muzzleFlash.Play();
+        }
         RaycastHit hitInfo;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo))
         {

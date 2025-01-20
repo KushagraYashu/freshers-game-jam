@@ -38,6 +38,7 @@ public class Grenade : MonoBehaviour
 
     void ExplodeGrenade()
     {
+        exploded = true;
         foreach (var zombie in LevelManager.instance.zombies)
         {
             var dist = Vector3.Distance(this.gameObject.transform.position, zombie.transform.position);
@@ -46,8 +47,11 @@ public class Grenade : MonoBehaviour
                 zombie.GetComponent<EnemyBehaviour>().DecreaseHealth(damage / (dist + 1f), true);
             }
         }
-        explosionParticleSystem.Play();
-        Destroy(this.gameObject, 2);
+        var effect = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
+        effect.Play();
+        Destroy(effect, 5f);
+
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter(Collision other)

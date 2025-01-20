@@ -5021,7 +5021,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4783265652544383348}
   serializedVersion: 4
-  m_Mass: 3.5
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5077,7 +5077,7 @@ MonoBehaviour:
   timeout: 3
   range: 25
   damage: 50
-  explosionParticleSystem: {fileID: 6441409274424841736}
+  explosionParticleSystem: {fileID: 2868216338370173421, guid: 987453eefc63d6d459943e054c051739, type: 3}
 --- !u!1 &5457291577511432113
 GameObject:
   m_ObjectHideFlags: 0

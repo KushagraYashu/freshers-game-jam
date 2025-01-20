@@ -246,7 +246,6 @@ public class AbilityManager : MonoBehaviour
                     gun = GameObject.FindAnyObjectByType<Gun>();
                     gun.InfiniteAmmo(abilityTime);
                     StartTimer(abilityTime);
-                    gun = null;
                     break;
 
                 case AbilityType.SLOW_FIRERATE:
@@ -254,7 +253,6 @@ public class AbilityManager : MonoBehaviour
                     gun = GameObject.FindAnyObjectByType<Gun>();
                     gun.SlowFire(abilityTime);
                     StartTimer(abilityTime);
-                    gun = null;
                     break;
 
                 case AbilityType.WIND:
@@ -302,7 +300,6 @@ public class AbilityManager : MonoBehaviour
                     gun = GameObject.FindAnyObjectByType<Gun>();
                     gun.Adrenaline(abilityTime);
                     StartTimer(abilityTime);
-                    gun = null;
                     break;
 
                 case AbilityType.RETRY:
@@ -322,7 +319,6 @@ public class AbilityManager : MonoBehaviour
     {
         gun = GameObject.FindAnyObjectByType<Gun>();
         StartCoroutine(Instantiate(chainBulletPrefab, gun.GetComponentInChildren<Transform>().position, Quaternion.identity).GetComponent<ChainBulletLogic>().Attack(levelManager.zombies));
-        gun = null;
     }
 
     public void PoisionGas()

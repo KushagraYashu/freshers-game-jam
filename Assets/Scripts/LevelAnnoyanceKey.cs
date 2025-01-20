@@ -54,7 +54,11 @@ public class LevelAnnoyanceKey : LevelAnnoyances
                         keyDragScript.parent = keyHoleUI.GetComponent<RectTransform>();
                         keyDragScript.parentCanvas = annoyanceCanvas;
 
-                        int index2 = Random.Range(0, spawnPts.Count);
+                        int index2;
+                        do
+                        {
+                            index2 = Random.Range(0, spawnPts.Count);
+                        } while (index1 == index2);
                         keyHole = Instantiate(keyHolePrefab, keyHoleUI.transform);
                         keyHole.GetComponent<RectTransform>().anchoredPosition = spawnPts[index2].anchoredPosition;
                         keyDragScript.levelAnnoyanceKeyHole = keyHole.GetComponent<LevelAnnoyanceKeyHole>();

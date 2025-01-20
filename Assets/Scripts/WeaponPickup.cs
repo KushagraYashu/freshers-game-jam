@@ -14,7 +14,16 @@ public class WeaponPickup : MonoBehaviour
         BOTTLE,
         TASER,
         SHOTGUN,
-        RIFLE
+        RIFLE,
+        PLASMA,
+        CROSSBOW,
+        SMG,
+        MUSKET,
+        DOUBLE_BARREL,
+        SYRINGE,
+        SNIPER,
+        M4,
+        PINK_PISTOL
     }
 
     public Weapon type;
