@@ -27,7 +27,8 @@ public class LevelAnnoyances : MonoBehaviour
         BEAR_TRAP,
         CAR_KEYS,
         CAMERA_OVERLAY,
-        HEART_RATE
+        HEART_RATE,
+        DOOR
     }
 
     public Annoyance annoyanceType;
