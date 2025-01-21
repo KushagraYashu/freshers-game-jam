@@ -9,6 +9,8 @@ public class LoadSceneAfterDelay : MonoBehaviour
     void Start()
     {
         // Start the coroutine to load the scene after the delay
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         StartCoroutine(LoadSceneWithDelay());
     }
 

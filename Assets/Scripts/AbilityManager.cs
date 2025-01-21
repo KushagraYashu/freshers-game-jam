@@ -228,7 +228,7 @@ public class AbilityManager : MonoBehaviour
             abilityType = AbilityType.NONE;
             abilityInventoryTxt.text = "Z - Deactivate Grenade Launcher";
         }
-        if (Input.GetKeyDown(KeyCode.Q) && playerGrenade.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Z) && playerGrenade.activeInHierarchy)
         {
             gun.gameObject.SetActive(true);
             playerGrenade.SetActive(false);

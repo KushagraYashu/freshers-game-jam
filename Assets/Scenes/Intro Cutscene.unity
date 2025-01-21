@@ -3885,7 +3885,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 62611a568db092d45b4ce11ec7e82c6c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3982,9 +3982,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7505140da97fb245b20d4a58851665c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerCanvas: {fileID: 0}
   elevatorDing: {fileID: 1485847269}
   elevatorSound: {fileID: 1485847270}
   globalMusic: {fileID: 1485847271}
+  liftPanel: {fileID: 0}
+  hangUpCallClip: {fileID: 0}
   totKilled: 0
   zombies: []
   floor0: {fileID: 0}
@@ -4017,10 +4021,9 @@ MonoBehaviour:
   pauseScreen: {fileID: 0}
   nextFloorScreen: {fileID: 0}
   winScreen: {fileID: 0}
+  skipDialogueUI: {fileID: 0}
   liftWall: {fileID: 0}
   winScene: {fileID: 0}
-  player: {fileID: 0}
-  playerCanvas: {fileID: 0}
   time: 0
   windCalled: 0
   windTime: 0

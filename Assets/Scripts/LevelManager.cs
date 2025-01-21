@@ -342,21 +342,15 @@ public class LevelManager : MonoBehaviour
         }
 
         // Check if the dead screen is active and Q is pressed
-        if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
+        if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
         {
-            //Reset();
-        }
-
-        // Check if the win screen is active and Q is pressed
-        if (winScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
-        {
-            //Reset();
+            Reset();
         }
 
         // Check if the pause screen is active and Q is pressed
-        if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
+        if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
         {
-            //Reset();
+            Reset();
         }
 
         // Optionally, check for Q key press when the game is not over
