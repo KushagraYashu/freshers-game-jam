@@ -41,6 +41,8 @@ public class Grenade : MonoBehaviour
         exploded = true;
         foreach (var zombie in LevelManager.instance.zombies)
         {
+            if(zombie == null) continue;
+
             var dist = Vector3.Distance(this.gameObject.transform.position, zombie.transform.position);
             if (dist <= range)
             {

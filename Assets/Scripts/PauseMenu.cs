@@ -31,6 +31,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false); // Hide the pause menu
+        LevelManager.instance.liftPanel.Play();
+        LevelManager.instance.EnablePlayerControls();
         Time.timeScale = 1f; // Resume time
         isPaused = false;
 
@@ -44,6 +46,8 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true); // Show the pause menu
+        LevelManager.instance.liftPanel.Pause();
+        LevelManager.instance.DisablePlayerControls();
         Time.timeScale = 0f; // Stop time
         isPaused = true;
 

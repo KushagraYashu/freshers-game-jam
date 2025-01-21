@@ -58,9 +58,9 @@ public class ZombieSpawner : MonoBehaviour
         GlobalAnnoyanceManager.Instance.SpawnGlobalAnnoyance(gobalAnnoyanceIndex);
 
         // dev purposes only, remove later
-        LevelManager.instance.BakeNavMesh();
-        SpawnZombies(0);
-        LevelManager.instance.GetZomies();
+        //LevelManager.instance.BakeNavMesh();
+        //SpawnZombies(0);
+        //LevelManager.instance.GetZomies();
     }
 
     public void SpawnZombies(int index)

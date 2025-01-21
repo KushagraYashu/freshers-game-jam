@@ -44,6 +44,8 @@ public class LevelAnnoyanceDoor : LevelAnnoyances
         doorAnimator.speed = 0;
         doorObstacle.enabled = false;
         doorCollider.enabled = false;
+        doorOpenUI.SetActive(false);
+        annoyanceType = Annoyance.NONE;
         started = false;
     }
 }

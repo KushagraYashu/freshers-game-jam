@@ -5076,7 +5076,7 @@ MonoBehaviour:
   curTime: 0
   timeout: 3
   range: 25
-  damage: 50
+  damage: 75
   explosionParticleSystem: {fileID: 2868216338370173421, guid: 987453eefc63d6d459943e054c051739, type: 3}
 --- !u!1 &5457291577511432113
 GameObject:
