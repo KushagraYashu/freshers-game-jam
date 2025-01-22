@@ -303,6 +303,7 @@ public class AbilityManager : MonoBehaviour
                     break;
 
                 case AbilityType.RETRY:
+                    //StartCoroutine(levelManager.Retry());
                     levelManager.Retry();
                     abilityType = AbilityType.NONE;
                     abilityInventoryTxt.text = "";

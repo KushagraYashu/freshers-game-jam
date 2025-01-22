@@ -94,6 +94,7 @@ public class LevelManager : MonoBehaviour
     public void GetZomies()
     {
         Array.Clear(zombies, 0, zombies.Length);
+        zombies = new GameObject[0];
         zombies = GameObject.FindGameObjectsWithTag("zombies");
     }
 
@@ -105,6 +106,7 @@ public class LevelManager : MonoBehaviour
             Destroy(go);
         }
         Array.Clear(zombies, 0, zombies.Length);
+        zombies = new GameObject[0];
         totKilled = 0;
 
         for (int i = 0; i < played.Length; i++) {
@@ -122,9 +124,14 @@ public class LevelManager : MonoBehaviour
     {
         foreach (GameObject go in zombies)
         {
-            Destroy(go);
+            if (go != null) {
+                go.SetActive(false);
+                Destroy(go);
+            }
         }
+        //yield return new WaitForEndOfFrame();
         Array.Clear(zombies, 0, zombies.Length);
+        zombies = new GameObject[0];
         totKilled = 0;
 
         GetComponent<NavMeshSurface>().RemoveData();
@@ -133,9 +140,9 @@ public class LevelManager : MonoBehaviour
 
         floor[curLevelIndex].SetActive(true);
         GetComponent<NavMeshSurface>().BuildNavMesh();
+        level--;
         floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
         zombies = GameObject.FindGameObjectsWithTag("zombies");
-
     }
 
     public void Reset()
@@ -181,9 +188,13 @@ public class LevelManager : MonoBehaviour
                 level++;
                 foreach (GameObject go in zombies)
                 {
-                    Destroy(go);
+                    if(go != null)
+                    {
+                        Destroy(go);
+                    }
                 }
                 Array.Clear(zombies, 0, zombies.Length);
+                zombies = new GameObject[0];
                 zombies = GameObject.FindGameObjectsWithTag("zombies");
                 played[curLevelIndex] = true;
                 return;
