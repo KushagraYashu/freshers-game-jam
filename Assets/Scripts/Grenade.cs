@@ -51,9 +51,11 @@ public class Grenade : MonoBehaviour
         }
         var effect = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
         effect.Play();
+        GetComponent<AudioSource>().Play();
         Destroy(effect, 5f);
 
-        Destroy(this.gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
     }
 
     private void OnCollisionEnter(Collision other)

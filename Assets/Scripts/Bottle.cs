@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bottle : MonoBehaviour
 {
+    public GameObject bottleMesh;
     public float damage = 30;
     public float rotationSpeed = 10;
 
@@ -28,29 +29,39 @@ public class Bottle : MonoBehaviour
         if (other.gameObject.CompareTag("zombies"))
         {
             other.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(damage, true);
-            Destroy(this.gameObject);
+            GetComponent<AudioSource>().Play();
+            bottleMesh.SetActive(false);
+            Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
         }
 
         if (other.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
         {
             pickup.ActivateWeaponInHandler();
             Destroy(pickup.gameObject);
-            Destroy(this.gameObject);
+            GetComponent<AudioSource>().Play();
+            bottleMesh.SetActive(false);
+            Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
         }
 
         if (other.gameObject.CompareTag("AnnoyanceShootable"))
         {
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            GetComponent<AudioSource>().Play();
+            bottleMesh.SetActive(false);
+            Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
         }
 
         if (other.gameObject.TryGetComponent<Ability>(out Ability ability))
         {
             AbilityManager.instance.CallAbility((AbilityManager.AbilityType)ability.type, ability.abilityTime);
             other.gameObject.SetActive(false);
-            Destroy(this.gameObject);
+            GetComponent<AudioSource>().Play();
+            bottleMesh.SetActive(false);
+            Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
         }
 
-        Destroy(this.gameObject, 3);
+        GetComponent<AudioSource>().Play();
+        bottleMesh.SetActive(false);
+        Destroy(this.gameObject, GetComponent<AudioSource>().clip.length);
     }
 }
