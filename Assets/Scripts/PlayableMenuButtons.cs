@@ -28,6 +28,12 @@ public class PlayableMenuButtons : MonoBehaviour
         optionsUI.SetActive(true);
     }
 
+    public void BackFromOptions()
+    {
+        optionsUI.SetActive(false);
+        LevelManager.instance.EnablePlayerControls();
+    }
+
     public void Quit()
     {
         Application.Quit();
