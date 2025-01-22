@@ -42,9 +42,9 @@ public class GlobalAnnoyanceWindowPopup : GlobalAnnoyance
 
         for (int i = 0; i < totPopup; i++)
         {
+            yield return new WaitForSeconds(.2f);
             int index = Random.Range(0, spawnPts.Count);
             Instantiate(windowPopupPrefab, spawnPts[index]);
-            yield return new WaitForSeconds(.2f);
         }
     }
 

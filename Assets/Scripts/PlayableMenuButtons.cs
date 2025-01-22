@@ -5,15 +5,12 @@ using UnityEngine.UI;
 
 public class PlayableMenuButtons : MonoBehaviour
 {
-    public Button button;
-
-    public LevelManager levelManager;
-
     public bool hit = false;
+
+    public GameObject optionsUI;
 
     public void StartGame()
     {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().CloseDoor();
         StartCoroutine(LoadDelay());
     }
@@ -21,13 +18,14 @@ public class PlayableMenuButtons : MonoBehaviour
     IEnumerator LoadDelay()
     {
         yield return new WaitForSeconds(3);
-        levelManager.StartTimer();
-        levelManager.RandomStart();
+        LevelManager.instance.StartTimer();
+        LevelManager.instance.RandomStart();
     }
 
     public void Options()
     {
-        Debug.Log("Options");
+        LevelManager.instance.DisablePlayerControls();
+        optionsUI.SetActive(true);
     }
 
     public void Quit()

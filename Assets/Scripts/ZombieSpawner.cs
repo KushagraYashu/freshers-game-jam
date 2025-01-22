@@ -44,10 +44,6 @@ public class ZombieSpawner : MonoBehaviour
             {
                 zombieInfos[i].setValues(2, 1f, 100);
             }
-            else if(i == 1)
-            {
-                zombieInfos[i].setValues(4, 1f + 0.25f, 120);
-            }
             else
             {
                 zombieInfos[i].setValues(zombieInfos[i - 1].magnitude + 2, zombieInfos[i - 1].speed + 0.25f, zombieInfos[i - 1].health + 20);
@@ -59,7 +55,7 @@ public class ZombieSpawner : MonoBehaviour
 
         // dev purposes only, remove later
         //LevelManager.instance.BakeNavMesh();
-        //SpawnZombies(0);
+        //SpawnZombies(1);
         //LevelManager.instance.GetZomies();
     }
 
