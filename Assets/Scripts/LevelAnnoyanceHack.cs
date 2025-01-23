@@ -31,7 +31,7 @@ public class LevelAnnoyanceHack : LevelAnnoyances
 
                         hackInputField.SetActive(true);
                         hackText.SetActive(true);
-                        hackText.GetComponentInChildren<TextMeshProUGUI>().text = "Enter the code " + hackNo + "!\nthen Press \"LCtrl\", you imbecile!";
+                        hackText.GetComponentInChildren<TextMeshProUGUI>().text = "Enter the code " + hackNo + "!\nthen Press \"Enter\", you imbecile!";
 
                         hackStarted = true;
                     }
@@ -42,7 +42,7 @@ public class LevelAnnoyanceHack : LevelAnnoyances
 
         if (hackStarted)
         {
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.Return))
             {
                 int.TryParse(hackInputField.GetComponent<TMP_InputField>().text, out hackInput);
                 if (hackInput == hackNo)
