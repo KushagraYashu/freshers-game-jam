@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -60,9 +61,14 @@ public class Gun : MonoBehaviour
     public int damage = 10;
     public float fireRate = 15f;
 
+    public Image fireCooldownImg;
+
     public int maxAmmo = 30;
     [SerializeField]private int curAmmo;
     public float reloadTime = 2f;
+
+    float reloadStartTime;
+    public Image reloadCooldownImg;
 
     public bool isReloading = false;
 
@@ -159,6 +165,36 @@ public class Gun : MonoBehaviour
                     ShootSyringe(); 
                     break;
             }
+        }
+
+        UpdateFireCoolDown();
+        UpdateReloadCoolDown();
+    }
+
+    void UpdateFireCoolDown()
+    {
+        if (fireCooldownImg != null)
+        {
+            float timeSinceLastShot = Time.time - (nextTimeToFire - 1f / fireRate);
+            float cooldownProgress = Mathf.Clamp01(timeSinceLastShot / (1f / fireRate));
+            fireCooldownImg.fillAmount = 1 - cooldownProgress;
+        }
+    }
+
+    void UpdateReloadCoolDown()
+    {
+        reloadCooldownImg.fillAmount = (float)curAmmo / (float)maxAmmo;
+    }
+
+    IEnumerator UpdateReloadCoolDownReloading()
+    {
+        while (isReloading)
+        {
+            float elapsedReloadTime = Time.time - reloadStartTime;
+            float reloadProgress = Mathf.Clamp01(elapsedReloadTime / reloadTime);
+            Debug.Log(reloadProgress);
+            reloadCooldownImg.fillAmount = reloadProgress;
+            yield return null;
         }
     }
 
@@ -304,6 +340,8 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        reloadStartTime = Time.time;
+        StartCoroutine(UpdateReloadCoolDownReloading());
         gunReload.Play();
         animator.SetBool("isReloading", isReloading);
         reloadingTxt.gameObject.SetActive(true);

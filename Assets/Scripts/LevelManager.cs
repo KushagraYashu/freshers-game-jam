@@ -151,7 +151,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
 
         // Load the first level or main menu (scene 0)
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void StartTimer()

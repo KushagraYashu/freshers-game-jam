@@ -60,6 +60,7 @@ public class CameraWipeOut : MonoBehaviour
                     wiped = true;
                     foreach(var maskItem in masks)
                     {
+                        maskItem.GetComponent<BoxCollider>().enabled = false;
                         Destroy(maskItem, 3);
                     }
                 }

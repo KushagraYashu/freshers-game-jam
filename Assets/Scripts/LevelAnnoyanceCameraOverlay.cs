@@ -42,6 +42,7 @@ public class LevelAnnoyanceCameraOverlay : LevelAnnoyances
             camOverlayUI.SetActive(false);
             started = false;
             annoyanceType = Annoyance.NONE;
+            overlayObject.GetComponent<BoxCollider>().enabled = false;
             Invoke(nameof(DisableOverlayItem), 3);
             camWipeOutScript.enabled = false;
         }

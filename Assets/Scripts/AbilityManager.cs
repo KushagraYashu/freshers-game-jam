@@ -26,6 +26,8 @@ public class AbilityManager : MonoBehaviour
     bool timer = false;
     float time;
 
+    string content;
+
     public enum AbilityType
     {
         NONE,           //0
@@ -145,17 +147,17 @@ public class AbilityManager : MonoBehaviour
 
             case AbilityType.FLAMETHROWER:
                 abilityType = type;
-                abilityInventoryTxt.text = "Flamethrower Baby!";
+                abilityInventoryTxt.text = "";
                 break;
 
             case AbilityType.LASER:
                 abilityType= type;
-                abilityInventoryTxt.text = "Yo! Laser";
+                abilityInventoryTxt.text = "";
                 break;
 
             case AbilityType.GRENADE:
                 abilityType = type;
-                abilityInventoryTxt.text = "Yes, Grenade Launcher";
+                abilityInventoryTxt.text = "";
                 break;
 
             default:
@@ -194,6 +196,7 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerFlamethrower.SetActive(true);
             abilityType = AbilityType.NONE;
+            content = abilityInventoryTxt.text;
             abilityInventoryTxt.text = "Z - Deactivate Flamethrower";
 
         }
@@ -201,7 +204,7 @@ public class AbilityManager : MonoBehaviour
         {
             gun.gameObject.SetActive(true);
             playerFlamethrower.SetActive(false);
-            abilityInventoryTxt.text = "";
+            abilityInventoryTxt.text = content;
         }
 
         if (abilityType == AbilityType.LASER)
@@ -210,6 +213,7 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerLaser.SetActive(true);
             abilityType = AbilityType.NONE;
+            content = abilityInventoryTxt.text;
             abilityInventoryTxt.text = "Z - Deactivate Laser Gun";
 
         }
@@ -217,7 +221,7 @@ public class AbilityManager : MonoBehaviour
         {
             gun.gameObject.SetActive(true);
             playerLaser.SetActive(false);
-            abilityInventoryTxt.text = "";
+            abilityInventoryTxt.text = content;
         }
 
         if (abilityType == AbilityType.GRENADE)
@@ -226,13 +230,14 @@ public class AbilityManager : MonoBehaviour
             gun.gameObject.SetActive(false);
             playerGrenade.SetActive(true);
             abilityType = AbilityType.NONE;
+            content = abilityInventoryTxt.text;
             abilityInventoryTxt.text = "Z - Deactivate Grenade Launcher";
         }
         if (Input.GetKeyDown(KeyCode.Z) && playerGrenade.activeInHierarchy)
         {
             gun.gameObject.SetActive(true);
             playerGrenade.SetActive(false);
-            abilityInventoryTxt.text = "";
+            abilityInventoryTxt.text = content;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
