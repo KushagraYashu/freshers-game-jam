@@ -227,6 +227,7 @@ public class LevelManager : MonoBehaviour
         //player.GetComponentInChildren<Gun>().enabled = false;
         //playerCanvas.SetActive(false);
         //StartCoroutine(FadeImage(true));
+        GlobalAnnoyanceManager.Instance.DisableGlobalAnnoyances();
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
         liftWall.SetActive(false);
         winScene.SetActive(true);

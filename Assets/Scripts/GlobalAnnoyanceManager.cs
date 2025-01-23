@@ -36,4 +36,12 @@ public class GlobalAnnoyanceManager : MonoBehaviour
             Instantiate(globalAnnoyances[index - 1], this.gameObject.transform);
         }
     }
+
+    public void DisableGlobalAnnoyances()
+    {
+        foreach(var i in globalAnnoyances)
+        {
+            i.SetActive(false);
+        }
+    }
 }
