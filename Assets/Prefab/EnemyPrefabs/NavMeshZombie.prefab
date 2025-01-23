@@ -5936,14 +5936,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8453103736861549022, guid: a1b4b8144e2a4054199287da62cdd0da, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3762146883880223642}
+      addedObject: {fileID: 7066552350014731336}
   m_SourcePrefab: {fileID: 100100000, guid: a1b4b8144e2a4054199287da62cdd0da, type: 3}
 --- !u!1 &157568448704385684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8453103736861549022, guid: a1b4b8144e2a4054199287da62cdd0da, type: 3}
   m_PrefabInstance: {fileID: 8602084902981956426}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3762146883880223642
+--- !u!114 &7066552350014731336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5957,7 +5957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 2
+  outlineWidth: 5.74
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
