@@ -44,4 +44,19 @@ public class GlobalAnnoyanceManager : MonoBehaviour
             i.SetActive(false);
         }
     }
+
+    public void StatLevelUpdate(int i = 0)
+    {
+        if (GlobalAnnoyanceStats.instance != null)
+        {
+            if(i != -1)
+            {
+                GlobalAnnoyanceStats.instance.IncreaseLevelPlayed();
+            }
+            else
+            {
+                GlobalAnnoyanceStats.instance.DecreaseLevelPlayed();
+            }
+        }
+    }
 }

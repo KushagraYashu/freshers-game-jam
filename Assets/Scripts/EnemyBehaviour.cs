@@ -67,7 +67,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Debug.Log("heyo Stop");
             this.GetComponent<EnemyFollow>().enabled = false;
-            GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().LoadDeadScreen();
+            LevelManager.instance.LoadDeadScreen(0);
             Debug.Log("Load Lost Screen");
         }
     }

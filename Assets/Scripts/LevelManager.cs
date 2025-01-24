@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [Space]
     public GameObject player;
     public GameObject playerCanvas;
+    public bool isDead = false;
     [Space(15f)]
 
     [Header("Audio Sources and Clips")]
@@ -39,7 +40,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("UI Gameobjects")]
     [Space]
-    public GameObject deadScreen;
+    public GameObject[] deadScreen;
     public GameObject loadScreen;
     public GameObject pauseScreen;
     public GameObject nextFloorScreen;
@@ -136,11 +137,12 @@ public class LevelManager : MonoBehaviour
 
         GetComponent<NavMeshSurface>().RemoveData();
 
-        UnLoadDeadScreen();
+        UnLoadDeadScreen(0);
 
         floor[curLevelIndex].SetActive(true);
         GetComponent<NavMeshSurface>().BuildNavMesh();
         level--;
+        GlobalAnnoyanceManager.Instance.StatLevelUpdate(-1);
         floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
         zombies = GameObject.FindGameObjectsWithTag("zombies");
     }
@@ -186,6 +188,7 @@ public class LevelManager : MonoBehaviour
                 GetComponent<NavMeshSurface>().BuildNavMesh();
                 floor[curLevelIndex].GetComponent<ZombieSpawner>().SpawnZombies(level);
                 level++;
+                GlobalAnnoyanceManager.Instance.StatLevelUpdate();
                 foreach (GameObject go in zombies)
                 {
                     if(go != null)
@@ -281,22 +284,24 @@ public class LevelManager : MonoBehaviour
         RandomStart();
     }
 
-    public void LoadDeadScreen()
+    public void LoadDeadScreen(int index)
     {
+        isDead = true;
         player.GetComponent<Playermovement>().enabled = false;
         player.GetComponentInChildren<FPSCameraScript>().enabled = false;
         //player.GetComponentInChildren<WeaponesHandler>().enabled = false;
         player.GetComponentInChildren<Gun>().enabled = false;
-        deadScreen.SetActive(true);
+        deadScreen[index].SetActive(true);
     }
 
-    public void UnLoadDeadScreen()
+    public void UnLoadDeadScreen(int index)
     {
+        isDead = false;
         player.GetComponent<Playermovement>().enabled = true;
         player.GetComponentInChildren<FPSCameraScript>().enabled = true;
         //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
         player.GetComponentInChildren<Gun>().enabled = true;
-        deadScreen.SetActive(false);
+        deadScreen[index].SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -354,7 +359,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // Check if the dead screen is active and Q is pressed
-        if (deadScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
+        if (isDead && Input.GetKeyDown(KeyCode.Space))
         {
             Reset();
         }

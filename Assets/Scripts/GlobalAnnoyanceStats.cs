@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GlobalAnnoyanceStats : GlobalAnnoyance
 {
+    public static GlobalAnnoyanceStats instance;
+
     public GameObject statsUI;
 
     public TextMeshProUGUI o2Txt;
@@ -21,10 +23,27 @@ public class GlobalAnnoyanceStats : GlobalAnnoyance
 
     float O2Lvl = 100, stressLvl = 100, tempLevel = 50;
     float O2Limit = 50, stressLimit = 75, tempLimit = 38;
-    float curO2 = 100, curStress = 20, curTemp = 15;
+    [SerializeField]float curO2 = 100, curStress = 20, curTemp = 15;
 
     float decreaseRate = 5f;
     float increaseRate = 4f;
+
+    int levelPlayed = 0;
+
+    public void IncreaseLevelPlayed()
+    {
+        levelPlayed++;
+    }
+
+    public void DecreaseLevelPlayed()
+    {
+        levelPlayed--;
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     protected override void Start()
     {
@@ -44,6 +63,11 @@ public class GlobalAnnoyanceStats : GlobalAnnoyance
     // Update is called once per frame
     private void Update()
     {
+        if(levelPlayed >= 2)
+        {
+            Destroy(this.gameObject);
+        }
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
             if (curO2 < O2Lvl)
@@ -93,7 +117,20 @@ public class GlobalAnnoyanceStats : GlobalAnnoyance
         if (curO2 <= 0 || curTemp >= tempLevel || curStress >= 95)
         {
             //UI related changes
-            StartCoroutine(KillPlayer());
+            if(curO2 <= 0 && !LevelManager.instance.isDead)
+            {
+                StartCoroutine(KillPlayer(1));
+            }
+
+            if (curStress >= 95 && !LevelManager.instance.isDead)
+            {
+                StartCoroutine(KillPlayer(2));
+            }
+
+            if (curTemp >= tempLevel && !LevelManager.instance.isDead)
+            {
+                StartCoroutine(KillPlayer(3));
+            }
         }
 
         o2Txt.text = curO2.ToString("#.") + "%";
@@ -106,9 +143,10 @@ public class GlobalAnnoyanceStats : GlobalAnnoyance
         tempSlider.value = curTemp;
     }
 
-    IEnumerator KillPlayer()
+    IEnumerator KillPlayer(int index)
     {
         yield return new WaitForSeconds(1);
-        LevelManager.instance.LoadDeadScreen();
+        LevelManager.instance.LoadDeadScreen(index);
+        Destroy(gameObject);
     }
 }
