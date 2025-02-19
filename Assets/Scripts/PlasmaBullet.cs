@@ -42,10 +42,13 @@ public class PlasmaBullet : MonoBehaviour
 
         foreach (var zombie in LevelManager.instance.zombies)
         {
-            var dist = Vector3.Distance(this.gameObject.transform.position, zombie.transform.position);
-            if (dist <= range)
+            if(zombie != null)
             {
-                zombie.GetComponent<EnemyBehaviour>().DecreaseHealth(damage / (dist + 1f), true);
+                var dist = Vector3.Distance(this.gameObject.transform.position, zombie.transform.position);
+                if (dist <= range)
+                {
+                    zombie.GetComponent<EnemyBehaviour>().DecreaseHealth(damage / (dist + 1f), true);
+                }
             }
         }
 

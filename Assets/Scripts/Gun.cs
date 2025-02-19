@@ -407,6 +407,7 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Debug.Log("reset ammo");
+        AbilityManager.instance.abilityInventoryTxt.text = "";
         curAmmo = curCurAmmo;
     }
 
@@ -429,6 +430,6 @@ public class Gun : MonoBehaviour
 
     public void SlowFire(float time)
     {
-
+        AbilityManager.instance.abilityInventoryTxt.text = "";
     }
 }

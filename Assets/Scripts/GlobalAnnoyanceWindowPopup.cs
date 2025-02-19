@@ -14,8 +14,14 @@ public class GlobalAnnoyanceWindowPopup : GlobalAnnoyance
 
     List<RectTransform> spawnPts = new();
 
-    [SerializeField]int totPopup;
 
+    [Header("Popup Range")]
+    [SerializeField] int minNoOfPopups = 10;
+    [Tooltip("Random.Range is max exclusive, to have \"x\" as max, put \"x+1\"")]
+    [SerializeField] int maxNoOfPopups = 21;    // Random.Range is max exclusive, to have "x" as max, put "x+1"
+    [Space(10)]
+
+    [SerializeField] int totPopup;
     public int curClosed;
 
     private void Awake()
@@ -38,7 +44,7 @@ public class GlobalAnnoyanceWindowPopup : GlobalAnnoyance
             spawnPts.Add(t);
         }
 
-        totPopup = Random.Range(10, 25);
+        totPopup = Random.Range(minNoOfPopups, maxNoOfPopups);
 
         for (int i = 0; i < totPopup; i++)
         {

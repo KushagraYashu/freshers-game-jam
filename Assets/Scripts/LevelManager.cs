@@ -101,6 +101,9 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
+        // Uncomment the line below if need to disable global annoyance upon skip
+        //GlobalAnnoyanceManager.Instance.DisableGlobalAnnoyances();
+
         level++;
         foreach (GameObject go in zombies)
         {
@@ -345,9 +348,6 @@ public class LevelManager : MonoBehaviour
             liftPanel.clip = hangUpCallClip;
             liftPanel.Play();
             SubtitleManager.Instance.StopSubtitles();
-        }
-        if (!liftPanel.isPlaying)
-        {
             skipDialogueUI.SetActive(false);
         }
 
