@@ -65,6 +65,9 @@ public class LevelAnnoyanceKey : LevelAnnoyances
 
                         DisablePlayerControls();
                         started = true;
+                        status = started;
+                        Debug.LogError(status);
+
                     }
                     break;
             }
@@ -79,5 +82,12 @@ public class LevelAnnoyanceKey : LevelAnnoyances
         keyHoleUI.SetActive(false);
         annoyanceType = Annoyance.NONE;
         started = false;
+        status = started;
+
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 }

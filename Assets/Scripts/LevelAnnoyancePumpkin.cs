@@ -30,6 +30,8 @@ public class LevelAnnoyancePumpkin : LevelAnnoyances
                         }
                         pumpkinTxt.SetActive(true);
                         pumpkinAdded = true;
+                        status = pumpkinAdded;
+
                     }
                     break;
 
@@ -48,6 +50,13 @@ public class LevelAnnoyancePumpkin : LevelAnnoyances
             pumpkinTxt.SetActive(false);
             annoyanceType = Annoyance.NONE;
             pumpkinAdded = false;
+            status = pumpkinAdded;
+
         }
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 }

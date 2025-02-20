@@ -31,6 +31,8 @@ public class LevelAnnoyanceCameraOverlay : LevelAnnoyances
                         camWipeOutScript.steam = overlayObject.transform;
                         camWipeOutScript.enabled = true;
                         started = true;
+                        status = started;
+
                     }
                     break;
             }
@@ -41,6 +43,8 @@ public class LevelAnnoyanceCameraOverlay : LevelAnnoyances
             EnablePlayerControls();
             camOverlayUI.SetActive(false);
             started = false;
+            status = started;
+
             annoyanceType = Annoyance.NONE;
             overlayObject.GetComponent<BoxCollider>().enabled = false;
             Invoke(nameof(DisableOverlayItem), 3);
@@ -51,5 +55,9 @@ public class LevelAnnoyanceCameraOverlay : LevelAnnoyances
     void DisableOverlayItem()
     {
         overlayObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

@@ -72,10 +72,20 @@ public class LevelManager : MonoBehaviour
 
     public void EnablePlayerControls()
     {
-        player.GetComponent<Playermovement>().enabled = true;
-        player.GetComponentInChildren<FPSCameraScript>().enabled = true;
+        Debug.LogError(LevelAnnoyances.status);
+        if (LevelAnnoyances.status == false)
+        {
+            Debug.LogError("From LevelManager's Enable Function\t" + LevelAnnoyances.status);
+            player.GetComponent<Playermovement>().enabled = true;
+            player.GetComponentInChildren<FPSCameraScript>().enabled = true;
+            //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
+            player.GetComponentInChildren<Gun>().enabled = true;
+        }
+
+        //player.GetComponent<Playermovement>().enabled = true;
+        //player.GetComponentInChildren<FPSCameraScript>().enabled = true;
         //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
-        player.GetComponentInChildren<Gun>().enabled = true;
+        //player.GetComponentInChildren<Gun>().enabled = true;
     }
 
     public void DisablePlayerControls()
@@ -289,6 +299,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadDeadScreen(int index)
     {
+        var masterCanvas = deadScreen[index].GetComponentInParent<Canvas>();
+        masterCanvas.sortingOrder = 999;
         isDead = true;
         player.GetComponent<Playermovement>().enabled = false;
         player.GetComponentInChildren<FPSCameraScript>().enabled = false;
@@ -299,6 +311,8 @@ public class LevelManager : MonoBehaviour
 
     public void UnLoadDeadScreen(int index)
     {
+        var masterCanvas = deadScreen[index].GetComponentInParent<Canvas>();
+        masterCanvas.sortingOrder = 100;
         isDead = false;
         player.GetComponent<Playermovement>().enabled = true;
         player.GetComponentInChildren<FPSCameraScript>().enabled = true;

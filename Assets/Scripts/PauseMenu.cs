@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !LevelManager.instance.isDead) // Toggle pause on pressing P (instead of ESC)
+        if (Input.GetKeyDown(KeyCode.Escape) && !LevelManager.instance.isDead)
         {
             if (isPaused)
             {
@@ -30,6 +30,8 @@ public class PauseMenu : MonoBehaviour
     // Resumes the game
     public void Resume()
     {
+        var masterCanvas = pauseMenuUI.GetComponentInParent<Canvas>();
+        masterCanvas.sortingOrder = 100;
         pauseMenuUI.SetActive(false); // Hide the pause menu
         LevelManager.instance.liftPanel.Play();
         LevelManager.instance.EnablePlayerControls();
@@ -45,6 +47,8 @@ public class PauseMenu : MonoBehaviour
     // Pauses the game
     public void Pause()
     {
+        var masterCanvas = pauseMenuUI.GetComponentInParent<Canvas>();
+        masterCanvas.sortingOrder = 999;
         pauseMenuUI.SetActive(true); // Show the pause menu
         LevelManager.instance.liftPanel.Pause();
         LevelManager.instance.DisablePlayerControls();
@@ -57,10 +61,8 @@ public class PauseMenu : MonoBehaviour
         //Cursor.visible = true;
     }
 
-    // Optional: To use this on a button click to quit the game
     public void QuitGame()
     {
-        Debug.Log("Quitting game...");
         Application.Quit();
     }
 }

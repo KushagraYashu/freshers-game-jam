@@ -35,6 +35,8 @@ public class LevelAnnoyanceHeartRate : LevelAnnoyances
                         pressTxt.text = "";
                         StartCoroutine(StartHeartRate(true));
                         started = true;
+                        status = started;
+
                     }
                     break;
             }
@@ -96,11 +98,17 @@ public class LevelAnnoyanceHeartRate : LevelAnnoyances
             EnablePlayerControls();
             annoyanceType = Annoyance.NONE;
             started = false;
+            status = started;
+
             return true;
         }
         else
         {
             return false;
         }
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

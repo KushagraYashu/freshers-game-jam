@@ -36,6 +36,7 @@ public class LevelAnnoyanceBalloons : LevelAnnoyances
                         }
                         balloonsTxt.SetActive(true);
                         balloonsAdded = true;
+                        status = balloonsAdded;
                     }
                     break;
 
@@ -59,6 +60,12 @@ public class LevelAnnoyanceBalloons : LevelAnnoyances
             balloonsTxt.SetActive(false);
             annoyanceType = Annoyance.NONE;
             balloonsAdded = false;
+            status = balloonsAdded;
         }
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 }

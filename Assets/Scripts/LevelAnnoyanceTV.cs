@@ -34,6 +34,8 @@ public class LevelAnnoyanceTV : LevelAnnoyances
                         TVTxt.SetActive(true);
 
                         tuneStarted = true;
+                        status = tuneStarted;
+
                     }
                     break;
 
@@ -63,10 +65,16 @@ public class LevelAnnoyanceTV : LevelAnnoyances
     IEnumerator VerifyChannel()
     {
         tuneStarted = false;
+        status = tuneStarted;
+
         annoyanceType = Annoyance.NONE;
         channelTxt.color = Color.green;
         EnablePlayerControls();
         yield return new WaitForSeconds(1f);
         TVTxt.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

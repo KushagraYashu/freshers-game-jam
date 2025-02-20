@@ -27,6 +27,8 @@ public class LevelAnnoyanceDoor : LevelAnnoyances
                 {
                     doorOpenUI.SetActive(true);
                     started = true;
+                    status = started;
+
                 }
                 break;
         }
@@ -35,6 +37,10 @@ public class LevelAnnoyanceDoor : LevelAnnoyances
         {
             StartCoroutine(OpenDoor());
         }
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 
     IEnumerator OpenDoor()
@@ -47,5 +53,7 @@ public class LevelAnnoyanceDoor : LevelAnnoyances
         doorOpenUI.SetActive(false);
         annoyanceType = Annoyance.NONE;
         started = false;
+        status = started;
+
     }
 }

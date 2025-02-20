@@ -24,6 +24,8 @@ public class LevelAnnoyanceRedGreen : LevelAnnoyances
                     {
                         StartCoroutine(RedGreen());
                         red = true;
+                        status = red;
+
                     }
                     break;
             }
@@ -37,8 +39,14 @@ public class LevelAnnoyanceRedGreen : LevelAnnoyances
                 redGreen.SetActive(false);
                 annoyanceType = Annoyance.NONE;
                 green = false;
+                status = green;
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 
     IEnumerator RedGreen()

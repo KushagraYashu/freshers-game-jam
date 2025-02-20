@@ -39,6 +39,7 @@ public class LevelAnnoyanceBearTrap : LevelAnnoyances
                         //do bear prefab
 
                         started = true;
+                        status = started;
                     }
                     break;
 
@@ -76,9 +77,14 @@ public class LevelAnnoyanceBearTrap : LevelAnnoyances
         EnablePlayerControls();
         annoyanceType = Annoyance.NONE;
         started = false;
+        status = started;
 
         yield return new WaitForSeconds(1);
 
         bearTrapUI.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

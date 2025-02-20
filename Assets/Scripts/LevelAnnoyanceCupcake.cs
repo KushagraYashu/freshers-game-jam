@@ -37,6 +37,8 @@ public class LevelAnnoyanceCupcake : LevelAnnoyances
                         }
                         cupcakeTxt.SetActive(true);
                         cupcakeAdded = true;
+                        status = cupcakeAdded;
+
                     }
                     break;
             }
@@ -54,6 +56,12 @@ public class LevelAnnoyanceCupcake : LevelAnnoyances
             cupcakeTxt.SetActive(false);
             annoyanceType = Annoyance.NONE;
             cupcakeAdded = false;
+            status = cupcakeAdded;
+
         }
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

@@ -51,6 +51,8 @@ public class LevelAnnoyanceTicketManager : LevelAnnoyances
                         ticketStampUI.SetActive(true);
 
                         started = true;
+                        status = started;
+
                     }
                     break;
 
@@ -75,5 +77,11 @@ public class LevelAnnoyanceTicketManager : LevelAnnoyances
 
         ticketStampUI.SetActive(false);
         started = false;
+        status = started;
+
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

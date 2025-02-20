@@ -346,7 +346,10 @@ public class AbilityManager : MonoBehaviour
         {
             if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
             {
-                StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health/20, .75f));
+                if(go != null)
+                {
+                    StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health / 20, .75f));
+                }
             }
         }
     }

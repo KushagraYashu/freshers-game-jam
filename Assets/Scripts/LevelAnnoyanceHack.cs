@@ -34,6 +34,8 @@ public class LevelAnnoyanceHack : LevelAnnoyances
                         hackText.GetComponentInChildren<TextMeshProUGUI>().text = "Enter the code " + hackNo + "!\nthen Press \"Enter\", you imbecile!";
 
                         hackStarted = true;
+                        status = hackStarted;
+
                     }
                     break;
 
@@ -55,8 +57,14 @@ public class LevelAnnoyanceHack : LevelAnnoyances
                     EnablePlayerControls();
 
                     hackStarted = false;
+                    status = hackStarted;
+
                 }
             }
         }
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

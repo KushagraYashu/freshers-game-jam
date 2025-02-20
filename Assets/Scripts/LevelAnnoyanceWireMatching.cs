@@ -30,6 +30,8 @@ public class LevelAnnoyanceWireMatching : LevelAnnoyances
                 {
                     wireMatchUI.SetActive(true);
                     started = true;
+                    status = started;
+
                 }
                 break;
         }
@@ -84,8 +86,16 @@ public class LevelAnnoyanceWireMatching : LevelAnnoyances
         {
             lights.SetActive(true);
             annoyanceType = Annoyance.NONE;
+            started = false;
+            status = started;
+
             yield return new WaitForSeconds(1f);
             wireMatchUI.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 }

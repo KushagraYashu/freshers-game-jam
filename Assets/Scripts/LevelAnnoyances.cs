@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class LevelAnnoyances : MonoBehaviour
 {
+
+    public static bool status = false;
+
     private GameObject player;
 
     public enum Annoyance

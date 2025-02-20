@@ -38,6 +38,8 @@ public class LevelAnnoyanceToxicGas : LevelAnnoyances
                         gasLevel.text = curLevel.ToString("#.") + "%";
                         gasSlider.value = curLevel;
                         started = true;
+                        status = started;
+
                     }
                     break;
             }
@@ -65,5 +67,10 @@ public class LevelAnnoyanceToxicGas : LevelAnnoyances
         {
             //do camera stuff
         }
+    }
+
+    private void OnDisable()
+    {
+        status = false;
     }
 }

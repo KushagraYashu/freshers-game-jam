@@ -32,6 +32,8 @@ public class LevelAnnoyanceHandScan : LevelAnnoyances
                         handScanTxt.SetActive(true);
 
                         scanStarted = true;
+                        status = scanStarted;
+
                     }
                     break;
 
@@ -56,7 +58,13 @@ public class LevelAnnoyanceHandScan : LevelAnnoyances
                 EnablePlayerControls();
                 handScanTxt.SetActive(false);
                 scanStarted = false;
+                status = scanStarted;
+
             }
         }
+    }
+    private void OnDisable()
+    {
+        status = false;
     }
 }

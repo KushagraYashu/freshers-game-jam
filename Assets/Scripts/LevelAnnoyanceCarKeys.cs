@@ -32,6 +32,8 @@ public class LevelAnnoyanceCarKeys : LevelAnnoyances
                         DisablePlayerControls();
                         carKeysUI.SetActive(true);
                         started = true;
+                        status = started;
+
                     }
                     break;
             }
@@ -63,6 +65,10 @@ public class LevelAnnoyanceCarKeys : LevelAnnoyances
             }
         }
     }
+    private void OnDisable()
+    {
+        status = false;
+    }
 
     IEnumerator Verified()
     {
@@ -73,6 +79,9 @@ public class LevelAnnoyanceCarKeys : LevelAnnoyances
         {
             EnablePlayerControls();
             annoyanceType = Annoyance.NONE;
+            started = false;
+            status = started;
+
             yield return new WaitForSeconds(.5f);
             carKeysUI.SetActive(false);
         }
