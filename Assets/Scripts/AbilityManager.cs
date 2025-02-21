@@ -166,14 +166,11 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
-    
     void StartTimer(float time)
     {
         timer = true;
         this.time = time;
     }
-
-    
 
     // Update is called once per frame
     void Update()

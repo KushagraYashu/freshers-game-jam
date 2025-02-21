@@ -107,7 +107,7 @@ public class Gun : MonoBehaviour
         if (isReloading)
             return;
 
-        if(Input.GetKeyDown(KeyCode.R) && curAmmo < maxAmmo)
+        if(Input.GetKeyDown(KeyCode.R) && curAmmo < maxAmmo && !(type == WeaponType.AXE) && !(type == WeaponType.BOTTLE))
         {
             StartCoroutine(Reload());
             return;
