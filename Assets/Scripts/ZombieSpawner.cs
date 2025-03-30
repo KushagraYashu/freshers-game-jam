@@ -30,7 +30,7 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    public ZombieInfo[] zombieInfos = new ZombieInfo[21]; //21 total number of levels
+    public ZombieInfo[] zombieInfos = new ZombieInfo[22]; //21 total number of levels
 
     // Start is called before the first frame update
     private void Start()
@@ -54,9 +54,9 @@ public class ZombieSpawner : MonoBehaviour
         GlobalAnnoyanceManager.Instance.SpawnGlobalAnnoyance(gobalAnnoyanceIndex);
 
         // dev purposes only, remove later
-        LevelManager.instance.BakeNavMesh();
+        /*LevelManager.instance.BakeNavMesh();
         SpawnZombies(1);
-        LevelManager.instance.GetZomies();
+        LevelManager.instance.GetZomies();*/
     }
 
     public void SpawnZombies(int index)

@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class LoadSceneAfterDelay : MonoBehaviour
 {
     public float delay = 10f; // Delay in seconds
+
+    public TextMeshProUGUI loadingTxt;
+    public Image loadingTxtBG;
 
     void Start()
     {
@@ -12,14 +17,19 @@ public class LoadSceneAfterDelay : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         StartCoroutine(LoadSceneWithDelay());
+
     }
 
     IEnumerator LoadSceneWithDelay()
     {
-        // Wait for the specified delay time
         yield return new WaitForSeconds(delay);
 
-        // Load the scene named "Combined Level"
-        SceneManager.LoadScene("CombinedLevel");
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(1);
+        loadingTxtBG.enabled = true;
+        while (!loadingOperation.isDone)
+        {
+            loadingTxt.text = "Loading: " + loadingOperation.progress * 100 + "%";
+            yield return null;
+        }
     }
 }

@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
     public int totKilled = 0;
     public GameObject[] zombies;
     public GameObject floor0;
-    public GameObject[] floor = new GameObject[4];
+    public GameObject[] floor;
     HashSet<int> playedIndex = new();
     public bool[] played;
     [Space(15f)]
@@ -223,11 +223,11 @@ public class LevelManager : MonoBehaviour
             TimerController.instance.timerGoing = false;
             globalMusic.Stop();
             elevatorDing.Play();
-            StartCoroutine(SoundDelay());
+            StartCoroutine(WinCoroutine());
         }
     }
 
-    IEnumerator SoundDelay()
+    IEnumerator WinCoroutine()
     {
         yield return new WaitForSeconds(1);
         elevatorSound.Play();
@@ -327,9 +327,16 @@ public class LevelManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         globalMusic.Play();
         liftPanel.Play();
+        StartCoroutine(DisableHangupCallText());
         skipDialogueUI.SetActive(true);
         StartCoroutine(SetSubtitle());
         StartCoroutine(SceneSetup());
+    }
+
+    IEnumerator DisableHangupCallText()
+    {
+        yield return new WaitForSeconds(liftPanel.clip.length);
+        skipDialogueUI.SetActive(false);
     }
 
     IEnumerator SetSubtitle()

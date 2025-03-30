@@ -25,6 +25,12 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
     }
 
     // Resumes the game

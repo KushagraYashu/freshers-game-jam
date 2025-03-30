@@ -270,8 +270,16 @@ public class Gun : MonoBehaviour
             }
             if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
             {
+                if (AbilityManager.instance.playerFlamethrower.activeInHierarchy ||
+                    AbilityManager.instance.playerGrenade.activeInHierarchy ||
+                    AbilityManager.instance.playerLaser.activeInHierarchy)
+                {
+                    AbilityManager.instance.abilityType = AbilityManager.AbilityType.NONE;
+                    AbilityManager.instance.abilityInventoryTxt.text = "";
+                }
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
+                
                 //Destroy(this.gameObject);
             }
         }
@@ -312,8 +320,16 @@ public class Gun : MonoBehaviour
             }
             if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
             {
+                if (AbilityManager.instance.playerFlamethrower.activeInHierarchy ||
+                    AbilityManager.instance.playerGrenade.activeInHierarchy ||
+                    AbilityManager.instance.playerLaser.activeInHierarchy)
+                {
+                    AbilityManager.instance.abilityType = AbilityManager.AbilityType.NONE;
+                    AbilityManager.instance.abilityInventoryTxt.text = "";
+                }
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
+                
                 //Destroy(this.gameObject);
             }
         }
@@ -334,8 +350,12 @@ public class Gun : MonoBehaviour
         laserBeam.enabled = false;
     }
 
+    public void MasterReload()
+    {
+        curAmmo = maxAmmo;
+    }
 
-    IEnumerator Reload()
+    public IEnumerator Reload()
     {
         isReloading = true;
         reloadStartTime = Time.time;
@@ -389,6 +409,13 @@ public class Gun : MonoBehaviour
             }
             if (hitInfo.transform.gameObject.TryGetComponent<WeaponPickup>(out WeaponPickup pickup))
             {
+                if (AbilityManager.instance.playerFlamethrower.activeInHierarchy ||
+                    AbilityManager.instance.playerGrenade.activeInHierarchy ||
+                    AbilityManager.instance.playerLaser.activeInHierarchy)
+                {
+                    AbilityManager.instance.abilityType = AbilityManager.AbilityType.NONE;
+                    AbilityManager.instance.abilityInventoryTxt.text = "";
+                }
                 pickup.ActivateWeaponInHandler();
                 Destroy(pickup.gameObject);
                 //Destroy(this.gameObject);
