@@ -20,6 +20,7 @@ public class IntroCutsceneManager : MonoBehaviour
     //internal variables
     bool pause = false;
     CameraShakeCutscene cameraShakeScript;
+    FPSCameraScript fpsCameraScript;
     AudioSource[] allAudioSources;
     List<AudioSource> playingAudioSources = new();
 
@@ -27,6 +28,7 @@ public class IntroCutsceneManager : MonoBehaviour
     void Start()
     {
         cameraShakeScript = FindObjectOfType<CameraShakeCutscene>();
+        fpsCameraScript = FindObjectOfType<FPSCameraScript>();
 
         allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         foreach(AudioSource audio in allAudioSources)
@@ -56,6 +58,7 @@ public class IntroCutsceneManager : MonoBehaviour
         {
             pauseMenuParent.SetActive(true);
             cameraShakeScript.enabled = false;
+            fpsCameraScript.enabled = false;
             foreach(AudioSource audio in allAudioSources)
             {
                 if (audio.isPlaying)
@@ -71,6 +74,7 @@ public class IntroCutsceneManager : MonoBehaviour
         {
             pauseMenuParent.SetActive(false);
             cameraShakeScript.enabled = true;
+            fpsCameraScript.enabled = true;
             foreach (AudioSource audio in playingAudioSources)
             {
                 audio.Play();

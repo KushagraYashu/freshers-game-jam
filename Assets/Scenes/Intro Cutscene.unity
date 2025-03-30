@@ -2467,7 +2467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7585765d21e8a4bbe3a56c1ff005d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseS: 175
+  mouseS: 7
   cameraBody: {fileID: 880629782}
 --- !u!81 &519036858
 AudioListener:

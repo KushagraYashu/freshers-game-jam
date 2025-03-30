@@ -26,24 +26,18 @@ public class FPSCameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseS * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseS * Time.deltaTime;
+        if (enabled)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseS;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseS;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f,  90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //mouseX = Mathf.Clamp(mouseX, -9f, 9f);
+            //mouseX = Mathf.Clamp(mouseX, -9f, 9f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        cameraBody.Rotate(Vector3.up * mouseX);
-
-        /*mouseX = Mathf.Clamp(mouseX, -10f, 10f);
-        if(cameraBody.transform.localEulerAngles.y < 10f || cameraBody.transform.localEulerAngles.y > 350f)
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             cameraBody.Rotate(Vector3.up * mouseX);
-        if (cameraBody.transform.localEulerAngles.y <= 350 && cameraBody.transform.localEulerAngles.y > 330 && mouseX >= 0f)
-            cameraBody.Rotate(Vector3.up * mouseX);
-        if (cameraBody.transform.localEulerAngles.y >= 10f && cameraBody.transform.localEulerAngles.y < 30 && mouseX <= 0f)
-            cameraBody.Rotate(Vector3.up * mouseX);
-        //Debug.Log(cameraBody.transform.localEulerAngles.y);*/
+        }
     }
 }
