@@ -840,7 +840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &845101665655088307
 Transform:
   m_ObjectHideFlags: 0
@@ -870,8 +870,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalAnnoyanceType: 3
+  playerGO: {fileID: 0}
   windowPopupPrefab: {fileID: 1313746486287561382, guid: 3b1e9ccc20e0a7948a899958b1cbe8aa, type: 3}
   spawnPointGO: {fileID: 4994130106045028540}
+  minNoOfPopups: 10
+  maxNoOfPopups: 21
+  totPopup: 0
+  curClosed: 0
 --- !u!1 &6905293491481184340
 GameObject:
   m_ObjectHideFlags: 0

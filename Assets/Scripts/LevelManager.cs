@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public GameObject playerCanvas;
     public bool isDead = false;
+    public string playerName;
+    public void SetPlayerName(string n) { playerName = n; }
     [Space(15f)]
 
     [Header("Audio Sources and Clips")]
@@ -45,7 +47,9 @@ public class LevelManager : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject nextFloorScreen;
     public GameObject winScreen;
+    public GameObject showLeaderboardButton;
     public GameObject skipDialogueUI;
+    public GameObject playerNameParent;
     [Space(15f)]
 
     [Header("Win Screen")]
@@ -247,8 +251,22 @@ public class LevelManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
         liftWall.SetActive(false);
         winScene.SetActive(true);
+
+        showLeaderboardButton.SetActive(true);
+        
         //winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Programmer: Kushagra\nArt: Jeremy\n Programmer: Kevin\n Programmer: Luca\n Emotional Support: Flynn, McKenzie, Matt";
         //winScreen.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+    }
+
+    public void ShowLeaderboard()
+    {
+        DisablePlayerControls();
+
+        string name;
+        if (playerName == String.Empty || playerName == null) name = "Player";
+        else name = playerName;
+
+        LeaderboardManager.instance.ShowLeaderboard(name, TimerController.instance.ElapsedTime);
     }
 
     IEnumerator FadeImage(bool fadeAway)
@@ -325,12 +343,23 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
+        DisablePlayerControls();
+        Time.timeScale = 0f;
+    }
+
+    public void StartGame()
+    {
+        playerNameParent.SetActive(false);
+        Time.timeScale = 1f;
+
         globalMusic.Play();
         liftPanel.Play();
         StartCoroutine(DisableHangupCallText());
         skipDialogueUI.SetActive(true);
         StartCoroutine(SetSubtitle());
         StartCoroutine(SceneSetup());
+
+        EnablePlayerControls();
     }
 
     IEnumerator DisableHangupCallText()

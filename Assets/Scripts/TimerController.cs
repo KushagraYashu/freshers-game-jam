@@ -14,6 +14,7 @@ public class TimerController : MonoBehaviour
     public bool timerGoing;
 
     private float elapsedTime;
+    public float ElapsedTime { get { return elapsedTime; }  }
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class TimerController : MonoBehaviour
         while (timerGoing)
         {
             elapsedTime += Time.deltaTime;
-            timePlaying = TimeSpan.FromSeconds(elapsedTime);
+            timePlaying = TimeSpan.FromSeconds(ElapsedTime);
             string timePlayingStr = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
             timeCounter.text = timePlayingStr;
 

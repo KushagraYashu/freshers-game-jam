@@ -2047,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &845101665655088307
 Transform:
   m_ObjectHideFlags: 0
@@ -2085,6 +2085,9 @@ MonoBehaviour:
   tempText: {fileID: 395544373750563955}
   tempSlider: {fileID: 7987049736803242717}
   warning: {fileID: 3730588789997983439}
+  curO2: 100
+  curStress: 20
+  curTemp: 15
 --- !u!1 &8016817870679401402
 GameObject:
   m_ObjectHideFlags: 0
