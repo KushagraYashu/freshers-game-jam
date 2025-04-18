@@ -55,7 +55,7 @@ public class DoorOpening : MonoBehaviour
     public void CloseDoor()
     {
         closeDoors.Play();
-        Debug.Log("ClosingDoors");
+        //Debug.Log("ClosingDoors");
 
         animatorL.SetBool("test", false);
         animatorL.SetTrigger("doorsClose");

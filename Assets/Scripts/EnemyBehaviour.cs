@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Slider healthSlider;
 
     public AudioSource[] audioSources = new AudioSource[4];
-    int indexAudio;
+    public int IndexAudio { get; set; }
 
     [SerializeField]private Transform playerFeet;
 
@@ -29,8 +29,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         dist = Mathf.Infinity;
         FeetFinder();
-        indexAudio = Random.Range(0, audioSources.Length);
-        audioSources[indexAudio].Play();
+        IndexAudio = Random.Range(0, audioSources.Length);
+        audioSources[IndexAudio].Play();
     }
 
     void FeetFinder()
@@ -65,10 +65,10 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (dist <= range && this.GetComponent<EnemyFollow>().enabled)
         {
-            Debug.Log("heyo Stop");
+            //Debug.Log("heyo Stop");
             this.GetComponent<EnemyFollow>().enabled = false;
             LevelManager.instance.LoadDeadScreen(0);
-            Debug.Log("Load Lost Screen");
+            //Debug.Log("Load Lost Screen");
         }
     }
 
@@ -79,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
         //GameObject.FindGameObjectWithTag("zombies").GetComponent<EnemyFollow>().UpdateHit(hit);
         this.hit = hit;
         health-= damage;
-        Debug.Log("Health "+ health);
+        //Debug.Log("Health "+ health);
         StartCoroutine(DelayHit());
     }
 

@@ -24,14 +24,20 @@ public class PlayableMenuButtons : MonoBehaviour
 
     public void Options()
     {
+        LevelManager.instance.LockCursor(1);
+        LevelManager.instance.liftPanel.Pause();
         LevelManager.instance.DisablePlayerControls();
+        Time.timeScale = 0f;
         optionsUI.SetActive(true);
     }
 
     public void BackFromOptions()
     {
-        optionsUI.SetActive(false);
+        LevelManager.instance.LockCursor(0);
+        LevelManager.instance.liftPanel.Play();
+        Time.timeScale = 1f;
         LevelManager.instance.EnablePlayerControls();
+        optionsUI.SetActive(false);
     }
 
     public void Quit()

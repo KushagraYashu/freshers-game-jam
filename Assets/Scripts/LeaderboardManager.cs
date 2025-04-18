@@ -78,13 +78,13 @@ public class LeaderboardManager : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        Debug.Log("Signed in as new player: " + AuthenticationService.Instance.PlayerId);
+        //Debug.Log("Signed in as new player: " + AuthenticationService.Instance.PlayerId);
 
         string safeName = playerName.Replace(" ", "_");
 
         await AuthenticationService.Instance.UpdatePlayerNameAsync(safeName);
 
-        Debug.LogError("Signed in with the name " + safeName);
+        //Debug.LogError("Signed in with the name " + safeName);
     }
 
     async Task AddScore(float time)

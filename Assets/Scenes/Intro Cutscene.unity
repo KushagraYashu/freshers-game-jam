@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 307098068}
+  settingsMenuUI: {fileID: 0}
 --- !u!1 &120450087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,9 +5185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d9b1d368ce8e84c9ad867cbe1d9ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 55
-  loadingTxt: {fileID: 1040993166}
-  loadingTxtBG: {fileID: 1156623935}
 --- !u!82 &1023377721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7759,6 +7757,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerCanvas: {fileID: 0}
   isDead: 0
+  playerName: 
   elevatorDing: {fileID: 1485847269}
   elevatorSound: {fileID: 0}
   globalMusic: {fileID: 0}
@@ -7797,7 +7796,9 @@ MonoBehaviour:
   pauseScreen: {fileID: 0}
   nextFloorScreen: {fileID: 0}
   winScreen: {fileID: 0}
+  showLeaderboardButton: {fileID: 0}
   skipDialogueUI: {fileID: 0}
+  playerNameParent: {fileID: 0}
   liftWall: {fileID: 0}
   winScene: {fileID: 0}
   time: 0
@@ -8260,6 +8261,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 729023351286384445, guid: df0765150ea2e9641b445723fefb435d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 731316109974933896, guid: df0765150ea2e9641b445723fefb435d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

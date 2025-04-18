@@ -27,6 +27,9 @@ public class IntroCutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         cameraShakeScript = FindObjectOfType<CameraShakeCutscene>();
         fpsCameraScript = FindObjectOfType<FPSCameraScript>();
 
@@ -36,6 +39,8 @@ public class IntroCutsceneManager : MonoBehaviour
             if (audio.isPlaying)
                 playingAudioSources.Add(audio);
         }
+
+        Invoke(nameof(GoToMainMenu), 58f);
     }
 
     // Update is called once per frame
@@ -99,6 +104,9 @@ public class IntroCutsceneManager : MonoBehaviour
 
     IEnumerator LoadMainScene()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         Time.timeScale = 1f;
 
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(1);

@@ -73,7 +73,7 @@ public class AbilityManager : MonoBehaviour
 
             if (Vector3.Distance(go.transform.position, player.transform.position) < 10f)
             {
-                Debug.LogError("Applying Wind");
+                //Debug.LogError("Applying Wind");
                 StartCoroutine(ApplyWind(go, windDirection, windStrength, windDuration));
             }
         }
@@ -162,7 +162,7 @@ public class AbilityManager : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("error in ability");
+                //Debug.Log("error in ability");
                 break;
         }
     }

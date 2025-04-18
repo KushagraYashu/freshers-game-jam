@@ -66,7 +66,7 @@ public class LevelAnnoyanceKey : LevelAnnoyances
                         DisablePlayerControls();
                         started = true;
                         status = started;
-                        Debug.LogError(status);
+                        //Debug.LogError(status);
 
                     }
                     break;

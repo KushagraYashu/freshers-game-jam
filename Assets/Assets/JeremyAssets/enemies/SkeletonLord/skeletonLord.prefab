@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2190637756526863815}
   - component: {fileID: 8149340012914672366}
   m_Layer: 0
-  m_Name: SkeletonLord
+  m_Name: skeletonLord
   m_TagString: zombies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,8 +225,6 @@ MonoBehaviour:
   audioSources:
   - {fileID: 2190637756526863815}
   - {fileID: 8149340012914672366}
-  - {fileID: 0}
-  - {fileID: 0}
   playerFeet: {fileID: 0}
   zombieAnim: {fileID: 0}
 --- !u!195 &3012134928979430157
@@ -276,7 +274,7 @@ AudioSource:
   m_GameObject: {fileID: 3768381796066094637}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5782957013160938294, guid: 8db776a20812d9546a95b0a5c7737ac8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2f04947133640814187cffa72a3a30c3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -372,7 +370,7 @@ AudioSource:
   m_GameObject: {fileID: 3768381796066094637}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5782957013160938294, guid: 8db776a20812d9546a95b0a5c7737ac8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 36a9b31a5b7b49d4793d281fd3a9d220, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

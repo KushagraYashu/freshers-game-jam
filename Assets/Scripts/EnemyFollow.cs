@@ -25,7 +25,7 @@ public class EnemyFollow : MonoBehaviour
 
     public void UpdateHit(bool hit)
     {
-        Debug.Log(this.hit);
+        //Debug.Log(this.hit);
         this.hit = hit;
     }
 

@@ -190,7 +190,7 @@ public class Gun : MonoBehaviour
         {
             float elapsedReloadTime = Time.time - reloadStartTime;
             float reloadProgress = Mathf.Clamp01(elapsedReloadTime / reloadTime);
-            Debug.Log(reloadProgress);
+            //Debug.Log(reloadProgress);
             reloadCooldownImg.fillAmount = reloadProgress;
             yield return null;
         }
@@ -285,7 +285,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Not hit");
+            //Debug.LogWarning("Not hit");
         }
     }
 
@@ -365,7 +365,7 @@ public class Gun : MonoBehaviour
         reloadingTxt.gameObject.SetActive(true);
         reloadTxt.gameObject.SetActive(false);
         
-        Debug.Log("Reloading");
+        //Debug.Log("Reloading");
 
         yield return new WaitForSeconds(reloadTime);
 
@@ -425,7 +425,7 @@ public class Gun : MonoBehaviour
 
     public void InfiniteAmmo(float time)
     {
-        Debug.Log("infite ammo");
+        //Debug.Log("infite ammo");
         int curCurAmmo = curAmmo;
         curAmmo = 100000;
         StartCoroutine(ResetAmmo(time, curCurAmmo));
@@ -433,7 +433,7 @@ public class Gun : MonoBehaviour
     IEnumerator ResetAmmo(float time, int curCurAmmo)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("reset ammo");
+        //Debug.Log("reset ammo");
         AbilityManager.instance.abilityInventoryTxt.text = "";
         curAmmo = curCurAmmo;
     }
@@ -450,7 +450,7 @@ public class Gun : MonoBehaviour
     IEnumerator ResetAdrenaline(float time, float curFireRate, float curReloadTime)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("reset ammo");
+        //Debug.Log("reset ammo");
         fireRate = curFireRate;
         reloadTime = curReloadTime;
     }

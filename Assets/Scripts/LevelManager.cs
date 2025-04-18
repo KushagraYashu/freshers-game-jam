@@ -68,6 +68,31 @@ public class LevelManager : MonoBehaviour
     int curLevelIndex;
 
     bool cursorLocked = false;
+    public bool NameEntered { get; set; } = false;
+
+    public void PauseZombieSound()
+    {
+        foreach(GameObject go in zombies)
+        {
+            if (go != null)
+            {
+                var eB = go.GetComponent<EnemyBehaviour>();
+                eB.audioSources[eB.IndexAudio].Pause();
+            }
+        }
+    }
+
+    public void ResumeZombieSound()
+    {
+        foreach (GameObject go in zombies)
+        {
+            if (go != null)
+            {
+                var eB = go.GetComponent<EnemyBehaviour>();
+                eB.audioSources[eB.IndexAudio].Play();
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -76,10 +101,10 @@ public class LevelManager : MonoBehaviour
 
     public void EnablePlayerControls()
     {
-        Debug.LogError(LevelAnnoyances.status);
+        //Debug.LogError(LevelAnnoyances.status);
         if (LevelAnnoyances.status == false)
         {
-            Debug.LogError("From LevelManager's Enable Function\t" + LevelAnnoyances.status);
+            //Debug.LogError("From LevelManager's Enable Function\t" + LevelAnnoyances.status);
             player.GetComponent<Playermovement>().enabled = true;
             player.GetComponentInChildren<FPSCameraScript>().enabled = true;
             //player.GetComponentInChildren<WeaponesHandler>().enabled = true;
@@ -247,6 +272,9 @@ public class LevelManager : MonoBehaviour
         //player.GetComponentInChildren<Gun>().enabled = false;
         //playerCanvas.SetActive(false);
         //StartCoroutine(FadeImage(true));
+        AbilityManager.instance.AbilityBoxClear();
+        AbilityManager.instance.abilityType = AbilityManager.AbilityType.NONE;
+        AbilityManager.instance.abilityInventoryTxt.text = "";
         GlobalAnnoyanceManager.Instance.DisableGlobalAnnoyances();  
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
         liftWall.SetActive(false);
@@ -349,6 +377,8 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
+        NameEntered = true;
+
         playerNameParent.SetActive(false);
         Time.timeScale = 1f;
 
@@ -390,6 +420,35 @@ public class LevelManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("liftDoors").GetComponent<DoorOpening>().OpenDoor();
     }
 
+    public void LockCursor(int i = -1)
+    {
+        StartCoroutine(CursorLock(i));
+    }
+
+    IEnumerator CursorLock(int i)
+    {
+        yield return new WaitForEndOfFrame();
+
+        if(i == 1)
+        {
+            cursorLocked = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else if(i == 0)
+        {
+            cursorLocked = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            cursorLocked = !cursorLocked;
+            Cursor.visible = !cursorLocked;
+            Cursor.lockState = cursorLocked ? CursorLockMode.Locked : CursorLockMode.Confined;
+        }
+    }
+
     void Update()
     {
         if(skipDialogueUI.activeInHierarchy && Input.GetKeyDown(KeyCode.V))
@@ -403,9 +462,7 @@ public class LevelManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            cursorLocked = !cursorLocked;
-            Cursor.visible = !cursorLocked;
-            Cursor.lockState = cursorLocked ? CursorLockMode.Locked : CursorLockMode.Confined;
+            LockCursor();
         }
 
         // Check if the dead screen is active and Q is pressed
@@ -415,10 +472,10 @@ public class LevelManager : MonoBehaviour
         }
 
         // Check if the pause screen is active and Q is pressed
-        if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
-        {
-            Reset();
-        }
+        //if (pauseScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Reset();
+        //}
 
         // Optionally, check for Q key press when the game is not over
         /*if (Input.GetKeyDown(KeyCode.Q))

@@ -26,7 +26,7 @@ public class LevelAnnoyanceHack : LevelAnnoyances
                     {
                         DisablePlayerControls();
 
-                        Cursor.lockState = CursorLockMode.None;
+                        LevelManager.instance.LockCursor();
                         hackNo = Random.Range(0000, 9999);
 
                         hackInputField.SetActive(true);
