@@ -350,11 +350,14 @@ public class AbilityManager : MonoBehaviour
     {
         foreach (GameObject go in levelManager.zombies)
         {
-            if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
+            if(go != null)
             {
-                if(go != null)
+                if (Vector3.Distance(go.transform.position, player.transform.position) < 50f)
                 {
-                    StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health / 20, .75f));
+                    if (go != null)
+                    {
+                        StartCoroutine(ApplyDamage(go, go.GetComponent<EnemyBehaviour>().health / 20, .75f));
+                    }
                 }
             }
         }

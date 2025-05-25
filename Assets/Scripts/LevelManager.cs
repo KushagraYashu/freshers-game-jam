@@ -210,7 +210,7 @@ public class LevelManager : MonoBehaviour
             bool added;
             do
             {
-                curLevelIndex = UnityEngine.Random.Range(0, played.Length);
+                curLevelIndex = UnityEngine.Random.Range(0, floor.Length);
                 added = playedIndex.Add(curLevelIndex);
 
             } while (!added);
