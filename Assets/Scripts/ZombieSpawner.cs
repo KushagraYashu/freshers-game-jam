@@ -12,6 +12,7 @@ public class ZombieSpawner : MonoBehaviour
     public int gobalAnnoyanceIndex = -1;
 
     public GameObject[] spawnPoints;
+    public int zombieCount = 1; //default number of zombies to spawn
 
     public struct ZombieInfo
     {
@@ -61,7 +62,7 @@ public class ZombieSpawner : MonoBehaviour
 
     public void SpawnZombies(int index)
     {
-        for(int i = 0; i < zombieInfos[index].magnitude; i++)
+        for(int i = 0; i < zombieCount; i++)
         {
             int spawnPtIndex = Random.Range(0, spawnPoints.Length);
             var zombie = Instantiate(zombiePrefab, spawnPoints[spawnPtIndex].GetComponent<Transform>().position, Quaternion.identity);
