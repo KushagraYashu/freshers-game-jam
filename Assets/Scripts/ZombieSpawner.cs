@@ -13,6 +13,7 @@ public class ZombieSpawner : MonoBehaviour
 
     public GameObject[] spawnPoints;
     public int zombieCount = 1; //default number of zombies to spawn
+    public int zombieHealth = 100; //default health of zombies
 
     public struct ZombieInfo
     {
@@ -71,7 +72,7 @@ public class ZombieSpawner : MonoBehaviour
             zombie.GetComponent<NavMeshAgent>().enabled = true;
             zombie.GetComponent<NavMeshAgent>().Warp(spawnPoints[spawnPtIndex].GetComponent<Transform>().position);
             zombie.GetComponent<NavMeshAgent>().speed = Random.Range(zombieInfos[index].speed, zombieInfos[index].speed - .5f);
-            zombie.GetComponent<EnemyBehaviour>().health = 100; //(int)Random.Range(zombieInfos[index].health, zombieInfos[index].health - 10f);
+            zombie.GetComponent<EnemyBehaviour>().health = zombieHealth;
             zombie.GetComponentInChildren<Slider>().maxValue = zombie.GetComponent<EnemyBehaviour>().health;
         }
     }
