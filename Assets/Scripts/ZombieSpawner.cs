@@ -12,8 +12,8 @@ public class ZombieSpawner : MonoBehaviour
     public int gobalAnnoyanceIndex = -1;
 
     public GameObject[] spawnPoints;
-    public int zombieCount = 1; //default number of zombies to spawn
-    public int zombieHealth = 100; //default health of zombies
+    public int zombieCount = 1; //default number of zombies to spawn per level
+    public int zombieHealth = 100; //default health of zombies per level
 
     public struct ZombieInfo
     {
